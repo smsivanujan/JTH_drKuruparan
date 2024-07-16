@@ -16,7 +16,7 @@
         var checkElement = $this.next();
         var animationSpeed = 300,
             slideMenuSelector = '.slide-menu';
-        if (checkElement.is(slideMenuSelector) && checkElement.is(':visible')) { 
+        if (checkElement.is(slideMenuSelector) && checkElement.is(':visible')) {
             checkElement.slideUp(animationSpeed, function () {
                 checkElement.removeClass('open');
             });
@@ -105,25 +105,21 @@
     })
 
     var position = window.location.pathname.split('/');
-    $(".app-sidebar li a").each(function () {
-
-        var $this = $(this);
-        var pageUrl = $this.attr("href");
-
-        if (pageUrl) {
-            if (position[position.length - 1] == pageUrl) {
-                $(this).addClass("active");
-                $(this).parent().addClass("is-expanded");
-                $(this).parent().parent().prev().addClass("active");
-                $(this).parent().parent().addClass("open");
-                $(this).parent().parent().prev().addClass("is-expanded");
-                $(this).parent().parent().parent().addClass("is-expanded");
-                $(this).parent().parent().parent().parent().addClass("open");
-                $(this).parent().parent().parent().parent().prev().addClass("active");
-                $(this).parent().parent().parent().parent().parent().addClass("is-expanded");
-                return false;
-            }
-        }
+    $(".app-sidebar li a").each(function() {
+        var pageUrl = window.location.href.split(/[?#]/)[0];
+          if (this.href == pageUrl) {
+              $(this).addClass("active");
+              $(this).parent().addClass("is-expanded");
+              $(this).parent().parent().prev().addClass("active");
+              $(this).parent().parent().addClass("open");
+              $(this).parent().parent().prev().addClass("is-expanded");
+              $(this).parent().parent().parent().addClass("is-expanded");
+              $(this).parent().parent().parent().parent().addClass("open");
+              $(this).parent().parent().parent().parent().prev().addClass("active");
+              $(this).parent().parent().parent().parent().parent().addClass("is-expanded");
+              $(this).parent().parent().parent().parent().parent().parent().prev().addClass("active");
+              $(this).parent().parent().parent().parent().parent().parent().parent().addClass("is-expanded");
+          }
     });
     if ($('.slide-item').hasClass('active')) {
         $('.app-sidebar').animate({
@@ -226,7 +222,7 @@ function icontext() {
         $('body').removeClass('sidenav-toggled-open');
     });
 
-    //Mobile menu 
+    //Mobile menu
     var alterClass = function () {
         var ww = document.body.clientWidth;
         if (ww < 992) {

@@ -1,0 +1,115 @@
+        <!-- BACK-TO-TOP -->
+        <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
+        <!-- JQUERY JS -->
+        {{-- <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script> --}}
+
+        <!-- BOOTSTRAP JS -->
+        <script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+        <!-- SIDE-MENU JS -->
+        <script src="{{asset('assets/plugins/sidemenu/sidemenu.js')}}"></script>
+
+        <!-- INTERNAL SELECT2 JS -->
+        <!-- <script src="../assets/plugins/select2/select2.full.min.js"></script> -->
+
+        <!-- DATA TABLE JS-->
+        <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
+        <script src="../assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+        <script src="../assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+        <script src="../assets/plugins/datatable/js/jszip.min.js"></script>
+        <script src="../assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+        <script src="../assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+        <script src="../assets/plugins/datatable/js/buttons.html5.min.js"></script>
+        <script src="../assets/plugins/datatable/js/buttons.print.min.js"></script>
+        <script src="../assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+        <script src="../assets/plugins/datatable/dataTables.responsive.min.js"></script>
+        <script src="../assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+        <script src="../assets/js/table-data.js"></script>
+
+        <!-- Perfect SCROLLBAR JS-->
+        <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
+        <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
+
+        <!-- STICKY JS -->
+        <script src="{{asset('assets/js/sticky.js')}}"></script>
+
+        @yield('scripts')
+
+        <!-- COLOR THEME JS -->
+        <script src="{{asset('assets/js/themeColors.js')}}"></script>
+
+        <!-- CUSTOM JS -->
+        <script src="{{asset('assets/js/custom.js')}}"></script>
+
+        <script>
+                let fieldCount = 1;
+
+                document.getElementById('add-field-btn').addEventListener('click', function() {
+                        const complaintFields = document.getElementById('complaint-fields');
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row mb-3';
+                        newRow.id = `field-row-${fieldCount}`;
+                        newRow.innerHTML = `
+                        <div class="form-group col-md-4">
+                                <label class="form-label" for="complaint-dropdown-${fieldCount}">Complaint</label>
+                                <select name="complaint[]" class="form-control form-select" id="complaint-dropdown-${fieldCount}" data-bs-placeholder="Select Complaint">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Pain general/multiple sites">Pain general/multiple sites</option>
+                                        <option value="Chills">Chills</option>
+                                        <option value="Fever">Fever</option>
+                                        <option value="Weakness/tiredness general">Weakness/tiredness general</option>
+                                        <option value="Feeling ill">Feeling ill</option>
+                                        <option value="Fainting/syncope">Fainting/syncope</option>
+                                        <option value="Coma">Coma</option>
+                                        <option value="Swelling">Swelling</option>
+                                        <option value="Sweating problem">Sweating problem</option>
+                                        <option value="Bleeding/haemorrhage not otherwise specified">Bleeding/haemorrhage not otherwise specified</option>
+                                </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                                <label class="form-label" for="duration-dropdown-${fieldCount}">Duration</label>
+                                <select name="duration[]" class="form-control form-select" id="duration-dropdown-${fieldCount}" data-bs-placeholder="Select Duration">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="1 Day">1 Day</option>
+                                        <option value="2 Day">2 Day</option>
+                                        <option value="3 Day">3 Day</option>
+                                        <option value="4 Day">4 Day</option>
+                                        <option value="5 Day">5 Day</option>
+                                        <option value="1 Week">1 Week</option>
+                                        <option value="2 Week">2 Week</option>
+                                        <option value="Half Month">Half Month</option>
+                                        <option value="3 Week">3 Week</option>
+                                        <option value="1 Month and more">1 Month and more</option>
+                                </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                                <label class="form-label" for="severity-dropdown-${fieldCount}">Severity</label>
+                                <select name="severity[]" class="form-control form-select" id="severity-dropdown-${fieldCount}" data-bs-placeholder="Select Severity">
+                                <option label="Choose one" disabled selected></option>
+                                <option value="Mild">Mild</option>
+                                <option value="Moderate">Moderate</option>
+                                <option value="Severe">Severe</option>
+                                </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                                <label for="remarks-${fieldCount}" class="form-label">Remarks</label>
+                                <textarea class="form-control" id="remarks-${fieldCount}" name="remarks[]" rows="1" required></textarea>
+                                <div class="valid-feedback">
+                                Looks good!
+                                </div>
+                        </div>
+                        <div class="form-group col-md-1 d-flex align-items-end">
+                                <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount}')">X</button>
+                        </div>`;
+                        complaintFields.appendChild(newRow);
+                        fieldCount++;
+                });
+
+                function removeField(id) {
+                        const fieldRow = document.getElementById(id);
+                        fieldRow.remove();
+                }
+        </script>
