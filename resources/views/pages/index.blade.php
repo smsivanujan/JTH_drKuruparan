@@ -82,133 +82,61 @@
                     <div class="container d-flex justify-content-center">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="form-label" for="default-dropdown">Default Select</label>
-                                <select name="country" class="form-control form-select" id="default-dropdown" data-bs-placeholder="Select Country">
-                                    <option label="Choose one" disabled></option>
+                                <label class="form-label" for="Category-dropdown">Category</label>
+                                <select name="specialty" class="form-control form-select" id="Category-dropdown" data-bs-placeholder="Select Category" onchange="changeCategory()">
+                                    <option label="Choose one" disabled selected></option>
                                     <option value="gyn">GYN</option>
                                     <option value="obs">OBS</option>
                                 </select>
                             </div>
                         </div>
                     </div>
+
+                    <label class="form-label" for="default-dropdown">Presente Comptante</label>
                     <div class="card">
                         <div class="card-body bg-info">
-                            <!-- <div class="row">
-                                <div class="form-group col-md-4">
-                                    <label class="form-label" for="complaint-dropdown">Complaint</label>
-                                    <select name="complaint" class="form-control form-select" id="complaint-dropdown" data-bs-placeholder="Select Complaint">
-                                        <option label="Choose one" disabled></option>
-                                        <option value="Pain general/multiple sites">Pain general/multiple sites</option>
-                                        <option value="Chills">Chills</option>
-                                        <option value="Fever">Fever</option>
-                                        <option value="Weakness/tiredness general">Weakness/tiredness general</option>
-                                        <option value="Feeling ill">Feeling ill</option>
-                                        <option value="Fainting/syncope">Fainting/syncope</option>
-                                        <option value="Coma">Coma</option>
-                                        <option value="Swelling">Swelling</option>
-                                        <option value="Sweating problem">Sweating problem</option>
-                                        <option value="Bleeding/haemorrhage not otherwise specified">Bleeding/haemorrhage not otherwise specified</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="duration-dropdown">Duration</label>
-                                    <select name="duration" class="form-control form-select" id="duration-dropdown" data-bs-placeholder="Select Duration">
-                                        <option label="Choose one" disabled></option>
-                                        <option value="1 Day">1 Day</option>
-                                        <option value="2 Day">2 Day</option>
-                                        <option value="3 Day">3 Day</option>
-                                        <option value="4 Day">4 Day</option>
-                                        <option value="5 Day">5 Day</option>
-                                        <option value="1 Week">1 Week</option>
-                                        <option value="2 Week">2 Week</option>
-                                        <option value="2 Week">Half Month</option>
-                                        <option value="3 Week">3 Week</option>
-                                        <option value="1 Month and more">1 Month and more</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label class="form-label" for="severity-dropdown">Severity</label>
-                                    <select name="severity" class="form-control form-select" id="severity-dropdown" data-bs-placeholder="Select Severity">
-                                        <option label="Choose one" disabled></option>
-                                        <option value="Mild">Mild</option>
-                                        <option value="Moderate">Moderate</option>
-                                        <option value="Severe">Severe</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="remarks" class="form-label">Remarks</label>
-                                    <input type="textarea" class="form-control" id="remarks" value="Mark" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div class="input-group-btn">
-                                    <button class="btn btn-success" type="button" onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
-                                </div>
-                            </div> -->
-                            <form id="complaint-form">
+                            <div id="complaint-form">
                                 <div id="complaint-fields">
-                                    <!-- <div class="row mb-3" id="field-row-0">
-                                        <div class="form-group col-md-4">
-                                            <label class="form-label" for="complaint-dropdown-0">Complaint</label>
-                                            <select name="complaint[]" class="form-control form-select" id="complaint-dropdown-0" data-bs-placeholder="Select Complaint">
-                                                <option label="Choose one" disabled selected></option>
-                                                <option value="Pain general/multiple sites">Pain general/multiple sites</option>
-                                                <option value="Chills">Chills</option>
-                                                <option value="Fever">Fever</option>
-                                                <option value="Weakness/tiredness general">Weakness/tiredness general</option>
-                                                <option value="Feeling ill">Feeling ill</option>
-                                                <option value="Fainting/syncope">Fainting/syncope</option>
-                                                <option value="Coma">Coma</option>
-                                                <option value="Swelling">Swelling</option>
-                                                <option value="Sweating problem">Sweating problem</option>
-                                                <option value="Bleeding/haemorrhage not otherwise specified">Bleeding/haemorrhage not otherwise specified</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label class="form-label" for="duration-dropdown-0">Duration</label>
-                                            <select name="duration[]" class="form-control form-select" id="duration-dropdown-0" data-bs-placeholder="Select Duration">
-                                                <option label="Choose one" disabled selected></option>
-                                                <option value="1 Day">1 Day</option>
-                                                <option value="2 Day">2 Day</option>
-                                                <option value="3 Day">3 Day</option>
-                                                <option value="4 Day">4 Day</option>
-                                                <option value="5 Day">5 Day</option>
-                                                <option value="1 Week">1 Week</option>
-                                                <option value="2 Week">2 Week</option>
-                                                <option value="Half Month">Half Month</option>
-                                                <option value="3 Week">3 Week</option>
-                                                <option value="1 Month and more">1 Month and more</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label class="form-label" for="severity-dropdown-0">Severity</label>
-                                            <select name="severity[]" class="form-control form-select" id="severity-dropdown-0" data-bs-placeholder="Select Severity">
-                                                <option label="Choose one" disabled selected></option>
-                                                <option value="Mild">Mild</option>
-                                                <option value="Moderate">Moderate</option>
-                                                <option value="Severe">Severe</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="remarks-0" class="form-label">Remarks</label>
-                                            <textarea class="form-control" id="remarks-0" name="remarks[]" rows="1" required></textarea>
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    <!-- dynamic fields will be added here -->
                                 </div>
-                                <!-- <button class="btn btn-success mb-3" type="button" id="add-field-btn">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Complaint
-                                </button> -->
-                            </form>
+                            </div>
                             <button class="btn btn-success mb-3" type="button" id="add-field-btn">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Complaint
                             </button>
                         </div>
                     </div>
-
+                    <label class="form-label" for="default-dropdown">Current Preq Hx</label>
+                    <div class="card">
+                        <div class="card-body bg-gray">
+                            <div class="row">
+                                <div class="form-group col-md-2">
+                                    <label class="form-label" for="parity-dropdown">Parity</label>
+                                    <select name="yrs-married" class="form-control form-select" id="parity-dropdown" data-bs-placeholder="Select Years Married">
+                                        <option label="Choose one"></option>
+                                        <option value="G">G</option>
+                                        <option value="P">P</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <label class="form-label" for="yrs-married-dropdown">M.Yrs</label>
+                                    <input type="number" class="form-control" placeholder="Years (YYYY)" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "4">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="LMP-text">LMP</label>
+                                    <input type="text" class="form-control" placeholder="LMP">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="EDD-text">EDD</label>
+                                    <input type="text" class="form-control" placeholder="EDD">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="Working-EDD-text">Working EDD</label>
+                                    <input type="text" class="form-control" placeholder="Working EDD">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">Submit form</button>
                     </div>
