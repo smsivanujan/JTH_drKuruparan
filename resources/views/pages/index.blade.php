@@ -92,6 +92,7 @@
                         </div>
                     </div>
 
+                    <!-- Presente Comptante -->
                     <label class="form-label" for="default-dropdown">Presente Comptante</label>
                     <div class="card">
                         <div class="card-body bg-info">
@@ -105,38 +106,286 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- Current Preq Hx -->
                     <label class="form-label" for="default-dropdown">Current Preq Hx</label>
                     <div class="card">
                         <div class="card-body bg-gray">
                             <div class="row">
-                                <div class="form-group col-md-2">
-                                    <label class="form-label" for="parity-dropdown">Parity</label>
-                                    <select name="yrs-married" class="form-control form-select" id="parity-dropdown" data-bs-placeholder="Select Years Married">
-                                        <option label="Choose one"></option>
-                                        <option value="G">G</option>
-                                        <option value="P">P</option>
-                                        <option value="C">C</option>
-                                    </select>
+                                <div class="form-group col-md-1">
+                                    <label class="form-label" for="g-text">G</label>
+                                    <input type="number" class="form-control" placeholder="G">
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <label class="form-label" for="yrs-married-dropdown">M.Yrs</label>
-                                    <input type="number" class="form-control" placeholder="Years (YYYY)" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "4">
+                                    <label class="form-label" for="p-text">P</label>
+                                    <input type="number" class="form-control" placeholder="P">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-1">
+                                    <label class="form-label" for="c-text">C</label>
+                                    <input type="number" class="form-control" placeholder="C">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label class="form-label" for="yrs-married-dropdown">Married Year</label>
+                                    <input type="number" class="form-control" placeholder="Years (YYYY)" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
+                                </div>
+                                <div class="form-group col-md-2">
                                     <label class="form-label" for="LMP-text">LMP</label>
-                                    <input type="text" class="form-control" placeholder="LMP">
+                                    <input type="date" class="form-control" placeholder="LMP">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label class="form-label" for="EDD-text">EDD</label>
-                                    <input type="text" class="form-control" placeholder="EDD">
+                                    <input type="date" class="form-control" placeholder="EDD">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label class="form-label" for="Working-EDD-text">Working EDD</label>
-                                    <input type="text" class="form-control" placeholder="Working EDD">
+                                    <input type="date" class="form-control" placeholder="Working EDD">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Past Obs Hx -->
+                    <label class="form-label" for="default-dropdown">Past Obs Hx</label>
+                    <!-- <div class="card">
+                        <div class="card-body bg-blue">
+                            <div id="complaint-form">
+                                <div id="complaint-fields" class="row">
+                                    <div class="form-group col-md-2">
+                                        <label class="form-label" for="year-input">Year</label>
+                                        <input type="number" class="form-control" placeholder="Years (YYYY)" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="form-label" for="poa-text">POA</label>
+                                        <input type="text" class="form-control" placeholder="POA">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="form-label" for="moa-text">MOA</label>
+                                        <input type="text" class="form-control" placeholder="MOA">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="form-label" for="birth-weight-text">Birth Weight (KG)</label>
+                                        <input type="text" class="form-control" placeholder="Birth Weight (KG)">
+                                    </div>
+                                    <div class="form-group col-md-2 d-flex align-items-end">
+                                        <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount}')">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success mb-3" type="button" id="add-field-btn">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Past Obs
+                            </button>
+                        </div>
+                    </div> -->
+                    <div class="card">
+                        <div class="card-body bg-blue">
+                            <div id="complaint-form">
+                                <div id="pastobs-fields" class="row">
+                                    <!-- Initial form fields -->
+                                </div>
+                            </div>
+                            <button class="btn btn-success mb-3" type="button" id="add-field-btn2">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Past Obs
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Past Gyn Hx -->
+                    <label class="form-label" for="default-dropdown">Past Gyn HX</label>
+                    <div class="card">
+                        <div class="card-body bg-gray">
+                            <label class="form-label" for="default-dropdown">menstrual hx</label>
+                            <div class="row">
+                                <div class="form-group col-md-1">
+                                    <label class="form-label" for="age">Age</label>
+                                    <input type="text" class="form-control" placeholder="age">
+                                </div>
+                                <label class="form-label" for="default-dropdown">Bleeding Pattern</label>
+                                <div class="form-group col-md-2">
+                                    <label class="form-label" for="amount">Amount</label>
+                                    <input type="text" class="form-control" placeholder="amount">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label class="form-label" for="duration">Duration</label>
+                                    <input type="text" class="form-control" placeholder="duration">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="aub1">AUB</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <label class="rdiobox" for="rdio-primary-unchecked1" style="margin-right: 10px;">
+                                            <input name="rdio-primary1" type="radio" class="radio-primary" id="rdio-primary-unchecked1">
+                                            <span>Reqularity</span>
+                                        </label>
+                                        <label class="rdiobox" for="rdio-primary1" style="margin-right: 10px;">
+                                            <input checked name="rdio-primary1" type="radio" class="radio-primary" id="rdio-primary1">
+                                            <span>Irreqularity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="aub2">AUB</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <label class="rdiobox" for="rdio-primary-unchecked2" style="margin-right: 10px;">
+                                            <input name="rdio-primary2" type="radio" class="radio-primary" id="rdio-primary-unchecked2">
+                                            <span>YES</span>
+                                        </label>
+                                        <label class="rdiobox" for="rdio-primary2" style="margin-right: 10px;">
+                                            <input checked name="rdio-primary2" type="radio" class="radio-primary" id="rdio-primary2">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="form-label" for="default-dropdown">Contraception HX</label>
+                                <div class="form-group ">
+                                    <div class="selectgroup selectgroup-pills">
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked>
+                                            <span class="selectgroup-button">OCP</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+                                            <span class="selectgroup-button">DMPA</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+                                            <span class="selectgroup-button">Idelle</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                            <span class="selectgroup-button">IUCD</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="Angular" class="selectgroup-input">
+                                            <span class="selectgroup-button">Condom</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="Java" class="selectgroup-input">
+                                            <span class="selectgroup-button">Others</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="form-label" for="default-dropdown">Subfertility</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <label class="rdiobox" for="rdio-primary-unchecked3" style="margin-right: 10px;">
+                                        <input name="rdio-primary3" type="radio" class="radio-primary" id="rdio-primary-unchecked3">
+                                        <span>YES</span>
+                                    </label>
+                                    <label class="rdiobox" for="rdio-primary3" style="margin-right: 10px;">
+                                        <input checked name="rdio-primary3" type="radio" class="radio-primary" id="rdio-primary3">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                                <div class="form-group ">
+                                    <div style="display: flex; gap: 10px;">
+                                        <label class="rdiobox" for="rdio-primary-unchecked4" style="margin-right: 10px;">
+                                            <input name="rdio-primary4" type="radio" class="radio-primary" id="rdio-primary-unchecked4">
+                                            <span>Male</span>
+                                        </label>
+                                        <label class="rdiobox" for="rdio-primary4" style="margin-right: 10px;">
+                                            <input checked name="rdio-primary4" type="radio" class="radio-primary" id="rdio-primary4">
+                                            <span>Female</span>
+                                        </label>
+                                    </div>
+                                    <div class="selectgroup selectgroup-pills">
+                                        <label class="selectgroup-item">
+                                            <input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked>
+                                            <span class="selectgroup-button">SFA</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="selectgroup selectgroup-pills">
+                                            <label class="form-label" for="default-dropdown">Ovulatory Disorder</label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+                                                <span class="selectgroup-button">Hypotholamic Pitutagal hale</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+                                                <span class="selectgroup-button">PCOS</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">Overiah Failiure (POF/POI)</span>
+                                            </label>
+                                        </div>
+                                        <div class="selectgroup selectgroup-pills">
+                                            <label class="form-label" for="default-dropdown">Tubal Factors</label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+                                                <span class="selectgroup-button">Infection</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+                                                <span class="selectgroup-button">Surgery</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">Endometriosos</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">IBD</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="selectgroup selectgroup-pills">
+                                            <label class="form-label" for="default-dropdown">Uterine</label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+                                                <span class="selectgroup-button">Conqenital</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+                                                <span class="selectgroup-button">Fiberids</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">Polyps</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">Adhesion/Ashermanis</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Hx -->
+                    <label class="form-label" for="default-dropdown">Other HX</label>
+                    <div class="card">
+                        <div class="card-body bg-gray">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="g-text">Past Med HX</label>
+                                    <input type="text" class="form-control" placeholder="Past Med HX">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="p-text">Past Surgery HX</label>
+                                    <input type="number" class="form-control" placeholder="Past Med HX">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="c-text">Allergy HX</label>
+                                    <input type="number" class="form-control" placeholder="Past Med HX">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="c-text">Farmer HX</label>
+                                    <input type="number" class="form-control" placeholder="Farmer HX">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="c-text">Social HX</label>
+                                    <input type="number" class="form-control" placeholder="Social HX">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">Submit form</button>
                     </div>
