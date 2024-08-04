@@ -2,7 +2,7 @@
         <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
         <!-- JQUERY JS -->
-        {{-- <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script> --}}
+        <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 
         <!-- BOOTSTRAP JS -->
         <script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
@@ -12,7 +12,10 @@
         <script src="{{asset('assets/plugins/sidemenu/sidemenu.js')}}"></script>
 
         <!-- INTERNAL SELECT2 JS -->
-        <!-- <script src="../assets/plugins/select2/select2.full.min.js"></script> -->
+        <script src="../assets/plugins/select2/select2.full.min.js"></script>
+
+        <!-- FORM ELEMENTS JS -->
+        <script src="../assets/js/formelementadvnced.js"></script>
 
         <!-- DATA TABLE JS-->
         <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
@@ -32,13 +35,6 @@
         <!-- Perfect SCROLLBAR JS-->
         <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
         <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
-
-        <!-- STICKY JS -->
-        <script src="{{asset('assets/js/sticky.js')}}"></script>
-
-        <!-- INTERNAL ACCORDION-WIZARD-FORM JS -->
-        <!-- <script src="../assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js"></script>
-		<script src="../assets/js/form-wizard.js"></script> -->
 
         <!-- FORM WIZARD JS-->
         <script src="../assets/plugins/formwizard/jquery.smartWizard.js"></script>
@@ -339,4 +335,50 @@
             document.querySelectorAll('input[name="rdio-primary3"]').forEach((radio) => {
                 radio.addEventListener('change', getSelectedRadio);
             });
+        </script>
+
+        <script>
+            let fieldCount3 = 3;
+
+            document.getElementById('add-field-btn3').addEventListener('click', function() {
+                const complaintFields = document.getElementById('pastmedhx-fields');
+                const newRow = document.createElement('div');
+                newRow.className = 'row mb-3';
+                newRow.id = `field-row-${fieldCount2}`;
+                newRow.innerHTML = `<div class="row"> 
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="pastmedhx-text-${fieldCount2}">Past Med Hx</label>
+                        <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount2}" data-bs-placeholder="Select Past Med Hx">
+                            <option selected disabled value="">Choose...</option>
+                            <option value="Medical Examination/Health EvaluationPartial/Pre-o">Medical Examination/Health EvaluationPartial/Pre-o</option>
+                            <option value="Sensitivity Test">Sensitivity Test</option>
+                            <option value="Microbiological/Immunological Test">Microbiological/Immunological Test</option>
+                            <option value="Blood Test">Blood Test</option>
+                            <option value="Urine Test">Urine Test</option>
+                            <option value="Faeces Test">Faeces Test</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-10">
+                        <label for="remarks-${fieldCount}" class="form-label">Remarks</label>
+                        <textarea class="form-control" id="remarks-${fieldCount}" name="remarks[]" rows="1" required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 d-flex align-items-end">
+                        <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount2}')"><i class="fe fe-trash-2"></i></button>
+                    </div>
+                </div>`;
+                complaintFields.appendChild(newRow);
+                fieldCount2++;
+            });
+
+            function removeField(id) {
+                const fieldRow = document.getElementById(id);
+                if (fieldRow) {
+                    fieldRow.remove();
+                }
+            }
         </script>

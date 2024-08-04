@@ -93,6 +93,7 @@
             </div>
             <div class="card-body">
                 <div id="wizard3">
+
                     <h4>Presente Comptante</h4>
                     <div>
                         <div id="complaint-form">
@@ -103,8 +104,8 @@
                         <button class="btn btn-success mb-3" type="button" id="add-field-btn">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Complaint
                         </button>
-
                     </div>
+
                     <h4>Current Preq Hx</h4>
                     <div>
                         <div class="row">
@@ -140,6 +141,7 @@
                             </div>
                         </div>
                     </div>
+
                     <h4>Past Obs Hx</h4>
                     <div>
                         <div id="complaint-form">
@@ -151,6 +153,7 @@
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Past Obs
                         </button>
                     </div>
+
                     <h4>Past Gyn Hx</h4>
                     <div>
                         <label class="form-label" for="default-dropdown">Menstrual HX</label>
@@ -227,27 +230,92 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <label class="form-label" style="margin-right: 10px;" for="default-dropdown">Subfertility</label>
-                        <div class="row">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked3">
-                                    <input name="rdio-primary3" type="radio" id="rdio-primary-unchecked3" value="yes" style="margin-right: 5px;">
-                                    <span>Yes</span>
-                                </label>
-                                <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary3">
-                                    <input name="rdio-primary3" type="radio" id="rdio-primary3" value="no" style="margin-right: 5px;">
-                                    <span>No</span>
-                                </label>
-                            </div>
-                            <div id="newRowGender">
-                                <!-- Gender -->
-                            </div>
-                            <div id="newRow">
-                                <!-- Gyn -->
+                            <label class="form-label" style="margin-right: 10px;" for="default-dropdown">Subfertility</label>
+                            <div class="form-group">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked3">
+                                        <input name="rdio-primary3" type="radio" id="rdio-primary-unchecked3" value="yes" style="margin-right: 5px;">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary3">
+                                        <input name="rdio-primary3" type="radio" id="rdio-primary3" value="no" style="margin-right: 5px;">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                                <div id="newRowGender">
+                                    <!-- Gender -->
+                                </div>
+                                <div id="newRow">
+                                    <!-- Gyn -->
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <h4>Past Med HX</h4>
+                    <div>
+                        <div id="complaint-form">
+                            <div id="pastmedhx-fields" class="row">
+                                <!-- Initial form fields -->
+                            </div>
+                        </div>
+                        <button class="btn btn-success mb-3" type="button" id="add-field-btn3">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Past Med Hx
+                        </button>
+                    </div>
+
+                    <h4>Other Hx</h4>
+                    <div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="Select Drug Allergy Hx" multiple>
+                                    <option label="Choose one" disabled></option>
+                                    <option value="Medical Exam/evaluation -Complete">Medical Exam/evaluation -Complete</option>
+                                    <option value="Medical Examination/Health EvaluationPartial/Pre-o">"Medical Examination/Health EvaluationPartial/Pre-o</option>
+                                    <option value="Sensitivity Test">Sensitivity Test</option>
+                                    <option value="Microbiological/Immunological Test">Microbiological/Immunological Test</option>
+                                    <option value="Blood Test">Blood Test</option>
+                                    <option value="Urine Test">Urine Test</option>
+                                    <option value="Faeces Test">Faeces Test</option>
+                                    <option value="Histological/Exfoliative Cytology">Histological/Exfoliative Cytology</option>
+                                    <option value="Other Laboratory Test not elsewhere classified">Other Laboratory Test not elsewhere classified</option>
+                                    <option value="Physical Function Test">Physical Function Test</option>
+                                    <option value="Diagnostic Endoscopy">Diagnostic Endoscopy</option>
+                                    <option value="Diagnostic Radiology/Imaging">Diagnostic Radiology/Imaging</option>
+                                    <option value="Electrical Tracings">Electrical Tracings</option>
+                                    <option value="Other Diagnostic Procedures">Other Diagnostic Procedures</option>
+                                    <option value="Preventive Imunisations/Medications">Preventive Imunisations/Medications</option>
+                                    <option value="Observe/Educate/Advice/Diet">Observe/Educate/Advice/Diet</option>
+                                    <option value="Consult with Primary Care Provider">Consult with Primary Care Provider</option>
+                                    <option value="Consultation with Specialist">Consultation with Specialist</option>
+                                    <option value="Clarification/Discuss Patient?s reason for encount">Clarification/Discuss Patient?s reason for encount</option>
+                                    <option value="Other Preventive Procedures">Other Preventive Procedures</option>
+                                    <option value="Medicat-Script/Reqst/Renew/Inject">Medicat-Script/Reqst/Renew/Inject</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="c-text">Food Allergy HX</label>
+                                <input type="text" class="form-control" placeholder="Past Allergy HX">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="p-text">Past Surgery HX</label>
+                                <input type="textarea" class="form-control" placeholder="Past Surgery HX">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="c-text">Family HX</label>
+                                <input type="textarea" class="form-control" placeholder="Family HX">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="c-text">Social HX</label>
+                                <input type="textarea" class="form-control" placeholder="Social HX">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -256,7 +324,7 @@
 <!-- /Row -->
 
 <!-- ROW -->
-<div class="row">
+{{--<div class="row">
     <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="card-header border-bottom">
@@ -352,7 +420,6 @@
                         </div>
                     </div>
 
-
                     <!-- Other Hx -->
                     <label class="form-label" for="default-dropdown">Other HX</label>
                     <div class="card">
@@ -391,7 +458,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 <!-- ROW CLOSED -->
 
 @endsection
