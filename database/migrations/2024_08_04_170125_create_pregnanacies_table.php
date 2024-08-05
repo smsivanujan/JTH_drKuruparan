@@ -15,12 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('patient_id');
             $table->string('category');
-            $table->foreignId('present_complaint_id')->constrained('present_complaints');
-            $table->foreignId('current_pregnancy_hx_id')->constrained('current_pregnancy_hxs');
-            $table->foreignId('past_obs_hx_id')->constrained('past_obs_hxs');
-            $table->foreignId('past_gyn_hx_id')->constrained('past_gyn_hxs');
-            $table->foreignId('past_med_hx_id')->constrained('past_med_hxs');
-            $table->foreignId('other_hx_id')->constrained('other_hxs');
+            $table->string('detail');
             $table->timestamps();
         });
     }

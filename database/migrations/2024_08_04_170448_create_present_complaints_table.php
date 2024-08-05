@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('present_complaints', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pregnanacy_id')->constrained('pregnanacies');
             $table->string('complaint'); 
             $table->string('duration'); 
             $table->string('severity'); 

@@ -32,6 +32,7 @@
         <script src="../assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
         <script src="../assets/js/table-data.js"></script>
 
+
         <!-- Perfect SCROLLBAR JS-->
         <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
         <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
@@ -350,12 +351,13 @@
                         <label class="form-label" for="pastmedhx-text-${fieldCount2}">Past Med Hx</label>
                         <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount2}" data-bs-placeholder="Select Past Med Hx">
                             <option selected disabled value="">Choose...</option>
-                            <option value="Medical Examination/Health EvaluationPartial/Pre-o">Medical Examination/Health EvaluationPartial/Pre-o</option>
-                            <option value="Sensitivity Test">Sensitivity Test</option>
-                            <option value="Microbiological/Immunological Test">Microbiological/Immunological Test</option>
-                            <option value="Blood Test">Blood Test</option>
-                            <option value="Urine Test">Urine Test</option>
-                            <option value="Faeces Test">Faeces Test</option>
+                            <option value="DM-type2/type1">DM-type2/type1</option>
+                            <option value="HTN">HTN</option>
+                            <option value="BA">BA</option>
+                            <option value="DL">DL</option>
+                            <option value="Epilepsy">Epilepsy</option>
+                            <option value="PUD">PUD</option>
+                             <option value="Others">Others</option>
                         </select>
                     </div>
                 </div>

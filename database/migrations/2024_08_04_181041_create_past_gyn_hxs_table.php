@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('past_gyn_hxs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pregnanacy_id')->constrained('pregnanacies');
             $table->integer('age');
             $table->string('amount')->nullable();
             $table->string('duration')->nullable();

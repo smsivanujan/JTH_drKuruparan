@@ -8,6 +8,7 @@ use App\Models\OtherHX;
 use App\Models\PastGynHX;
 use App\Models\PastMedHX;
 use App\Models\PastObsHX;
+use App\Models\Pregnanacy;
 use App\Models\PresentComplaint;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,14 @@ class IndexController extends Controller
 
     public function store(Request $request)
     {
+        $pregnanacy = new Pregnanacy();
+        $pregnanacy->patient_id = $request->input('patient_id');
+        $pregnanacy->category = $request->input('category');
+        $pregnanacy->detail= $request->input('detail');
+        $pregnanacy->save();
+
+        $savedId = $pregnanacy->id;
+
         $complaints = $request->input('complaint', []);
         $durations = $request->input('duration', []);
         $severities = $request->input('severity', []);
@@ -32,6 +41,7 @@ class IndexController extends Controller
 
         foreach ($remarks as $key => $remark) {
             $presentComplaint = new PresentComplaint();
+            $presentComplaint->pregnanacy_id = $savedId;
             $presentComplaint->complaint = $complaints[$key] ?? null;
             $presentComplaint->duration = $durations[$key] ?? null;
             $presentComplaint->severity = $severities[$key] ?? null;
@@ -40,6 +50,7 @@ class IndexController extends Controller
         }
 
         $currentPregnancyHX = new CurrentPregnancyHX();
+        $currentPregnancyHX->pregnanacy_id = $savedId;
         $currentPregnancyHX->g = $request->input('g');
         $currentPregnancyHX->p = $request->input('p');
         $currentPregnancyHX->c = $request->input('c');
@@ -57,6 +68,7 @@ class IndexController extends Controller
 
         foreach ($remarks as $key => $remark) {
             $pastObstetricHX = new PastObsHX();
+            $pastObstetricHX->pregnanacy_id = $savedId;
             $pastObstetricHX->year = $years[$key] ?? null;
             $pastObstetricHX->poa = $poas[$key] ?? null;
             $pastObstetricHX->mod = $mods[$key] ?? null;
@@ -66,6 +78,7 @@ class IndexController extends Controller
         }
 
         $pastGynHx = new PastGynHX();
+        $pastGynHx->pregnanacy_id = $savedId;
         $pastGynHx->age = $request->input('age');
         $pastGynHx->amount = $request->input('amount');
         $pastGynHx->duration = $request->input('duration');
@@ -85,12 +98,14 @@ class IndexController extends Controller
 
         foreach ($remarksDatas as $key => $remarksData) {
             $pastMedHX = new PastMedHX();
+            $pastMedHX->pregnanacy_id = $savedId;
             $pastMedHX->past_med_hx = $pastMedHxDatas;
             $pastMedHX->remarks = $remarksData[$key] ?? null;
             $pastMedHX->save();
         }
 
         $otherHx = new OtherHX();
+        $otherHx->pregnanacy_id = $savedId;
         $otherHx->drugalergyhx = implode(', ', $request->input('drugalergyhx', []));
         $otherHx->food_allergy_hx = $request->input('food_allergy_hx');
         $otherHx->past_surgery_hx = $request->input('past_surgery_hx');

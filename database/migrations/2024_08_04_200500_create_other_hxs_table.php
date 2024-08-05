@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('other_hxs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pregnanacy_id')->constrained('pregnanacies');
             $table->text('drugalergyhx')->nullable();
             $table->text('food_allergy_hx')->nullable();
             $table->text('past_surgery_hx')->nullable();

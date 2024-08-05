@@ -159,8 +159,8 @@
                         <label class="form-label" for="default-dropdown">Menstrual HX</label>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label class="form-label" for="age">Age</label>
-                                <input type="text" class="form-control" placeholder="age">
+                                <label class="form-label" for="minarcheate">Minarcheate</label>
+                                <input type="number" class="form-control" placeholder="minarcheate">
                             </div>
                         </div>
                         <label class="form-label" for="default-dropdown">Bleeding Pattern</label>
@@ -174,15 +174,15 @@
                                 <input type="text" class="form-control" placeholder="duration">
                             </div>
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="aub1">Status</label>
+                                <label class="form-label" for="aub1">Regularity</label>
                                 <div>
                                     <label class="rdiobox" for="rdio-primary-unchecked1" style="margin-right: 10px;">
                                         <input name="rdio-primary1" type="radio" class="radio-primary" id="rdio-primary-unchecked1">
-                                        <span>Regularity</span>
+                                        <span>Regular</span>
                                     </label>
                                     <label class="rdiobox" for="rdio-primary1" style="margin-right: 10px;">
                                         <input checked name="rdio-primary1" type="radio" class="radio-primary" id="rdio-primary1">
-                                        <span>Irregularity</span>
+                                        <span>Irregular</span>
                                     </label>
                                 </div>
                             </div>
@@ -268,29 +268,13 @@
                     <div>
                         <div class="row">
                             <div class="form-group col-md-12">
+                            <label class="form-label" for="drugalergyhx">Drug Allergy Hx</label>
                                 <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="Select Drug Allergy Hx" multiple>
                                     <option label="Choose one" disabled></option>
-                                    <option value="Medical Exam/evaluation -Complete">Medical Exam/evaluation -Complete</option>
-                                    <option value="Medical Examination/Health EvaluationPartial/Pre-o">"Medical Examination/Health EvaluationPartial/Pre-o</option>
-                                    <option value="Sensitivity Test">Sensitivity Test</option>
-                                    <option value="Microbiological/Immunological Test">Microbiological/Immunological Test</option>
-                                    <option value="Blood Test">Blood Test</option>
-                                    <option value="Urine Test">Urine Test</option>
-                                    <option value="Faeces Test">Faeces Test</option>
-                                    <option value="Histological/Exfoliative Cytology">Histological/Exfoliative Cytology</option>
-                                    <option value="Other Laboratory Test not elsewhere classified">Other Laboratory Test not elsewhere classified</option>
-                                    <option value="Physical Function Test">Physical Function Test</option>
-                                    <option value="Diagnostic Endoscopy">Diagnostic Endoscopy</option>
-                                    <option value="Diagnostic Radiology/Imaging">Diagnostic Radiology/Imaging</option>
-                                    <option value="Electrical Tracings">Electrical Tracings</option>
                                     <option value="Other Diagnostic Procedures">Other Diagnostic Procedures</option>
                                     <option value="Preventive Imunisations/Medications">Preventive Imunisations/Medications</option>
                                     <option value="Observe/Educate/Advice/Diet">Observe/Educate/Advice/Diet</option>
                                     <option value="Consult with Primary Care Provider">Consult with Primary Care Provider</option>
-                                    <option value="Consultation with Specialist">Consultation with Specialist</option>
-                                    <option value="Clarification/Discuss Patient?s reason for encount">Clarification/Discuss Patient?s reason for encount</option>
-                                    <option value="Other Preventive Procedures">Other Preventive Procedures</option>
-                                    <option value="Medicat-Script/Reqst/Renew/Inject">Medicat-Script/Reqst/Renew/Inject</option>
                                 </select>
                             </div>
                         </div>
@@ -469,22 +453,9 @@
 
 @section('scripts')
 
-<!-- APEXCHART JS -->
-<script src="{{asset('assets/js/apexcharts.js')}}"></script>
-
-<!-- INTERNAL SELECT2 JS -->
-<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-
-<!-- CHART-CIRCLE JS-->
-<script src="{{asset('assets/plugins/circle-progress/circle-progress.min.js')}}"></script>
-
 <!-- INTERNAL DATA-TABLES JS-->
 <script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-
-<!-- INDEX JS -->
-<script src="{{asset('assets/js/index1.js')}}"></script>
-<script src="{{asset('assets/js/index.js')}}"></script>
 
 @endsection
