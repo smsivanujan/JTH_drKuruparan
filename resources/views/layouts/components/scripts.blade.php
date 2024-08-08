@@ -57,6 +57,22 @@
         <!-- CUSTOM JS -->
         <script src="{{asset('assets/js/custom.js')}}"></script>
 
+        <!-- BMI -->
+        <script>
+            function calculateBMI() {
+                const heightInput = document.getElementById('height').value;
+                const weightInput = document.getElementById('weight').value;
+
+                if (heightInput && weightInput) {
+                    const heightInMeters = heightInput / 100;
+                    const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
+                    document.getElementById('bmi').value = bmi;
+                } else {
+                    document.getElementById('bmi').value = '';
+                }
+            }
+        </script>
+
         <script>
             let fieldCount = 1;
 
@@ -190,11 +206,11 @@
                         <label class="form-label" for="mod-text-${fieldCount2}">MOD</label>
                         <select name="mod[]" class="form-control form-select" id="mod-text-${fieldCount2}" data-bs-placeholder="Select MOD">
                              <option selected disabled value="">Choose...</option>
-                            <option Value="LSIS">LSIS</option>
+                            <option Value="LSCS">LSCS</option>
                             <option Value="AVD">AVD</option>
                             <option Value="NVD">NVD</option>
                             <option Value="IUD">IUD</option>
-                            <option Value="Misserage">Misserage</option>
+                            <option Value="Miscarriage">Miscarriage</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
