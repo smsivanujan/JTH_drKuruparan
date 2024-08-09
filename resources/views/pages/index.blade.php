@@ -360,6 +360,68 @@
                                 </div>
                             </div>
                         </div>
+                        <label class="form-label" for="default-dropdown">CVS</label>
+                        <div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="pulse-rate">Pulse Rate</label>
+                                    <input type="text" id="pulse-rate" class="form-control" placeholder="Pulse Rate">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="rhythm">Rhythm</label>
+                                    <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Regular">Regular</option>
+                                        <option value="Irregular">Irregular</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="blood-pressure">Blood Pressure</label>
+                                    <div class="d-flex align-items-center">
+                                        <div class="form-group col-md-6 d-flex align-items-center">
+                                            <label class="form-label" for="systolic-input">Systolic (mmHg)</label>
+                                            <input type="number" name="systolic" class="form-control" id="systolic-input" placeholder="Systolic (mmHg)">
+                                        </div>
+                                        <div class="form-group col-md-6 d-flex align-items-center">
+                                            <label class="form-label" for="diastolic-input">Diastolic (mmHg)</label>
+                                            <input type="number" name="diastolic" class="form-control" id="diastolic-input" placeholder="Diastolic (mmHg)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="abdexamination-dropdown">Heart Sound</label>
+                                    <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Other Diagnostic Procedures">Normal</option>
+                                        <option value="Preventive Imunisations/Medications">Abnormal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label" for="abdexamination-dropdown">Memor</label>
+                                    <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Other Diagnostic Procedures">Present</option>
+                                        <option value="Preventive Imunisations/Medications">Absent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label" for="default-dropdown">RS</label>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="rhythm">Breath Sound</label>
+                                <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                    <option label="Choose one" disabled selected></option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Abnormal">Abnormal</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="c-text">Thyroid Examination</label>
@@ -374,6 +436,7 @@
                                     </label>
                                 </div>
                             </div>
+
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="abdexamination-dropdown">ABD Examination</label>
                                 <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
@@ -385,8 +448,9 @@
                                 </select>
                             </div>
                         </div>
+
+                        <label class="form-label" for="pelvicexamination">Pelvic Examination</label>
                         <div class="row">
-                            <label class="form-label" for="pelvicexamination">Pelvic Examination</label>
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="inspection-dropdown">Inspection + Speculum</label>
                                 <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection + Speculum">
@@ -397,9 +461,18 @@
                                     <option value="Lumb At Vulval Prolapse">Lumb At Vulva/Prolapse</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="stressIncontinence-dropdown">Stress Incontinence</label>
+                                <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection + Speculum">
+                                    <option label="Choose one" disabled selected></option>
+                                    <option value="+ (ve)">+ (ve)</option>
+                                    <option value="- (ve)">- (ve)</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <label class="form-label" for="bimanualue-dropdown">Bimanual VE</label>
                         <div class="row">
-                            <label class="form-label" for="bimanualue-dropdown">Bimanual VE</label>
                             <div class="form-group col-md-4">
                                 <label class="form-label" for="cervical-dropdown">Cervical Consistency</label>
                                 <select name="cervical" class="form-control form-select" id="cervical-dropdown" data-bs-placeholder="Select Cervical Consistency">
@@ -434,8 +507,9 @@
                                 </select>
                             </div>
                         </div>
+
+                        <label class="form-label" for="urine-dropdown">Uterus</label>
                         <div class="row">
-                            <label class="form-label" for="urine-dropdown">Uterus</label>
                             <div class="form-group col-md-3">
                                 <label class="form-label" for="urine-dropdown">Direction</label>
                                 <select name="urine" class="form-control form-select" id="urine-dropdown" data-bs-placeholder="Select Urine">
@@ -454,23 +528,65 @@
                                     <option value="Not">Absent</option>
                                 </select>
                             </div>
-                            {{--<div class="form-group col-md-3">Adnexial Mass
-                                <label class="form-label" for="crp-dropdown">FBC</label>
-                                <select name="fbc" class="form-control form-select" id="fbc-dropdown" data-bs-placeholder="Select FBC">
+                        </div>
+
+                        <label class="form-label" for="scan-dropdown">Scan</label>
+                        <div class="row">
+                            <!-- TAS Finder Section -->
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="tas-utreus">TAS Finder</label>
+                                <label class="form-label" for="tas-utreus">Uterus</label>
+                                <input type="text" id="tas-utreus" class="form-control" placeholder="cm">
+                            </div>
+
+                            <!-- TVS Finder Section -->
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="tvs-utreus">TVS Finder</label>
+                                <label class="form-label" for="tvs-utreus">Uterus</label>
+                                <input type="text" id="tvs-utreus" class="form-control" placeholder="Uterus">
+
+                                <label class="form-label" for="endometrium">Endometrium</label>
+                                <input type="text" id="endometrium" class="form-control" placeholder="Endometrium">
+
+                                <label class="form-label" for="adnexial-mass">Adnexial Mass</label>
+                                <input type="text" id="adnexial-mass" class="form-control" placeholder="Adnexial Mass">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label class="form-label" for="height">Problist</label>
+                                <textarea id="problist" name="problist" class="form-control" rows="4" placeholder="Enter Problist"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="height">Medical HX</label>
+                                <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
                                     <option label="Choose one" disabled selected></option>
-                                    <option value="Not">Present in Both</option>
-                                    <option value="Present">Present in Right</option>
-                                    <option value="Present">Present in Left</option>
-                                    <option value="Not">Absent</option>
+                                    <option value="Antibiotics">Antibiotics</option>
+                                    <option value="Analogeis">Analogeis</option>
+                                    <option value="Tranceme">Tranceme</option>
+                                    <option value="Meten">Meten</option>
+                                    <option value="Contracephon">Contracephon</option>
                                 </select>
-                            </div>--}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="height">Surgery HX</label>
+                                <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                    <option label="Choose one" disabled selected></option>
+                                    <option value="Antibiotics">Open Sx</option>
+                                    <option value="Analogeis">Lapcroscope Sx</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
                     <h4>Obs Examination</h4>
                     <div>
                         <div class="row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-4">
                                 <label class="form-label" for="default-dropdown">General</label>
                                 <div class="selectgroup selectgroup-pills">
                                     <label class="selectgroup-item">
@@ -481,153 +597,178 @@
                                         <input type="checkbox" name="value" value="Odema" class="selectgroup-input">
                                         <span class="selectgroup-button">Odema</span>
                                     </label>
-                                    <label class="selectgroup-item">
-                                        <input type="checkbox" name="value" value="BP" class="selectgroup-input">
-                                        <span class="selectgroup-button">BP</span>
-                                    </label>
-                                    <label class="selectgroup-item">
-                                        <input type="checkbox" name="value" value="Thyroid" class="selectgroup-input">
-                                        <span class="selectgroup-button">Thyroid</span>
-                                    </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <label class="form-label" for="default-dropdown">Abdominal Examination</label>
                             <div class="form-group col-md-4">
-                                <label class="form-label" for="inspection-dropdown">Inspection</label>
-                                <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Linea nigra">Linea nigra</option>
-                                    <option value="Striae">Striae</option>
-                                    <option value="Umblicus">Flat Umblicus</option>
-                                    <option value="Surgical Scar">Surgical Scar</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label class="form-label" for="g-text">SFH (cm)</label>
-                                <input type="number" class="form-control" placeholder="kg">
+                                <label class="form-label" for="g-text">BP</label>
+                                <input type="number" class="form-control" placeholder="BP">
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="form-label" for="abdexamination-dropdown">Precentation</label>
-                                <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Cephalic P/C">Cephalic P/C</option>
-                                    <option value="Breech P/C">Breech P/C</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label class="form-label" for="abdexamination-dropdown">Lie</label>
-                                <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Longitudinal">Longitudinal</option>
-                                    <option value="Transverse">Transverse</option>
-                                    <option value="Oblique">Oblique</option>
-                                </select>
+                                <label class="form-label" for="g-text">PR</label>
+                                <input type="number" class="form-control" placeholder="PR">
                             </div>
                         </div>
+
+                        <label class="form-label" for="c-text">Thyroid Examination</label>
                         <div class="row">
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="default-dropdown">Position</label>
-                                <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Linea nigra">LOA</option>
-                                    <option value="Striae">LOP</option>
-                                    <option value="Umblicus">Others</option>
-                                </select>
-                            </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="c-text">Engagement</label>
                                 <div style="display: flex; align-items: center; gap: 10px;">
                                     <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked5">
-                                        <input name="rdio-primary5" type="radio" id="rdio-primary-unchecked5" value="Engaged" style="margin-right: 5px;">
-                                        <span>Engaged</span>
+                                        <input name="rdio-primary5" type="radio" id="rdio-primary-unchecked5" value="Enlarged" style="margin-right: 5px;">
+                                        <span>Enlarged</span>
                                     </label>
                                     <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary5">
-                                        <input name="rdio-primary5" type="radio" id="rdio-primary5" value="Not Engaged" style="margin-right: 5px;">
-                                        <span>Not Engaged</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="efw">EFW (Kg)</label>
-                                <input type="text" class="form-control" placeholder="EFW">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="c-text">Liquor</label>
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked6">
-                                        <input name="rdio-primary6" type="radio" id="rdio-primary-unchecked6" value="Engaged" style="margin-right: 5px;">
-                                        <span>Adequate</span>
-                                    </label>
-                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary6">
-                                        <input name="rdio-primary6" type="radio" id="rdio-primary6" value="Not Engaged" style="margin-right: 5px;">
-                                        <span>Not Adequate</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="c-text">FHS</label>
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked7">
-                                        <input name="rdio-primary7" type="radio" id="rdio-primary-unchecked7" value="Present" style="margin-right: 5px;">
-                                        <span>Present</span>
-                                    </label>
-                                    <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary7">
-                                        <input name="rdio-primary7" type="radio" id="rdio-primary7" value="Absent" style="margin-right: 5px;">
-                                        <span>Absent</span>
+                                        <input name="rdio-primary5" type="radio" id="rdio-primary5" value="Not Enlarged" style="margin-right: 5px;">
+                                        <span>Not Enlarged</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <label class="form-label" for="ve/modihied bishops score">VE/Modihied Bishops Score</label>
-                            <div class="form-group col-md-2">
-                                <label class="form-label" for="g-text">SCORE</label>
-                                <input type="number" class="form-control" placeholder="kg">
-                            </div>
 
-                            <div class="form-group col-md-4">
-                                <label class="form-label" for="cervicaldilatation">Cervical Dilatation (Cm)</label>
-                                <input type="text" class="form-control" placeholder="Cervical Dilatation">
+                        <label class="form-label" for="default-dropdown">Abdominal Examination</label>
+                        <div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="inspection-dropdown">Inspection</label>
+                                    <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Linea nigra">Linea nigra</option>
+                                        <option value="Striae">Striae</option>
+                                        <option value="Umblicus">Flat Umblicus</option>
+                                        <option value="Surgical Scar">Surgical Scar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="g-text">SFH (cm)</label>
+                                    <input type="number" class="form-control" placeholder="kg">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="abdexamination-dropdown">Precentation</label>
+                                    <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Cephalic P/C">Cephalic P/C</option>
+                                        <option value="Breech P/C">Breech P/C</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="effacement">Effacement (%)</label>
-                                <input type="text" class="form-control" placeholder="effacement">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="abdexamination-dropdown">Lie</label>
+                                    <select name="abdexamination" class="form-control form-select" id="abdexamination-dropdown" data-bs-placeholder="Select ABD Examination">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Longitudinal">Longitudinal</option>
+                                        <option value="Transverse">Transverse</option>
+                                        <option value="Oblique">Oblique</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="default-dropdown">Position</label>
+                                    <select name="inspection" class="form-control form-select" id="inspection-dropdown" data-bs-placeholder="Select Inspection">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Linea nigra">LOA</option>
+                                        <option value="Striae">LOP</option>
+                                        <option value="Umblicus">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="efw">EFW (Kg)</label>
+                                    <input type="text" class="form-control" placeholder="EFW">
+                                </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="Station-dropdown">Station</label>
-                                <select name="station" class="form-control form-select" id="station-dropdown" data-bs-placeholder="Select Station">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="-2">-2</option>
-                                    <option value="-1">-1</option>
-                                    <option value="0">0</option>
-                                    <option value="+1">+1</option>
-                                    <option value="+2">+2</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="consistency-dropdown">Cervical Consistency</label>
-                                <select name="consistency" class="form-control form-select" id="consistency-dropdown" data-bs-placeholder="Select Cervical Consistency">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Firm">Firm</option>
-                                    <option value="Soft">Soft</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label class="form-label" for="Station-dropdown">Cervical Position</label>
-                                <select name="cervical" class="form-control form-select" id="cervical-dropdown" data-bs-placeholder="Select Cervical Position">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="anterior">Anterior</option>
-                                    <option value="positerior">Positerior</option>
-                                    <option value="central">Central</option>
-                                </select>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="c-text">Engagement</label>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked6">
+                                            <input name="rdio-primary6" type="radio" id="rdio-primary-unchecked6" value="Engaged" style="margin-right: 5px;">
+                                            <span>Engaged</span>
+                                        </label>
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary6">
+                                            <input name="rdio-primary6" type="radio" id="rdio-primary6" value="Not Engaged" style="margin-right: 5px;">
+                                            <span>Not Engaged</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="c-text">Liquor</label>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked7">
+                                            <input name="rdio-primary7" type="radio" id="rdio-primary-unchecked7" value="Engaged" style="margin-right: 5px;">
+                                            <span>Adequate</span>
+                                        </label>
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary7">
+                                            <input name="rdio-primary7" type="radio" id="rdio-primary7" value="Not Engaged" style="margin-right: 5px;">
+                                            <span>Not Adequate</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="c-text">FHS</label>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked8">
+                                            <input name="rdio-primary8" type="radio" id="rdio-primary-unchecked8" value="Present" style="margin-right: 5px;">
+                                            <span>Present</span>
+                                        </label>
+                                        <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary8">
+                                            <input name="rdio-primary8" type="radio" id="rdio-primary8" value="Absent" style="margin-right: 5px;">
+                                            <span>Absent</span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <label class="form-label" for="ve/modihied bishops score">VE/Modihied Bishops Score</label>
+                        <label class="form-label" for="g-text">SCORE: 125</label>
                         <div>
-                            <label class="form-label" for="IX">IX</label>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="g-text">SCORE</label>
+                                    <input type="number" class="form-control" placeholder="kg">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="cervicaldilatation">Cervical Dilatation (Cm)</label>
+                                    <input type="text" class="form-control" placeholder="Cervical Dilatation">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="effacement">Effacement (%)</label>
+                                    <input type="text" class="form-control" placeholder="effacement">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="Station-dropdown">Station</label>
+                                    <select name="station" class="form-control form-select" id="station-dropdown" data-bs-placeholder="Select Station">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="-2">-2</option>
+                                        <option value="-1">-1</option>
+                                        <option value="0">0</option>
+                                        <option value="+1">+1</option>
+                                        <option value="+2">+2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="consistency-dropdown">Cervical Consistency</label>
+                                    <select name="consistency" class="form-control form-select" id="consistency-dropdown" data-bs-placeholder="Select Cervical Consistency">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="Firm">Firm</option>
+                                        <option value="Soft">Soft</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="Station-dropdown">Cervical Position</label>
+                                    <select name="cervical" class="form-control form-select" id="cervical-dropdown" data-bs-placeholder="Select Cervical Position">
+                                        <option label="Choose one" disabled selected></option>
+                                        <option value="anterior">Anterior</option>
+                                        <option value="positerior">Positerior</option>
+                                        <option value="central">Central</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label" for="ix-dropdown">IX</label>
+                        <div>
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label class="form-label" for="ctg-dropdown">CTG</label>
@@ -638,108 +779,88 @@
                                         <option value="Pathological">Pathological</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="crp-dropdown">CRP</label>
-                                        <input type="number" class="form-control" placeholder="kg">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="crp-dropdown">TAS</label>
-                                    <select name="tas" class="form-control form-select" id="tas-dropdown" data-bs-placeholder="Select TAS">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="ohtt/blood-dropdown">OHTT/Blood</label>
-                                    <select name="ohtt/blood" class="form-control form-select" id="ohtt/blood-dropdown" data-bs-placeholder="Select OHTT/Blood">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
+                                <div class="form-group col-md-9">
+                                    <label class="form-label" for="tas-dropdown">TAS</label>
+                                    <input type="description" name="crp" class="form-control" id="crp-input" placeholder="CRP Value">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="urine-dropdown">Urine</label>
-                                    <select name="urine" class="form-control form-select" id="urine-dropdown" data-bs-placeholder="Select Urine">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
+                                <label class="form-label" for="fbc-input">FBC</label>
+                                <div>
+                                    <div class="form-group col-ml-12">
+                                        <div class="d-flex">
+                                            <div class="form-group col-md-3">
+                                                <label class="form-label" for="gb-input">HB(g/dl)</label>
+                                                <input type="number" name="gb" class="form-control" id="gb-input" placeholder="HB(g/dl)">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label class="form-label" for="plt-input">PLT(/mm)</label>
+                                                <input type="number" name="plt" class="form-control" id="plt-input" placeholder="PLT(/mm)">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label class="form-label" for="wbc-input">WBC(/mm)</label>
+                                                <input type="number" name="wbc" class="form-control" id="wbc-input" placeholder="WBC(/mm)">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="crp-dropdown">FBC</label>
-                                    <select name="fbc" class="form-control form-select" id="fbc-dropdown" data-bs-placeholder="Select FBC">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Hb">Hb</option>
-                                        <option value="PLT">PLT</option>
-                                        <option value="WBC">WBC</option>
-                                    </select>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label class="form-label" for="crp-input">CRP</label>
+                                        <input type="number" name="crp" class="form-control" id="crp-input" placeholder="CRP Value">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="form-label" for="urine-dropdown">Urine Full Report</label>
+                                        <select name="urine" class="form-control form-select" id="urine-dropdown" data-bs-placeholder="Select Urine">
+                                            <option label="Choose one" disabled selected></option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Abnormal">Abnormal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="form-label" for="ohtt-blood-dropdown">OHTT/BSS</label>
+                                        <select name="ohtt/blood" class="form-control form-select" id="ohtt-blood-dropdown" data-bs-placeholder="Select OHTT/Blood">
+                                            <option label="Choose one" disabled selected></option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Abnormal">Abnormal</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <label class="form-label" for="plan">Plan</label>
-                            <div class="row">
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="ctg-dropdown">Antibiotics</label>
-                                    <select name="ctg" class="form-control form-select" id="ctg-dropdown" data-bs-placeholder="Select CTG">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="crp-dropdown">Analogeis</label>
-                                    <select name="crp" class="form-control form-select" id="crp-dropdown" data-bs-placeholder="Select CRP">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="crp-dropdown">DM Mx</label>
-                                    <select name="tas" class="form-control form-select" id="tas-dropdown" data-bs-placeholder="Select TAS">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="ohtt/blood-dropdown">BP Mx</label>
-                                    <select name="ohtt/blood" class="form-control form-select" id="ohtt/blood-dropdown" data-bs-placeholder="Select OHTT/Blood">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Suspizions">Suspizions</option>
-                                        <option value="Pathological">Pathological</option>
-                                    </select>
-                                </div>
+
+                        <label class="form-label" for="plan">Plan</label>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="ctg-dropdown">Antibiotics</label>
+                                <select name="ctg" class="form-control form-select" id="ctg-dropdown" data-bs-placeholder="Select CTG">
+                                    <option label="Choose one" disabled selected></option>
+                                    <option value="Antibiotics">Antibiotics</option>
+                                    <option value="Analogeis">Analogeis</option>
+                                    <option value="DM Mx">DM Mx</option>
+                                    <option value="DM Mx">BP Mx</option>
+                                    <option value="Steroids">Steroids</option>
+                                </select>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="urine-dropdown">Steroids & Plan Delivery</label>
-                                    <select name="urine" class="form-control form-select" id="urine-dropdown" data-bs-placeholder="Select Urine">
-                                        <option label="Choose one" disabled selected></option>
-                                        <option value="IOC">IOC</option>
-                                        <option value="SOS">SOS</option>
-                                        <option value="ELEC.LSCS">ELEC.LSCS</option>
-                                    </select>
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="urine-dropdown">Plan Delivery</label>
+                                <select name="urine" class="form-control form-select" id="urine-dropdown" data-bs-placeholder="Select Urine">
+                                    <option label="Choose one" disabled selected></option>
+                                    <option value="IOC">IOC</option>
+                                    <option value="SOS">SOS</option>
+                                    <option value="ELEC.LSCS">ELEC.LSCS</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <!-- /Row -->
