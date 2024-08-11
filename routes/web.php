@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::post('/complaints', [IndexController::class, 'store'])->name('complaints.store');
+

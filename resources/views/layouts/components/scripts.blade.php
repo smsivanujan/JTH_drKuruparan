@@ -73,11 +73,12 @@
             }
         </script>
 
+        <!-- Presenting Complaint -->
         <script>
             let fieldCount = 1;
 
             function changeCategory() {
-                const specialty = document.getElementById('Category-dropdown').value;
+                const specialty = document.getElementById('category-dropdown').value;
 
                 for (let i = 1; i < fieldCount; i++) {
                     const complaintDropdown = document.getElementById(`complaint-dropdown-${i}`);
@@ -91,7 +92,7 @@
                 complaintDropdown.innerHTML = '';
                 complaintDropdown.innerHTML += '<option label="Choose one" disabled selected></option>';
 
-                if (specialty === 'gyn') {
+                if (specialty === 'GYN') {
                     complaintDropdown.innerHTML += `
                 <option value="First trimester (T1) bleeding">First trimester (T1) bleeding</option>
                 <option value="Abnormal uterine bleeding (AUB)">Abnormal uterine bleeding (AUB)</option>
@@ -110,7 +111,7 @@
                 <option value="Abdominal mass">Abdominal mass</option>
                 <option value="Dyspepsia">Dyspepsia</option>
                 <option value="Other">Other</option>`;
-                } else if (specialty === 'obs') {
+                } else if (specialty === 'OBS') {
                     complaintDropdown.innerHTML += `
                 <option value="Show">Show</option>
                 <option value="Dribbling">Dribbling</option>
@@ -127,13 +128,13 @@
                 newRow.className = 'row mb-3';
                 newRow.id = `field-row-${fieldCount}`;
                 newRow.innerHTML = `<div class="row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-6">
                         <label class="form-label" for="complaint-dropdown-${fieldCount}">Complaint</label>
                         <select name="complaint[]" class="form-control form-select" id="complaint-dropdown-${fieldCount}" data-bs-placeholder="Select Complaint">
                             <option label="Choose one" disabled selected></option>
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label class="form-label" for="duration-dropdown-${fieldCount}">Duration</label>
                         <select name="duration[]" class="form-control form-select" id="duration-dropdown-${fieldCount}" data-bs-placeholder="Select Duration">
                             <option label="Choose one" disabled selected></option>
@@ -149,8 +150,6 @@
                             <option value="1 Month and more">1 Month and more</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">
                     <div class="form-group col-md-3">
                         <label class="form-label" for="severity-dropdown-${fieldCount}">Severity</label>
                         <select name="severity[]" class="form-control form-select" id="severity-dropdown-${fieldCount}" data-bs-placeholder="Select Severity">
@@ -160,12 +159,11 @@
                             <option value="Severe">Severe</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-8">
-                        <label for="remarks-${fieldCount}" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="remarks-${fieldCount}" name="remarks[]" rows="1" required></textarea>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-11">
+                        <label for="remarksPC-${fieldCount}" class="form-label">Remarks</label>
+                        <textarea class="form-control" id="remarksPC-${fieldCount}" name="remarksPC[]" rows="4" required></textarea>
                     </div>
                     <div class="form-group col-md-1 d-flex align-items-end">
                         <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount}')"><i class="fe fe-trash-2"></i></button>
@@ -174,7 +172,7 @@
 
                 complaintFields.appendChild(newRow);
 
-                updateDropdownOptions(document.getElementById(`complaint-dropdown-${fieldCount}`), document.getElementById('Category-dropdown').value);
+                updateDropdownOptions(document.getElementById(`complaint-dropdown-${fieldCount}`), document.getElementById('category-dropdown').value);
 
                 fieldCount++;
             });
@@ -185,6 +183,7 @@
             }
         </script>
 
+        <!-- Past Obs Hx -->
         <script>
             let fieldCount2 = 2;
 
@@ -196,11 +195,11 @@
                 newRow.innerHTML = `<div class="row"> 
                     <div class="form-group col-md-3">
                         <label class="form-label" for="year-input-${fieldCount2}">Year</label>
-                        <input type="number" class="form-control" placeholder="YYYY" id="year-input-${fieldCount2}" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
+                        <input type="number" name="year[]" autocomplete="off" class="form-control" placeholder="YYYY" id="year-input-3" min="1000" max="9999" maxlength="4">
                     </div>
                     <div class="form-group col-md-3">
                         <label class="form-label" for="poa-text-${fieldCount2}">POA</label>
-                        <input type="text" class="form-control" placeholder="POA" id="poa-text-${fieldCount2}">
+                        <input type="text" name="poa[]" class="form-control" placeholder="POA" id="poa-text-${fieldCount2}">
                     </div>
                     <div class="form-group col-md-4">
                         <label class="form-label" for="mod-text-${fieldCount2}">MOD</label>
@@ -215,18 +214,15 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label class="form-label" for="birth-weight-text-${fieldCount2}">B.Weight</label>
-                        <input type="text" class="form-control" placeholder="KG" id="birth-weight-text-${fieldCount2}">
+                        <input type="text" name="birth_weight[]" class="form-control" placeholder="KG" id="birth-weight-text-${fieldCount2}">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-10">
-                        <label for="remarks-${fieldCount}" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="remarks-${fieldCount}" name="remarks[]" rows="1" required></textarea>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                    <div class="form-group col-md-11">
+                        <label for="pastObshx_remarks-${fieldCount}" class="form-label">Remarks</label>
+                        <textarea class="form-control" id="pastObshx_remarks-${fieldCount}" name="pastObshx_remarks[]" rows="4" required></textarea>
                     </div>
-                    <div class="form-group col-md-2 d-flex align-items-end">
+                    <div class="form-group col-md-1 d-flex align-items-end">
                         <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount2}')"><i class="fe fe-trash-2"></i></button>
                     </div>
                 </div>`;
@@ -242,6 +238,7 @@
             }
         </script>
 
+        <!-- Past Gyn Hx -Subfertility -->
         <script>
             function getSelectedRadio() {
                 const radios = document.querySelectorAll('input[name="rdio-primary3"]');
@@ -254,21 +251,21 @@
                 });
 
                 const newRowGender = document.getElementById('newRowGender');
-                if (selectedValue === 'yes') {
+                if (selectedValue === 'Yes') { // Case-sensitive check for 'Yes'
                     newRowGender.innerHTML = `
                     <div class="container d-flex justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="form-label" for="Gender-dropdown">Gender</label>
-                                <select name="specialty" class="form-control form-select" id="Gender-dropdown" data-bs-placeholder="Select Gender">
+                                <label class="form-label" for="gender-dropdown">Gender</label>
+                                <select name="gender" class="form-control form-select" id="gender-dropdown" data-bs-placeholder="Select Gender">
                                     <option label="Choose one" disabled selected></option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
                     </div>`;
-                    document.getElementById('Gender-dropdown').addEventListener('change', changeGender);
+                    document.getElementById('gender-dropdown').addEventListener('change', changeGender); // Corrected ID here
                 } else {
                     newRowGender.innerHTML = '';
                     document.getElementById('newRow').innerHTML = '';
@@ -276,72 +273,72 @@
             }
 
             function changeGender() {
-                const specialtyGender = document.getElementById('Gender-dropdown').value;
+                const specialtyGender = document.getElementById('gender-dropdown').value; // Corrected ID here
                 const newRow = document.getElementById('newRow');
 
-                if (specialtyGender === 'male') {
+                if (specialtyGender === 'Male') { // Case-sensitive check for 'Male'
                     newRow.innerHTML = `
                     <div class="row">
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked>
+                                <input type="checkbox" name="male_factors[]" value="SFA" class="selectgroup-input" checked>
                                 <span class="selectgroup-button">SFA</span>
                             </label>
                         </div>
                     </div>`;
-                } else if (specialtyGender === 'female') {
+                } else if (specialtyGender === 'Female') { // Case-sensitive check for 'Female'
                     newRow.innerHTML = `
                     <div class="row">
                         <label class="form-label" for="default-dropdown">Ovulatory Disorder</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="value" value="Hypothalamic Pituitary Axis" class="selectgroup-input">
+                                <input type="checkbox" name="ovulatory_disorder[]" value="Hypothalamic Pituitary Axis" class="selectgroup-input">
                                 <span class="selectgroup-button">Hypothalamic Pituitary Axis</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="value" value="PCOS" class="selectgroup-input">
+                                <input type="checkbox" name="ovulatory_disorder[]" value="PCOS" class="selectgroup-input">
                                 <span class="selectgroup-button">PCOS</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="value" value="Ovarian Failure (POF/POI)" class="selectgroup-input">
+                                <input type="checkbox" name="ovulatory_disorder[]" value="Ovarian Failure (POF/POI)" class="selectgroup-input">
                                 <span class="selectgroup-button">Ovarian Failure (POF/POI)</span>
                             </label>
                         </div>
                         <label class="form-label" for="default-dropdown">Tubal Factors</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="tubal_factors_1" value="Infection" class="selectgroup-input">
+                                <input type="checkbox" name="tubal_factors[]" value="Infection" class="selectgroup-input">
                                 <span class="selectgroup-button">Infection</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="tubal_factors_2" value="Surgery" class="selectgroup-input">
+                                <input type="checkbox" name="tubal_factors[]" value="Surgery" class="selectgroup-input">
                                 <span class="selectgroup-button">Surgery</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="tubal_factors_3" value="Endometriosis" class="selectgroup-input">
+                                <input type="checkbox" name="tubal_factors[]" value="Endometriosis" class="selectgroup-input">
                                 <span class="selectgroup-button">Endometriosis</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="tubal_factors_4" value="IBD" class="selectgroup-input">
+                                <input type="checkbox" name="tubal_factors[]" value="IBD" class="selectgroup-input">
                                 <span class="selectgroup-button">IBD</span>
                             </label>
                         </div>
                         <label class="form-label" for="default-dropdown">Uterine</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="uterine_1" value="Congenital" class="selectgroup-input">
+                                <input type="checkbox" name="uterine_factors[]" value="Congenital" class="selectgroup-input">
                                 <span class="selectgroup-button">Congenital</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="uterine_2" value="Fibroids" class="selectgroup-input">
+                                <input type="checkbox" name="uterine_factors[]" value="Fibroids" class="selectgroup-input">
                                 <span class="selectgroup-button">Fibroids</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="uterine_3" value="Polyps" class="selectgroup-input">
+                                <input type="checkbox" name="uterine_factors[]" value="Polyps" class="selectgroup-input">
                                 <span class="selectgroup-button">Polyps</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="uterine_4" value="Adhesion/Asherman's" class="selectgroup-input">
+                                <input type="checkbox" name="uterine_factors[]" value="Adhesion/Asherman's" class="selectgroup-input">
                                 <span class="selectgroup-button">Adhesion/Asherman's</span>
                             </label>
                         </div>
@@ -354,6 +351,7 @@
             });
         </script>
 
+        <!-- Past Med HX -->
         <script>
             let fieldCount3 = 3;
 
@@ -361,11 +359,11 @@
                 const complaintFields = document.getElementById('pastmedhx-fields');
                 const newRow = document.createElement('div');
                 newRow.className = 'row mb-3';
-                newRow.id = `field-row-${fieldCount2}`;
+                newRow.id = `field-row-${fieldCount3}`;
                 newRow.innerHTML = `<div class="row"> 
-                    <div class="form-group col-md-12">
-                        <label class="form-label" for="pastmedhx-text-${fieldCount2}">Past Med Hx</label>
-                        <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount2}" data-bs-placeholder="Select Past Med Hx">
+                    <div class="form-group col-md-4">
+                        <label class="form-label" for="pastmedhx-text-${fieldCount3}">Past Med Hx</label>
+                        <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount3}" data-bs-placeholder="Select Past Med Hx">
                             <option selected disabled value="">Choose...</option>
                             <option value="DM-type2/type1">DM-type2/type1</option>
                             <option value="HTN">HTN</option>
@@ -376,14 +374,9 @@
                              <option value="Others">Others</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-10">
-                        <label for="remarks-${fieldCount}" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="remarks-${fieldCount}" name="remarks[]" rows="1" required></textarea>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                      <div class="form-group col-md-6">
+                        <label for="pastMedHx_remarks-${fieldCount3}" class="form-label">Remarks</label>
+                        <textarea class="form-control" id="pastMedHx_remarks-${fieldCount3}" name="pastMedHx_remarks[]" rows="1" required></textarea>
                     </div>
                     <div class="form-group col-md-2 d-flex align-items-end">
                         <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount2}')"><i class="fe fe-trash-2"></i></button>

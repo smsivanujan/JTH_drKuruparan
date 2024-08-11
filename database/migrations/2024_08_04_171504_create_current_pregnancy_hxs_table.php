@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('current_pregnancy_hxs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnanacy_id')->constrained('pregnanacies');
-            $table->string('g')->nullable(); 
-            $table->string('p')->nullable(); 
+            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->string('g')->nullable();
+            $table->string('p')->nullable();
             $table->string('c')->nullable();
             $table->integer('married_year')->nullable();
-            $table->date('lmp')->nullable();
-            $table->date('edd')->nullable();
-            $table->date('working_edd')->nullable();
+            $table->date('lmp')->nullable(); // Last Menstrual Period
+            $table->date('edd')->nullable(); // Estimated Due Date
+            $table->date('working_edd')->nullable(); // Working Estimated Due Date
             $table->timestamps();
-        });
+        });        
     }
 
     /**

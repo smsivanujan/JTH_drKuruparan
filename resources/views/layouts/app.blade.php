@@ -10,6 +10,7 @@
     <meta name="description" content="Wardhana Enterprises">
     <meta name="author" content="sobiztech pvt ltd">
     <meta name="keywords" content="Wardhana Enterprises, Micro Finance">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('layouts.components.styles')
 

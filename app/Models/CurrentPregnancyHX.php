@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CurrentPregnancyHX extends Model
 {
+    protected $table = 'current_pregnancy_hxs';
     protected $fillable = [
         'g',
         'p',

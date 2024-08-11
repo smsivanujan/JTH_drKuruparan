@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OtherHX extends Model
 {
+    protected $table = 'other_hxs';
     protected $fillable = [
         'drugalergyhx',
         'food_allergy_hx',

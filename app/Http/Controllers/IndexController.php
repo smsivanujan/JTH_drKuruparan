@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AllergicHX;
 use App\Models\CurrentPregnancyHX;
+use App\Models\GynExaminations;
 use App\Models\Index;
+use App\Models\ObsExaminations;
 use App\Models\OtherHX;
 use App\Models\PastGynHX;
 use App\Models\PastMedHX;
@@ -26,31 +29,32 @@ class IndexController extends Controller
 
     public function store(Request $request)
     {
-        $pregnanacy = new Pregnanacy();
-        $pregnanacy->patient_id = $request->input('patient_id');
-        $pregnanacy->category = $request->input('category');
-        $pregnanacy->detail= $request->input('detail');
-        $pregnanacy->save();
+        // $pregnanacy = new Pregnanacy();
+        // $pregnanacy->patient_id = $request->input('patient_id');
+        // $pregnanacy->category = $request->input('category');
+        // $pregnanacy->detail = $request->input('detail');
+        // $pregnanacy->save();
 
-        $savedId = $pregnanacy->id;
+        // $savedId = $pregnanacy->id;
+        $savedId = 1;
 
         $complaints = $request->input('complaint', []);
         $durations = $request->input('duration', []);
         $severities = $request->input('severity', []);
-        $remarks = $request->input('remarks', []);
+        $remarksPC = $request->input('remarksPC', []);
 
-        foreach ($remarks as $key => $remark) {
+        foreach ($remarksPC as $key => $remarkPC) {
             $presentComplaint = new PresentComplaint();
-            $presentComplaint->pregnanacy_id = $savedId;
+            $presentComplaint->pregnancy_id = $savedId;
             $presentComplaint->complaint = $complaints[$key] ?? null;
             $presentComplaint->duration = $durations[$key] ?? null;
             $presentComplaint->severity = $severities[$key] ?? null;
-            $presentComplaint->remarks = $remark;
+            $presentComplaint->remarks = $remarkPC;
             $presentComplaint->save();
         }
 
         $currentPregnancyHX = new CurrentPregnancyHX();
-        $currentPregnancyHX->pregnanacy_id = $savedId;
+        $currentPregnancyHX->pregnancy_id = $savedId;
         $currentPregnancyHX->g = $request->input('g');
         $currentPregnancyHX->p = $request->input('p');
         $currentPregnancyHX->c = $request->input('c');
@@ -60,60 +64,150 @@ class IndexController extends Controller
         $currentPregnancyHX->working_edd = $request->input('working_edd');
         $currentPregnancyHX->save();
 
+
         $years = $request->input('year', []);
         $poas = $request->input('poa', []);
         $mods = $request->input('mod', []);
         $birthWeights = $request->input('birth_weight', []);
-        $remarks = $request->input('remarks', []);
+        $pastObsHxRemarks  = $request->input('pastObshx_remarks', []);
 
-        foreach ($remarks as $key => $remark) {
-            $pastObstetricHX = new PastObsHX();
-            $pastObstetricHX->pregnanacy_id = $savedId;
-            $pastObstetricHX->year = $years[$key] ?? null;
-            $pastObstetricHX->poa = $poas[$key] ?? null;
-            $pastObstetricHX->mod = $mods[$key] ?? null;
-            $pastObstetricHX->birth_weight = $birthWeights[$key] ?? null;
-            $pastObstetricHX->remarks = $remark;
-            $pastObstetricHX->save();
+        foreach ($pastObsHxRemarks as $key => $pastObsHxremark) {
+            $pastObsHX = new PastObsHX();
+            $pastObsHX->pregnancy_id = $savedId;
+            $pastObsHX->year = $years[$key] ?? null;
+            $pastObsHX->poa = $poas[$key] ?? null;
+            $pastObsHX->mod = $mods[$key] ?? null;
+            $pastObsHX->birth_weight = $birthWeights[$key] ?? null;
+            $pastObsHX->remarks = $pastObsHxremark;
+            $pastObsHX->save();
         }
 
         $pastGynHx = new PastGynHX();
-        $pastGynHx->pregnanacy_id = $savedId;
+        $pastGynHx->pregnancy_id = $savedId;
         $pastGynHx->age = $request->input('age');
         $pastGynHx->amount = $request->input('amount');
         $pastGynHx->duration = $request->input('duration');
-        $pastGynHx->status = $request->input('status');
-        $pastGynHx->aub = $request->input('aub');
-        $pastGynHx->contraception = $request->input('contraception', []);
-        $pastGynHx->subfertility = $request->input('subfertility');
+        $pastGynHx->status = $request->input('rdio-primary1');
+        $pastGynHx->aub = $request->input('rdio-primary2');
+        $pastGynHx->contraception = json_encode($request->input('contraception', []));
+        $pastGynHx->subfertility = $request->input('rdio-primary3');
         $pastGynHx->gender = $request->input('gender');
-        $pastGynHx->male_factors = $request->input('male_factors', []);
-        $pastGynHx->ovulatory_disorder = $request->input('ovulatory_disorder', []);
-        $pastGynHx->tubal_factors = $request->input('tubal_factors', []);
-        $pastGynHx->uterine_factors = $request->input('uterine_factors', []);
+        $pastGynHx->male_factors = json_encode($request->input('male_factors', []));
+        $pastGynHx->ovulatory_disorder = json_encode($request->input('ovulatory_disorder', []));
+        $pastGynHx->tubal_factors = json_encode($request->input('tubal_factors', []));
+        $pastGynHx->uterine_factors = json_encode($request->input('uterine_factors', []));
         $pastGynHx->save();
 
-        $pastMedHxDatas = $request->input('pastmedhx', []);
-        $remarksDatas = $request->input('remarks', []);
+        $pastMedHxs = $request->input('pastmedhx', []);
+        $PastMedhxRemarks = $request->input('pastMedHx_remarks', []);
 
-        foreach ($remarksDatas as $key => $remarksData) {
+        foreach ($PastMedhxRemarks as $key => $PastMedhxRemark) {
             $pastMedHX = new PastMedHX();
-            $pastMedHX->pregnanacy_id = $savedId;
-            $pastMedHX->past_med_hx = $pastMedHxDatas;
-            $pastMedHX->remarks = $remarksData[$key] ?? null;
+            $pastMedHX->pregnancy_id = $savedId;
+            $pastMedHX->past_med_hx = $pastMedHxs[$key] ?? null;
+            $pastMedHX->remarks = $PastMedhxRemark;
             $pastMedHX->save();
         }
 
+        $allergicHx = new AllergicHX();
+        $allergicHx->pregnancy_id = $savedId;
+        $allergicHx->drugalergyhx = json_encode($request->input('drugalergyhx', []));
+        $allergicHx->foodallergyhx = $request->input('foodallergyhx', '');
+        $allergicHx->otherallergyhx = $request->input('otherallergyhx', '');
+        $allergicHx->save();
+
         $otherHx = new OtherHX();
-        $otherHx->pregnanacy_id = $savedId;
-        $otherHx->drugalergyhx = implode(', ', $request->input('drugalergyhx', []));
-        $otherHx->food_allergy_hx = $request->input('food_allergy_hx');
-        $otherHx->past_surgery_hx = $request->input('past_surgery_hx');
-        $otherHx->family_hx = $request->input('family_hx');
-        $otherHx->social_hx = $request->input('social_hx');
+        $otherHx->pregnancy_id = $savedId;
+        $otherHx->past_surgery_hx = $request->input('pastsurgeryhx', '');
+        $otherHx->family_hx = $request->input('familyhx', '');
+        $otherHx->social_hx = $request->input('socialhx', '');
         $otherHx->save();
 
-        
+        // $gynExamination = new GynExaminations();
+        // $gynExamination->pregnancy_id = $savedId; // Ensure you have $savedId defined
+        // $gynExamination->general = implode(', ', $request->input('general', []));
+        // $gynExamination->height = $request->input('height');
+        // $gynExamination->weight = $request->input('weight');
+        // $gynExamination->bmi = $request->input('bmi');
+        // $gynExamination->temperature = $request->input('temperature');
+        // $gynExamination->system = implode(', ', $request->input('system', []));
+        // $gynExamination->pulse_rate = $request->input('pulse_rate');
+        // $gynExamination->rhythm = $request->input('rhythm');
+        // $gynExamination->systolic = $request->input('systolic');
+        // $gynExamination->diastolic = $request->input('diastolic');
+        // $gynExamination->heart_sound = $request->input('heart_sound');
+        // $gynExamination->memor = $request->input('memor');
+        // $gynExamination->breath_sound = $request->input('breath_sound');
+        // $gynExamination->thyroid_examination = $request->input('thyroid_examination');
+        // $gynExamination->abd_examination = $request->input('abd_examination');
+        // $gynExamination->inspection = $request->input('inspection');
+        // $gynExamination->stress_incontinence = $request->input('stress_incontinence');
+        // $gynExamination->cervical = $request->input('cervical');
+        // $gynExamination->os = $request->input('os');
+        // $gynExamination->polyp_ulcer = $request->input('polyp/ulcer');
+        // $gynExamination->cervical_motion_tenderness = $request->input('cervicalmotiontenderness');
+        // $gynExamination->direction = $request->input('direction');
+        // $gynExamination->adnexial_mass = $request->input('adnexialmass');
+        // $gynExamination->tas_uterus = $request->input('tas_uterus');
+        // $gynExamination->tvs_uterus = $request->input('tvs_uterus');
+        // $gynExamination->endometrium = $request->input('endometrium');
+        // $gynExamination->adnexial_mass_scan = $request->input('adnexial_mass_scan');
+        // $gynExamination->problist = $request->input('problist');
+        // $gynExamination->medical_hx = $request->input('medical_hx');
+        // $gynExamination->surgery_hx = $request->input('surgery_hx');
+        // $gynExamination->save();
+
+        // Create a new instance of the model
+        // $obsExamination = new ObsExaminations();
+        // $obsExamination->pregnancy_id = $savedId;
+
+        // General Section
+        // $obsExamination->pallor = $request->has('pallor') ? 'Pallor' : null;
+        // $obsExamination->odema = $request->has('odema') ? 'Odema' : null;
+
+        // BP and PR
+        // $obsExamination->bp = $request->input('bp', '');
+        // $obsExamination->pr = $request->input('pr', '');
+
+        // Thyroid Examination
+        // $obsExamination->thyroid_examination = $request->input('rdio-primary5', '');
+
+        // Abdominal Examination
+        // $obsExamination->inspection = $request->input('inspection', '');
+        // $obsExamination->sfh = $request->input('sfh', '');
+        // $obsExamination->precentation = $request->input('precentation', '');
+        // $obsExamination->lie = $request->input('lie', '');
+        // $obsExamination->position = $request->input('position', '');
+        // $obsExamination->efw = $request->input('efw', '');
+        // $obsExamination->engagement = $request->input('rdio-primary6', '');
+        // $obsExamination->liquor = $request->input('rdio-primary7', '');
+        // $obsExamination->fhs = $request->input('rdio-primary8', '');
+
+        // VE/Modified Bishops Score
+        // $obsExamination->cervical_dilatation = $request->input('cervicaldilatation', '');
+        // $obsExamination->effacement = $request->input('effacement', '');
+        // $obsExamination->station = $request->input('station', '');
+        // $obsExamination->cervical_consistency = $request->input('cervicalconsistency', '');
+        // $obsExamination->cervical_position = $request->input('cervicalposition', '');
+
+        // IX
+        // $obsExamination->ctg = $request->input('ctg', '');
+        // $obsExamination->tas = $request->input('tas', '');
+
+        // FBC
+        // $obsExamination->hb = $request->input('hb', '');
+        // $obsExamination->plt = $request->input('plt', '');
+        // $obsExamination->wbc = $request->input('wbc', '');
+        // $obsExamination->crp = $request->input('crp', '');
+        // $obsExamination->urine_full_report = $request->input('urinefullreport', '');
+        // $obsExamination->ohtt_bss = $request->input('ohtt/bss', '');
+
+        // Plan
+        // $obsExamination->antibiotics = $request->input('antibiotics', '');
+        // $obsExamination->plan_delivery = $request->input('plandelivery', '');
+
+        // Save the model to the database
+        // $obsExamination->save();
 
         return redirect()->back()->with('success', 'Complaints saved successfully.');
     }

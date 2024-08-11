@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PresentComplaint extends Model
 {
+    protected $table = 'present_complaints';
     protected $fillable = [
         'complaint',
         'duration',

@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('other_hxs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnanacy_id')->constrained('pregnanacies');
-            $table->text('drugalergyhx')->nullable();
-            $table->text('food_allergy_hx')->nullable();
-            $table->text('past_surgery_hx')->nullable();
-            $table->text('family_hx')->nullable();
-            $table->text('social_hx')->nullable();
+            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->text('past_surgery_hx')->nullable(); // Past surgery history
+            $table->text('family_hx')->nullable(); // Family history
+            $table->text('social_hx')->nullable(); // Social history
             $table->timestamps();
         });
     }

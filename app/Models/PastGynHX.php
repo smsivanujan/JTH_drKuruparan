@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PastGynHX extends Model
 {
+    protected $table = 'past_gyn_hxs';
     protected $fillable = [
         'age',
         'amount',
