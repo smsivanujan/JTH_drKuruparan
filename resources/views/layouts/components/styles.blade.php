@@ -1,6 +1,6 @@
 
 		<!-- TITLE -->
-		<title>Wardhana Enterprises</title>
+		<title>Patient's Clinical Record</title>
 
         <!-- FAVICON -->
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/logo-2.png')}}" />
