@@ -123,91 +123,73 @@ class IndexController extends Controller
         $otherHx->social_hx = $request->input('socialhx', '');
         $otherHx->save();
 
-        // $gynExamination = new GynExaminations();
-        // $gynExamination->pregnancy_id = $savedId; // Ensure you have $savedId defined
-        // $gynExamination->general = implode(', ', $request->input('general', []));
-        // $gynExamination->height = $request->input('height');
-        // $gynExamination->weight = $request->input('weight');
-        // $gynExamination->bmi = $request->input('bmi');
-        // $gynExamination->temperature = $request->input('temperature');
-        // $gynExamination->system = implode(', ', $request->input('system', []));
-        // $gynExamination->pulse_rate = $request->input('pulse_rate');
-        // $gynExamination->rhythm = $request->input('rhythm');
-        // $gynExamination->systolic = $request->input('systolic');
-        // $gynExamination->diastolic = $request->input('diastolic');
-        // $gynExamination->heart_sound = $request->input('heart_sound');
-        // $gynExamination->memor = $request->input('memor');
-        // $gynExamination->breath_sound = $request->input('breath_sound');
-        // $gynExamination->thyroid_examination = $request->input('thyroid_examination');
-        // $gynExamination->abd_examination = $request->input('abd_examination');
-        // $gynExamination->inspection = $request->input('inspection');
-        // $gynExamination->stress_incontinence = $request->input('stress_incontinence');
-        // $gynExamination->cervical = $request->input('cervical');
-        // $gynExamination->os = $request->input('os');
-        // $gynExamination->polyp_ulcer = $request->input('polyp/ulcer');
-        // $gynExamination->cervical_motion_tenderness = $request->input('cervicalmotiontenderness');
-        // $gynExamination->direction = $request->input('direction');
-        // $gynExamination->adnexial_mass = $request->input('adnexialmass');
-        // $gynExamination->tas_uterus = $request->input('tas_uterus');
-        // $gynExamination->tvs_uterus = $request->input('tvs_uterus');
-        // $gynExamination->endometrium = $request->input('endometrium');
-        // $gynExamination->adnexial_mass_scan = $request->input('adnexial_mass_scan');
-        // $gynExamination->problist = $request->input('problist');
-        // $gynExamination->medical_hx = $request->input('medical_hx');
-        // $gynExamination->surgery_hx = $request->input('surgery_hx');
-        // $gynExamination->save();
+        $gynExamination = new GynExaminations();
+        $gynExamination->pregnancy_id = $savedId;
+        $gynExamination->general = implode(', ', $request->input('generalGyn', []));
+        $gynExamination->height = $request->input('height');
+        $gynExamination->weight = $request->input('weight');
+        $gynExamination->bmi = $request->input('bmi');
+        $gynExamination->temperature = $request->input('temperature');
+        $gynExamination->system = implode(', ', $request->input('system', []));
+        $gynExamination->pulse_rate = $request->input('pulse_rate');
+        $gynExamination->rhythm = $request->input('rhythm');
+        $gynExamination->systolic = $request->input('systolic');
+        $gynExamination->diastolic = $request->input('diastolic');
+        $gynExamination->heart_sound = $request->input('heart_sound');
+        $gynExamination->memor = $request->input('memor');
+        $gynExamination->breath_sound = $request->input('breath_sound');
+        $gynExamination->thyroid_examination = $request->input('rdio-primary4');
+        $gynExamination->abd_examination = $request->input('abdexamination');
+        $gynExamination->inspection = $request->input('inspectionSpeculum');
+        $gynExamination->stress_incontinence = $request->input('stress_incontinence');
+        $gynExamination->cervical = $request->input('cervical');
+        $gynExamination->os = $request->input('os');
+        $gynExamination->polyp_ulcer = $request->input('polyp/ulcer');
+        $gynExamination->cervical_motion_tenderness = $request->input('cervicalmotiontenderness');
+        $gynExamination->direction = $request->input('direction');
+        $gynExamination->adnexial_mass = $request->input('adnexialmass');
+        $gynExamination->tas_uterus = $request->input('tas_uterus');
+        $gynExamination->tvs_uterus = $request->input('tvs_uterus');
+        $gynExamination->endometrium = $request->input('endometrium');
+        $gynExamination->adnexial_mass_scan = $request->input('adnexial_mass_scan');
+        $gynExamination->problist = $request->input('problist');
+        $gynExamination->medical_hx = $request->input('medical_hx');
+        $gynExamination->surgery_hx = $request->input('surgery_hx');
+        $gynExamination->save();
 
-        // Create a new instance of the model
-        // $obsExamination = new ObsExaminations();
-        // $obsExamination->pregnancy_id = $savedId;
-
-        // General Section
+        $obsExamination = new ObsExaminations();
+        $obsExamination->pregnancy_id = $savedId;
+        $obsExamination->general = implode(', ', $request->input('generalObs', []));
         // $obsExamination->pallor = $request->has('pallor') ? 'Pallor' : null;
         // $obsExamination->odema = $request->has('odema') ? 'Odema' : null;
-
-        // BP and PR
-        // $obsExamination->bp = $request->input('bp', '');
-        // $obsExamination->pr = $request->input('pr', '');
-
-        // Thyroid Examination
-        // $obsExamination->thyroid_examination = $request->input('rdio-primary5', '');
-
-        // Abdominal Examination
-        // $obsExamination->inspection = $request->input('inspection', '');
-        // $obsExamination->sfh = $request->input('sfh', '');
-        // $obsExamination->precentation = $request->input('precentation', '');
-        // $obsExamination->lie = $request->input('lie', '');
-        // $obsExamination->position = $request->input('position', '');
-        // $obsExamination->efw = $request->input('efw', '');
-        // $obsExamination->engagement = $request->input('rdio-primary6', '');
-        // $obsExamination->liquor = $request->input('rdio-primary7', '');
-        // $obsExamination->fhs = $request->input('rdio-primary8', '');
-
-        // VE/Modified Bishops Score
-        // $obsExamination->cervical_dilatation = $request->input('cervicaldilatation', '');
-        // $obsExamination->effacement = $request->input('effacement', '');
-        // $obsExamination->station = $request->input('station', '');
-        // $obsExamination->cervical_consistency = $request->input('cervicalconsistency', '');
-        // $obsExamination->cervical_position = $request->input('cervicalposition', '');
-
-        // IX
-        // $obsExamination->ctg = $request->input('ctg', '');
-        // $obsExamination->tas = $request->input('tas', '');
-
-        // FBC
-        // $obsExamination->hb = $request->input('hb', '');
-        // $obsExamination->plt = $request->input('plt', '');
-        // $obsExamination->wbc = $request->input('wbc', '');
-        // $obsExamination->crp = $request->input('crp', '');
-        // $obsExamination->urine_full_report = $request->input('urinefullreport', '');
-        // $obsExamination->ohtt_bss = $request->input('ohtt/bss', '');
-
-        // Plan
-        // $obsExamination->antibiotics = $request->input('antibiotics', '');
-        // $obsExamination->plan_delivery = $request->input('plandelivery', '');
-
-        // Save the model to the database
-        // $obsExamination->save();
+        $obsExamination->bp = $request->input('bp', '');
+        $obsExamination->pr = $request->input('pr', '');
+        $obsExamination->thyroid_examination = $request->input('rdio-primary5', '');
+        $obsExamination->inspection = $request->input('inspection', '');
+        $obsExamination->sfh = $request->input('sfh', '');
+        $obsExamination->precentation = $request->input('precentation', '');
+        $obsExamination->lie = $request->input('lie', '');
+        $obsExamination->position = $request->input('position', '');
+        $obsExamination->efw = $request->input('efw', '');
+        $obsExamination->engagement = $request->input('rdio-primary6', '');
+        $obsExamination->liquor = $request->input('rdio-primary7', '');
+        $obsExamination->fhs = $request->input('rdio-primary8', '');
+        $obsExamination->cervical_dilatation = $request->input('cervical_dilatation', '');
+        $obsExamination->effacement = $request->input('effacement', '');
+        $obsExamination->station = $request->input('station', '');
+        $obsExamination->cervical_consistency = $request->input('cervical_consistency', '');
+        $obsExamination->cervical_position = $request->input('cervical_position', '');
+        $obsExamination->ctg = $request->input('ctg', '');
+        $obsExamination->tas = $request->input('tas', '');
+        $obsExamination->hb = $request->input('hb', '');
+        $obsExamination->plt = $request->input('plt', '');
+        $obsExamination->wbc = $request->input('wbc', '');
+        $obsExamination->crp = $request->input('crp', '');
+        $obsExamination->urine_full_report = $request->input('urine_full_report', '');
+        $obsExamination->ohtt_bss = $request->input('ohtt/bss', '');
+        $obsExamination->antibiotics = $request->input('antibiotics', '');
+        $obsExamination->plan_delivery = $request->input('plan_delivery', '');
+        $obsExamination->save();
 
         return redirect()->back()->with('success', 'Complaints saved successfully.');
     }
