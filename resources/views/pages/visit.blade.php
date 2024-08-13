@@ -73,7 +73,7 @@
         <div class="card">
             <div class="card-header border-bottom">
                 <div class="card-title">
-                    Patient's Clinical Record
+                    Patient's Visit Clinical Record
                 </div>
             </div>
             <div class="container d-flex justify-content-center">
@@ -138,11 +138,6 @@
                             @include('pages.fields.obs_examination')
                         </div>
 
-                        <!-- IX -->
-                        <div class="list-group-item py-4" data-acc-step>
-                            @include('pages.fields.ix')
-                        </div>
-
                     </div>
                 </form>
             </div>
@@ -164,64 +159,4 @@
 <script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-
-<script>
-    function calculateScore() {
-        const dilatation = parseFloat(document.getElementById('cervical-dilatation').value) || 0;
-        const consistency = document.getElementById('cervical-consistency').value;
-        const canel = parseFloat(document.getElementById('effacement').value) || 0;
-        const position = document.getElementById('cervical-position').value;
-        const station = document.getElementById('station').value;
-
-        let score = 0;
-
-        // Score 0
-        if (dilatation === 0 &&
-            consistency === 'Firm' &&
-            canel > 2 &&
-            position === 'Posterior' &&
-            station === '-3') {
-            score = 0;
-        }
-        // Score 1
-        else if ((dilatation === 1 || dilatation === 2) &&
-            consistency === 'Medium' &&
-            canel >= 1 && canel <= 2 &&
-            position === 'Central' &&
-            station === '-2') {
-            score = 1;
-        }
-        // Score 2
-        else if ((dilatation === 3 || dilatation === 4) &&
-            consistency === 'Soft' &&
-            canel >= 0.5 && canel <= 1 &&
-            position === 'Anterior' &&
-            (station === '-1' || station === '0')) {
-            score = 2;
-        }
-        // Score 3
-        else if (dilatation >= 5 &&
-            consistency === 'Other' &&
-            canel < 0.5 &&
-            position === 'Other' &&
-            (station === '+1' || station === '+2' || station === '+3')) {
-            score = 3;
-        }
-
-        document.getElementById('score-label').innerText = 'SCORE: ' + score;
-    }
-
-    // Attach event listeners to input elements
-    document.getElementById('cervical-dilatation').addEventListener('input', calculateScore);
-    document.getElementById('cervical-consistency').addEventListener('change', calculateScore);
-    document.getElementById('effacement').addEventListener('input', calculateScore);
-    document.getElementById('cervical-position').addEventListener('change', calculateScore);
-    document.getElementById('station').addEventListener('change', calculateScore);
-</script>
-
-
-
-
-
-
 @endsection

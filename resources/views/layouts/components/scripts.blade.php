@@ -379,7 +379,7 @@
                         <textarea class="form-control" id="pastMedHx_remarks-${fieldCount3}" name="pastMedHx_remarks[]" rows="1" required></textarea>
                     </div>
                     <div class="form-group col-md-2 d-flex align-items-end">
-                        <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount2}')"><i class="fe fe-trash-2"></i></button>
+                        <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount3}')"><i class="fe fe-trash-2"></i></button>
                     </div>
                 </div>`;
                 complaintFields.appendChild(newRow);
