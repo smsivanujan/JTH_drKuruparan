@@ -5,6 +5,7 @@
             <label class="form-label" for="ix-label">Ix</label>
             <div>
                 <div class="row">
+                    <!-- CTG -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="ctg-dropdown">CTG</label>
                         <select name="ctg" class="form-control form-select" id="ctg-dropdown" data-bs-placeholder="Select CTG">
@@ -14,31 +15,35 @@
                             <option value="Pathological">Pathological</option>
                         </select>
                     </div>
+                    <!-- TAS -->
                     <div class="form-group col-md-9">
                         <label class="form-label" for="tas-text">TAS</label>
                         <input type="description" name="tas" class="form-control" id="tas-input" placeholder="TAS">
                     </div>
                 </div>
+                <!-- FBC -->
                 <div class="row">
                     <label class="form-label" for="fbc-label">FBC</label>
-                    <div>
+                    <div class="row">
                         <div class="form-group col-ml-12">
                             <div class="d-flex">
+                                <!-- HB(g/dl) -->
                                 <div class="form-group col-md-3">
                                     <label class="form-label" for="hb-number">HB(g/dl)</label>
                                     <input type="number" name="hb" class="form-control" id="hb-input" placeholder="HB(g/dl)">
                                 </div>
+                                <!-- PLT(/mm) -->
                                 <div class="form-group col-md-3">
                                     <label class="form-label" for="plt-number">PLT(/mm)</label>
                                     <input type="number" name="plt" class="form-control" id="plt-input" placeholder="PLT(/mm)">
                                 </div>
+                                <!-- WBC(/mm) -->
                                 <div class="form-group col-md-3">
                                     <label class="form-label" for="wbc-number">WBC(/mm)</label>
                                     <input type="number" name="wbc" class="form-control" id="wbc-input" placeholder="WBC(/mm)">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -66,8 +71,10 @@
                 </div>
             </div>
 
+            <!-- Plan -->
             <label class="form-label" for="plan-label">Plan</label>
             <div class="row">
+                <!-- Antibiotics -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="antibiotics-dropdown">Antibiotics</label>
                     <select name="antibiotics" class="form-control form-select" id="antibiotics-dropdown" data-bs-placeholder="Select Antibiotics">
@@ -79,6 +86,7 @@
                         <option value="Steroids">Steroids</option>
                     </select>
                 </div>
+                <!-- Plan Delivery -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="plandelivery-dropdown">Plan Delivery</label>
                     <select name="plan_delivery" class="form-control form-select" id="plandelivery-dropdown" data-bs-placeholder="Select Plan Delivery">

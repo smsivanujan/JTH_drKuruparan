@@ -8,4 +8,5 @@ Route::get('/', function () {
 });
 
 Route::post('/complaints', [IndexController::class, 'store'])->name('complaints.store');
+Route::get('/search', [IndexController::class, 'search'])->name('patient.search');
 

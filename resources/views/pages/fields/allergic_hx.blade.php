@@ -3,6 +3,7 @@
     <div class="my-3">
         <div>
             <div class="row">
+                <!-- Drug Allergy Hx -->
                 <div class="form-group col-md-12">
                     <label class="form-label" for="drugalergyhx-dropdown">Drug Allergy Hx</label>
                     <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="Select Drug Allergy Hx" multiple>
@@ -15,13 +16,15 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Food Allergy HX -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="foodallergyhx-text">Food Allergy HX</label>
-                    <input type="text" name="foodallergyhx" class="form-control" placeholder="Food Allergy HX">
+                    <textarea class="form-control" id="foodallergyhx" name="foodallergyhx" placeholder="Food Allergy HX" rows="1"></textarea>
                 </div>
+                <!-- Other Allergy HX -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="otherallergyhx-text">Other Allergy HX</label>
-                    <input type="text" name="otherallergyhx" class="form-control" placeholder="Other Allergy HX">
+                    <textarea class="form-control" id="otherallergyhx" name="otherallergyhx" placeholder="Other Allergy HX" rows="1"></textarea>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('past_gyn_hxs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
-            $table->integer('age');
+            $table->integer('menarche_at');
             $table->string('amount')->nullable();
             $table->string('duration')->nullable();
             $table->string('status');

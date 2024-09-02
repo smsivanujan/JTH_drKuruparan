@@ -98,36 +98,6 @@
                             @include('pages.fields.presenting_complaint')
                         </div>
 
-                        <!-- Current Pregnancy Hx -->
-                        <div class="list-group-item py-4" data-acc-step>
-                            @include('pages.fields.current_pregnancy_hx')
-                        </div>
-
-                        <!-- Past Obstetric Hx -->
-                        <div class="list-group-item py-4  bg-info" data-acc-step>
-                            @include('pages.fields.past_obstetric_hx')
-                        </div>
-
-                        <!-- Past Gyn Hx -->
-                        <div class="list-group-item py-4" data-acc-step>
-                            @include('pages.fields.past_gyn_hx')
-                        </div>
-
-                        <!-- Past Med Hx -->
-                        <div class="list-group-item py-4  bg-info" data-acc-step>
-                            @include('pages.fields.past_med_hx')
-                        </div>
-
-                        <!-- Allergic Hx -->
-                        <div class="list-group-item py-4" data-acc-step>
-                            @include('pages.fields.allergic_hx')
-                        </div>
-
-                        <!-- Other HX -->
-                        <div class="list-group-item py-4  bg-info" data-acc-step>
-                            @include('pages.fields.other_hx')
-                        </div>
-
                         <!-- Gyn Examination -->
                         <div class="list-group-item py-4" data-acc-step>
                             @include('pages.fields.gyn_examination')
@@ -137,6 +107,16 @@
                         <div class="list-group-item py-4  bg-info" data-acc-step>
                             @include('pages.fields.obs_examination')
                         </div>
+
+                         <!-- IX -->
+                         <div class="list-group-item py-4" data-acc-step>
+                            @include('pages.fields.ix')
+                        </div>
+
+                        <!-- Management -->
+                        <!-- <div class="list-group-item py-4" data-acc-step>
+                            @include('pages.fields.management')
+                        </div> -->
 
                     </div>
                 </form>
