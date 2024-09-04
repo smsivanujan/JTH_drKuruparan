@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title" id="createFormModal">Patient's Clinical Record</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title" id="createFormModal"> Clinical Visit Record</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <div class="modal-body text-start">
@@ -61,36 +61,6 @@
                             <!-- Presenting Complaint -->
                             <div class="list-group-item py-4 bg-info" data-acc-step>
                                 @include('pages.fields.presenting_complaint')
-                            </div>
-
-                            <!-- Current Pregnancy Hx -->
-                            <div class="list-group-item py-4" data-acc-step>
-                                @include('pages.fields.current_pregnancy_hx')
-                            </div>
-
-                            <!-- Past Obstetric Hx -->
-                            <div class="list-group-item py-4  bg-info" data-acc-step>
-                                @include('pages.fields.past_obstetric_hx')
-                            </div>
-
-                            <!-- Past Gyn Hx -->
-                            <div class="list-group-item py-4" data-acc-step>
-                                @include('pages.fields.past_gyn_hx')
-                            </div>
-
-                            <!-- Past Med Hx -->
-                            <div class="list-group-item py-4  bg-info" data-acc-step>
-                                @include('pages.fields.past_med_hx')
-                            </div>
-
-                            <!-- Allergic Hx -->
-                            <div class="list-group-item py-4" data-acc-step>
-                                @include('pages.fields.allergic_hx')
-                            </div>
-
-                            <!-- Other HX -->
-                            <div class="list-group-item py-4  bg-info" data-acc-step>
-                                @include('pages.fields.other_hx')
                             </div>
 
                             <!-- Gyn Examination -->

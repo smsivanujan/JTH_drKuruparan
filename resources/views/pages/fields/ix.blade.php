@@ -1,4 +1,4 @@
-<h6 class="mb-0" data-acc-title>IX</h6>
+<h6 class="mb-0" data-acc-title>Management</h6>
 <div data-acc-content>
     <div class="my-3">
         <div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label class="form-label" for="ogtt/bss-dropdown">OGTT/BSS</label>
-                            <select name="ohtt/bss" class="form-control form-select" id="ohtt/bss-dropdown" data-bs-placeholder="Select ohtt/bss">
+                            <select name="ohtt_bss" class="form-control form-select" id="ohtt/bss-dropdown" data-bs-placeholder="Select ohtt/bss">
                                 <option label="Choose one" disabled selected></option>
                                 <option value="Normal">Normal</option>
                                 <option value="Abnormal">Abnormal</option>
@@ -72,7 +72,7 @@
             </div>
 
             <!-- Plan -->
-            <label class="form-label" for="plan-label">Plan</label>
+            <label class="form-label" for="plan-label">Management Plan</label>
             <div class="row">
                 <!-- Antibiotics -->
                 <div class="form-group col-md-6">

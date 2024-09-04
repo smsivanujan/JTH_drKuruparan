@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pregnanacies', function (Blueprint $table) {
             $table->id();
-            $table->integer('patient_id');
+            $table->string('patient_id');
             $table->string('category');
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->timestamps();
         });
     }

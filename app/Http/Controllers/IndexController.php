@@ -6,6 +6,7 @@ use App\Models\AllergicHX;
 use App\Models\CurrentPregnancyHX;
 use App\Models\GynExaminations;
 use App\Models\Index;
+use App\Models\Ix;
 use App\Models\ObsExaminations;
 use App\Models\OtherHX;
 use App\Models\PastGynHX;
@@ -13,24 +14,78 @@ use App\Models\PastMedHX;
 use App\Models\PastObsHX;
 use App\Models\Pregnanacy;
 use App\Models\PresentComplaint;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+
+    public function index()
+    {
+        $pregnanacies = DB::table('pregnanacies')
+            ->select(
+                'pregnanacies.id',
+                'pregnanacies.category',
+                'pregnanacies.surgery_date',
+                'pregnanacies.diagnosis',
+                'surgery_types.id AS surgery_id',
+                'surgery_types.surgery_name',
+                'jthhims.patientdemographic.patientID',
+                'jthhims.patientdemographic.patientPersonalTitle',
+                'jthhims.patientdemographic.patientName',
+                'jthhims.patientdemographic.patientDateofbirth',
+                'jthhims.patientdemographic.patientSex',
+                'jthhims.department.departmentTitle AS ward',
+                'jthhims.admission.BHTClinicFileNo'
+            )
+            ->join('surgery_types', 'opertation_lists.surgery_id', 'surgery_types.id')
+            ->join('jthhims.patientdemographic', 'opertation_lists.patient_id', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', 'jthhims.department.departmentCode')
+            ->get();
+
+        // Calculate age
+        foreach ($operationList as $operation) {
+            $operation->age = Carbon::parse($operation->patientDateofbirth)->age; // Correct field name here
+        }
+
+        return view('pages.index', compact('pregnanacies'));
+    }
+
+
     public function search(Request $request)
     {
         $searchTerm = $request->input('search-term');
 
-        $patients = DB::table('PatientDemographic')
-            ->where('patientID', $searchTerm)
-            ->orWhere('patientNIC', $searchTerm)
-            ->orWhere('patientPassport', $searchTerm)
-            ->orWhere('motherBHT', $searchTerm)
-            ->orWhere('patientContactLand01', $searchTerm)
-            ->orWhere('patientContactLand02', $searchTerm)
-            ->orWhere('patientContactMobile01', $searchTerm)
-            ->orWhere('patientContactMobile02', $searchTerm)
+        $patients = DB::table('jthhims.patientdemographic')
+            ->select(
+                'jthhims.patientdemographic.patientID',
+                'jthhims.patientdemographic.patientPersonalTitle',
+                'jthhims.patientdemographic.patientName',
+                'jthhims.patientdemographic.patientSex',
+                'jthhims.patientdemographic.patientDateofbirth',
+                'jthhims.department.departmentTitle AS ward',
+                'jthhims.admission.BHTClinicFileNo'
+            )
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.admission.BHTClinicFileNo', function ($query) use ($searchTerm) {
+                $query->select('jthhims.admission.BHTClinicFileNo')
+                    ->from('jthhims.admission')
+                    ->where('jthhims.admission.patientID', DB::raw('jthhims.patientdemographic.patientID'))
+                    ->where(function ($query) use ($searchTerm) {
+                        $query->where('jthhims.patientdemographic.patientID', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientNIC', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientPassport', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientContactLand01', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientContactLand02', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientContactMobile01', $searchTerm)
+                            ->orWhere('jthhims.patientdemographic.patientContactMobile02', $searchTerm);
+                    })
+                    ->orderBy('jthhims.admission.insertedOn', 'desc')
+                    ->limit(1);
+            })
             ->get();
 
         if ($patients->isEmpty()) {
@@ -40,26 +95,15 @@ class IndexController extends Controller
         return response()->json($patients->first());
     }
 
-    public function index()
-    {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
-        // $pregnanacy = new Pregnanacy();
-        // $pregnanacy->patient_id = $request->input('patient_id');
-        // $pregnanacy->category = $request->input('category');
-        // $pregnanacy->detail = $request->input('detail');
-        // $pregnanacy->save();
+        $pregnanacy = new Pregnanacy();
+        $pregnanacy->patient_id = $request->input('patient');
+        $pregnanacy->category = $request->input('category');
+        $pregnanacy->detail = $request->input('detail');
+        $pregnanacy->save();
 
-        // $savedId = $pregnanacy->id;
-        $savedId = 1;
+        $savedId = $pregnanacy->id;
 
         $complaints = $request->input('complaint', []);
         $durations = $request->input('durations', []);
@@ -224,6 +268,20 @@ class IndexController extends Controller
         $obsExamination->liquor = $request->input('rdio-primary7');
         $obsExamination->dopplier = $request->input('dopplier');
         $obsExamination->save();
+
+        $ix = new Ix();
+        $ix->pregnancy_id = $savedId;
+        $ix->ctg = $request->input('ctg');
+        $ix->tas = $request->input('tas');
+        $ix->hb = $request->input('hb');
+        $ix->plt = $request->input('plt');
+        $ix->wbc = $request->input('wbc');
+        $ix->crp = $request->input('crp');
+        $ix->urine_full_report = $request->input('urine_full_report');
+        $ix->ohtt_bss = $request->input('ohtt_bss');
+        $ix->antibiotics = $request->input('antibiotics');
+        $ix->plan_delivery = $request->input('plan_delivery');
+        $ix->save();
 
         return redirect()->back()->with('success', 'Complaints saved successfully.');
     }
