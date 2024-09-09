@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function dashboard(Request $request)
+    public function index(Request $request)
     {
-        $total_surgeries = DB::select("SELECT IFNULL(COUNT(id),0) AS totalSurgeries FROM  opertation_lists");
+        $total_surgeries = DB::select("SELECT IFNULL(COUNT(id),0) AS totalSurgeries FROM  pregnanacies");
 
-        $today_surgeries = DB::select("SELECT IFNULL(COUNT(id),0) AS todaySurgeries FROM  opertation_lists
+        $today_surgeries = DB::select("SELECT IFNULL(COUNT(id),0) AS todaySurgeries FROM  pregnanacies 
         WHERE DATE(created_at) = CURDATE()");
 
-        $total_surgery_types = DB::select("SELECT IFNULL(COUNT(id),0) AS surgeryTypes FROM  surgery_types");
+        $total_surgery_types = DB::select("SELECT IFNULL(COUNT(id),0) AS surgeryTypes FROM  pregnanacies");
 
         return view('pages.index')
             ->with('total_surgeries', $total_surgeries)

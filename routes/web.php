@@ -1,16 +1,12 @@
 <?php
 
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PregnanacyController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('index.dashboard');
 
-Route::get('/visit', function () {
-    return view('pages.visitIndex');
-});
-
-Route::post('/complaints', [IndexController::class, 'store'])->name('complaints.store');
-Route::get('/search', [IndexController::class, 'search'])->name('patient.search');
+Route::get('/pregnancy', [PregnanacyController::class, 'index'])->name('pregnanacy.index');
+Route::post('/complaints', [PregnanacyController::class, 'store'])->name('complaints.store');
+Route::get('/search', [PregnanacyController::class, 'search'])->name('patient.search');
 
