@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('amount')->nullable();
             $table->string('duration')->nullable();
             $table->string('status');
-            $table->string('aub'); // Abnormal Uterine Bleeding
-            $table->json('contraception')->nullable(); // Contraceptive methods
-            $table->string('subfertility'); // If applicable, could be nullable
-            $table->string('gender')->nullable(); // Gender of the patient or related detail
-            $table->json('male_factors')->nullable(); // Male infertility factors
-            $table->json('ovulatory_disorder')->nullable(); // Ovulatory disorders
-            $table->json('tubal_factors')->nullable(); // Tubal factors affecting fertility
-            $table->json('uterine_factors')->nullable(); // Uterine factors affecting fertility
+            $table->string('aub');
+            $table->string('contraception')->nullable();
+            $table->string('subfertility');
+            $table->string('gender')->nullable();
+            $table->string('male_factors')->nullable();
+            $table->string('ovulatory_disorder')->nullable();
+            $table->string('tubal_factors')->nullable();
+            $table->string('uterine_factors')->nullable();
             $table->timestamps();
         });        
     }

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('p')->nullable();
             $table->string('c')->nullable();
             $table->integer('married_year')->nullable();
-            $table->date('lmp')->nullable(); // Last Menstrual Period
-            $table->date('edd')->nullable(); // Estimated Due Date
-            $table->date('working_edd')->nullable(); // Working Estimated Due Date
+            $table->date('lmp')->nullable();
+            $table->date('edd')->nullable();
+            $table->date('working_edd')->nullable();
             $table->timestamps();
         });        
     }

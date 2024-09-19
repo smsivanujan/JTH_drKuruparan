@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
             $table->integer('year')->nullable();
-            $table->string('poa')->nullable(); // Place of Admission or Point of Care, clarify as needed
-            $table->string('mod')->nullable(); // Mode of Delivery or other, clarify as needed
-            $table->string('birth_weight')->nullable(); // Birth weight of the previous child
-            $table->text('remarks')->nullable(); // Additional remarks
+            $table->string('poa')->nullable();
+            $table->string('mod')->nullable();
+            $table->string('birth_weight')->nullable();
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });        
     }

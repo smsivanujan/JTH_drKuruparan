@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('allergic_hxs', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade'); // Foreign key referencing pregnancies table
-            $table->json('drugalergyhx')->nullable(); // Store array as JSON
-            $table->string('foodallergyhx')->nullable(); // Food allergy history
-            $table->string('otherallergyhx')->nullable(); // Other allergy history
-            $table->timestamps(); // Timestamps for created_at and updated_at
+            $table->id();
+            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->string('drugalergyhx')->nullable();
+            $table->string('foodallergyhx')->nullable();
+            $table->string('otherallergyhx')->nullable();
+            $table->timestamps();
         });
         
     }
