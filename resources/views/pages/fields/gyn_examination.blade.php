@@ -55,7 +55,7 @@
                     <!-- BMI -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="bmi">BMI</label>
-                        <input type="number" name="bmi" id="bmi" class="form-control" placeholder="BMI">
+                        <input type="number" name="bmi" id="bmi" class="form-control" step="0.01" placeholder="BMI">
                     </div>
                     <!-- Temperature -->
                     <div class="form-group col-md-3">
@@ -149,12 +149,12 @@
                     <label class="form-label" for="abdominalexamination-label">Abdominal Examination</label>
                 </div>
                 <div class="row">
-                    <!-- inspectionGyn -->
+                    <!-- InspectionGyn -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="inspectionGyn-dropdown">Inspection</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="inspectionGyn[]" value="Mass" class="selectgroup-input">
+                                <input type="checkbox" id="mass-checkbox" name="inspectionGyn[]" value="Mass" class="selectgroup-input">
                                 <span class="selectgroup-button">Mass</span>
                             </label>
                             <label class="selectgroup-item">
@@ -163,6 +163,15 @@
                             </label>
                         </div>
                     </div>
+                    <!-- Palpation -->
+                    <div class="form-group col-md-3">
+                        <label class="form-label" for="palpation-dropdown">Palpation</label>
+                        <select name="palpation" class="form-control form-select" id="palpation-dropdown" data-bs-placeholder="Select Palpation">
+                            <option label="Choose one" disabled selected></option>
+                            <option value="Tenderness (+)">Tenderness (+)</option>
+                            <option value="Tenderness (-)">Tenderness (-)</option>
+                        </select>
+                    </div>
                     <!-- Percussion -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="percussion-dropdown">Percussion</label>
@@ -170,15 +179,6 @@
                             <option label="Choose one" disabled selected></option>
                             <option value="Dull">Dull</option>
                             <option value="Resonance">Resonance</option>
-                        </select>
-                    </div>
-                    <!-- Auscultator -->
-                    <div class="form-group col-md-3">
-                        <label class="form-label" for="auscultator-dropdown">Auscultator</label>
-                        <select name="auscultator" class="form-control form-select" id="auscultator-dropdown" data-bs-placeholder="Select Auscultator">
-                            <option label="Choose one" disabled selected></option>
-                            <option value="Palpable (+)">Palpable (+)</option>
-                            <option value="Palpable (-)">Palpable (-)</option>
                         </select>
                     </div>
                     <!-- Auscultation -->
@@ -191,25 +191,42 @@
                         </select>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <!-- Palpation -->
-                    <div class="form-group col-md-6">
-                        <label class="form-label" for="palpation-dropdown">Palpation</label>
-                        <div class="row">
-                            <!-- Tenderness -->
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="tenderness-dropdown">Tenderness</label>
-                                <select name="tenderness" class="form-control form-select" id="tenderness-dropdown" data-bs-placeholder="Select Tenderness">
-                                    <option label="Choose one" disabled selected></option>
-                                    <option value="Tenderness (+)">Tenderness (+)</option>
-                                    <option value="Tenderness (-)">Tenderness (-)</option>
-                                </select>
-                            </div>
-                            <!-- Size -->
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="size-number">Size</label>
-                                <input type="number" name="size" class="form-control" id="size-number" placeholder="Size (cm)">
-                            </div>
+
+                <!-- Mass -->
+                <div id="mass-section" style="display: none;">
+                    <label class="form-label" for="palpation-dropdown">Mass</label>
+                    <div class="row">
+                        <!-- Tenderness -->
+                        <div class="form-group col-md-3">
+                            <label class="form-label" for="tenderness-dropdown">General</label>
+                            <select name="tenderness" class="form-control form-select" id="tenderness-dropdown" data-bs-placeholder="Select Tenderness">
+                                <option label="Choose one" disabled selected></option>
+                                <option value="Tenderness (+)">Palpation (+)</option>
+                                <option value="Tenderness (-)">Palpation (-)</option>
+                            </select>
+                        </div>
+                        <!-- Size -->
+                        <div class="form-group col-md-3">
+                            <label class="form-label" for="size-number">Size</label>
+                            <input type="number" name="size" class="form-control" id="size-number" placeholder="Size (cm)">
+                        </div>
+                        <!-- Percussion -->
+                        <div class="form-group col-md-3">
+                            <label class="form-label" for="percussion-dropdown">Percussion</label>
+                            <select name="percussion" class="form-control form-select" id="percussion-dropdown" data-bs-placeholder="Select Percussion">
+                                <option label="Choose one" disabled selected></option>
+                                <option value="Dull">Dull</option>
+                                <option value="Resonance">Resonance</option>
+                            </select>
+                        </div>
+                        <!-- Auscultator -->
+                        <div class="form-group col-md-3">
+                            <label class="form-label" for="auscultator-dropdown">Auscultator</label>
+                            <select name="auscultator" class="form-control form-select" id="auscultator-dropdown" data-bs-placeholder="Select Auscultator">
+                                <option label="Choose one" disabled selected></option>
+                                <option value="Palpable (+)">Palpable (+)</option>
+                                <option value="Palpable (-)">Palpable (-)</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -506,4 +523,20 @@
             document.getElementById('bmi').value = '';
         }
     }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const massCheckbox = document.getElementById('mass-checkbox');
+    const massSection = document.getElementById('mass-section');
+
+    massCheckbox.addEventListener('change', function() {
+        if (massCheckbox.checked) {
+            massSection.style.display = 'block'; // Show the Mass section
+        } else {
+            massSection.style.display = 'none'; // Hide the Mass section
+        }
+    });
+});
+
 </script>

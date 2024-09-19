@@ -27,7 +27,6 @@
 <script src="{{ asset('assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('assets/js/table-data.js') }}"></script>
 
-
 <!-- Perfect SCROLLBAR JS-->
 <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
@@ -43,6 +42,24 @@
 
 <!-- FORMVALIDATION JS -->
 <script src="{{ asset('assets/js/form-validation.js') }}"></script>
+
+
+
+<!-- /////////// -->
+
+<!-- FORM WIZARD JS-->
+<script src="../assets/plugins/formwizard/jquery.smartWizard.js"></script>
+<script src="../assets/plugins/formwizard/fromwizard.js"></script>
+
+<!-- INTERNAl JQUERY.STEPS JS -->
+<script src="../assets/plugins/jquery-steps/jquery.steps.min.js"></script>
+<script src="../assets/plugins/parsleyjs/parsley.min.js"></script>
+
+<!-- INTERNAL ACCORDION-WIZARD-FORM JS-->
+<script src="../assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js"></script>
+<script src="../assets/js/form-wizard.js"></script>
+
+<!-- /////// -->
 
 
 @yield('scripts')
