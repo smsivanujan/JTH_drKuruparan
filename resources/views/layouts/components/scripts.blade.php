@@ -47,17 +47,17 @@
 
 <!-- /////////// -->
 
-<!-- FORM WIZARD JS-->
-<script src="../assets/plugins/formwizard/jquery.smartWizard.js"></script>
-<script src="../assets/plugins/formwizard/fromwizard.js"></script>
+<!-- FORM WIZARD JS -->
+<script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
+<script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
 
-<!-- INTERNAl JQUERY.STEPS JS -->
-<script src="../assets/plugins/jquery-steps/jquery.steps.min.js"></script>
-<script src="../assets/plugins/parsleyjs/parsley.min.js"></script>
+<!-- INTERNAL JQUERY.STEPS JS -->
+<script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
 
-<!-- INTERNAL ACCORDION-WIZARD-FORM JS-->
-<script src="../assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js"></script>
-<script src="../assets/js/form-wizard.js"></script>
+<!-- INTERNAL ACCORDION-WIZARD-FORM JS -->
+<script src="{{ asset('assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
+<script src="{{ asset('assets/js/form-wizard.js') }}"></script>
 
 <!-- /////// -->
 
