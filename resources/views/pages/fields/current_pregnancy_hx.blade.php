@@ -1,5 +1,5 @@
-<h6 class="mb-0" data-acc-title>Current Pregnancy Hx</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0">Current Pregnancy Hx</h6> -->
+<div>
     <div class="my-3">
         <div>
             <div class="row">

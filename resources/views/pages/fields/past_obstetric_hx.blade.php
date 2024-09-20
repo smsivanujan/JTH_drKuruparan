@@ -1,5 +1,5 @@
-<h6 class="mb-0" data-acc-title>Past Obstetric Hx</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0">Past Obstetric Hx</h6> -->
+<div>
     <div class="my-3">
         <div>
             <div id="complaint-form">

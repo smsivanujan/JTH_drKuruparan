@@ -1,4 +1,4 @@
-<label class="form-label" for="plan-label">Management</label>
+<!-- <h6 class="mb-0">Mnagement</h6> -->
 <div class="row">
     <!-- Plan -->
     <div class="form-group col-md-6">

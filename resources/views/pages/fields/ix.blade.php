@@ -1,5 +1,5 @@
-<h6 class="mb-0" data-acc-title>Management</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0">IX</h6> -->
+<div>
     <div class="my-3">
         <div>
             <label class="form-label" for="ix-label">Ix</label>

@@ -1,5 +1,5 @@
-<h6 class="mb-0" data-acc-title>Past Gyn Hx</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0">Past Gyn Hx</h6> -->
+<div>
     <div class="my-3">
         <div>
 

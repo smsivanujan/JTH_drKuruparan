@@ -201,19 +201,19 @@ class PregnanacyController extends Controller
 
     public function store(Request $request)
     {
-        $id = $request->id;
+        // $id = $request->id;
 
-        if ($id == 0) { // create
+        // if ($id == 0) { // create
 
 
-            $pregnanacy = new Pregnanacy();
-        } else { // update
+        //     $pregnanacy = new Pregnanacy();
+        // } else { // update
            
-            $pregnanacy = Pregnanacy::find($id);
-        }
+        //     $pregnanacy = Pregnanacy::find($id);
+        // }
 
         $pregnanacy = new Pregnanacy();
-        $pregnanacy->patient_id = $request->input('patient');
+        $pregnanacy->patient_id = $request->input('input_id_patient');
         $pregnanacy->category = $request->input('category');
         $pregnanacy->detail = $request->input('detail');
         $pregnanacy->save();

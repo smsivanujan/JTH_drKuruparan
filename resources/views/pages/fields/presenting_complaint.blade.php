@@ -1,5 +1,5 @@
-<h6 class="mb-0 me-2" data-acc-title>Presenting Complaint</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0 me-2">Presenting Complaint</h6> -->
+<div>
     <div class="my-3">
         <div>
             <div id="complaint-form">

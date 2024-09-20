@@ -1,5 +1,5 @@
-<h6 class="mb-0" data-acc-title>Allergic Hx</h6>
-<div data-acc-content>
+<!-- <h6 class="mb-0">Allergic Hx</h6> -->
+<div>
     <div class="my-3">
         <div>
             <div class="row">
