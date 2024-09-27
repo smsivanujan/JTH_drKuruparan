@@ -49,10 +49,10 @@
                 <div class="row">
                     <!-- inspectionObs -->
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="inspectionObs-dropdown">Inspection</label>
+                        <label class="form-label" for="inspectionObs-dropdown">Inspection OBS</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="inspectionObs[]" value="Linea nigra" class="selectgroup-input">
+                                <input type="checkbox" id="mass-checkbox" name="inspectionObs[]" value="Linea nigra" class="selectgroup-input">
                                 <span class="selectgroup-button">Linea nigra</span>
                             </label>
                             <label class="selectgroup-item">

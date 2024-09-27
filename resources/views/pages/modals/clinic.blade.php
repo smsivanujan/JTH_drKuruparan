@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal_">
-    <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
                 <h6 class="modal-title" id="createFormModal">Patient's Clinical Record</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
@@ -67,16 +67,22 @@
                                             <a class="nav-link thumb text-dark-light active" href="#page6" onclick="showPage(6)" style="text-decoration: none; color: black;">Allergic Hx</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page7" onclick="showPage(7)" style="text-decoration: none; color: black;">Other HX</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page7" onclick="showPage(7)" style="text-decoration: none; color: black;">Family HX</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page8" onclick="showPage(8)" style="text-decoration: none; color: black;">Gyn Examination</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page8" onclick="showPage(8)" style="text-decoration: none; color: black;">Social HX</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page9" onclick="showPage(9)" style="text-decoration: none; color: black;">Obs Examination</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page9" onclick="showPage(9)" style="text-decoration: none; color: black;">Other HX</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page10" onclick="showPage(10)" style="text-decoration: none; color: black;">IX</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page10" onclick="showPage(10)" style="text-decoration: none; color: black;">Gyn Examination</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page11" onclick="showPage(11)" style="text-decoration: none; color: black;">Obs Examination</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page12" onclick="showPage(12)" style="text-decoration: none; color: black;">IX</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -86,6 +92,7 @@
                                     <form id="form" action="{{ route('complaints.store') }}" method="POST">
                                         @csrf
                                         <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" hidden>
+                                        
                                         <!-- Category -->
                                         <div class="container d-flex justify-content-center">
                                             <div class="col-md-4">
@@ -177,11 +184,11 @@
                                             </div>
                                         </div>
 
-                                        <!-- Other HX -->
+                                        <!-- Family HX -->
                                         <div id="page7" class="form-page" style="display: none;">
-                                            <h2>Other HX</h2>
+                                            <h2>Family HX</h2>
                                             <div style="padding: 15px; background-color: #d9edf7;">
-                                                @include('pages.fields.other_hx')
+                                                @include('pages.fields.family_hx')
                                             </div>
 
                                             <div style="padding-top: 10px;">
@@ -190,11 +197,11 @@
                                             </div>
                                         </div>
 
-                                        <!-- Gyn Examination -->
+                                        <!-- Social HX -->
                                         <div id="page8" class="form-page" style="display: none;">
-                                            <h2>Gyn Examination</h2>
-                                            <div style="padding: 15px; background-color: #f5f5f5;">
-                                                @include('pages.fields.gyn_examination')
+                                            <h2>Social HX</h2>
+                                            <div style="padding: 15px; background-color: #d9edf7;">
+                                                @include('pages.fields.social_hx')
                                             </div>
 
                                             <div style="padding-top: 10px;">
@@ -203,11 +210,11 @@
                                             </div>
                                         </div>
 
-                                        <!-- Obs Examination -->
+                                        <!-- Other HX -->
                                         <div id="page9" class="form-page" style="display: none;">
-                                            <h2>Obs Examination</h2>
+                                            <h2>Other HX</h2>
                                             <div style="padding: 15px; background-color: #d9edf7;">
-                                                @include('pages.fields.obs_examination')
+                                                @include('pages.fields.other_hx')
                                             </div>
 
                                             <div style="padding-top: 10px;">
@@ -216,18 +223,45 @@
                                             </div>
                                         </div>
 
-                                        <!-- IX -->
+                                        <!-- Gyn Examination -->
                                         <div id="page10" class="form-page" style="display: none;">
+                                            <h2>Gyn Examination</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.gyn_examination')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(9)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(11)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Obs Examination -->
+                                        <div id="page11" class="form-page" style="display: none;">
+                                            <h2>Obs Examination</h2>
+                                            <div style="padding: 15px; background-color: #d9edf7;">
+                                                @include('pages.fields.obs_examination')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(10)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(12)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- IX -->
+                                        <div id="page12" class="form-page" style="display: none;">
                                             <h2>IX</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
                                                 @include('pages.fields.ix')
                                             </div>
 
                                             <div style="padding-top: 10px;">
-                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(9)">Back</button>
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(11)">Back</button>
                                                 <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;">Submit</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>

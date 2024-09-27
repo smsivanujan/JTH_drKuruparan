@@ -15,17 +15,18 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
             $table->integer('menarche_at');
+            $table->text('contraception')->nullable();
             $table->string('amount')->nullable();
             $table->string('duration')->nullable();
-            $table->string('status');
+            $table->string('regularity');
             $table->string('aub');
-            $table->string('contraception')->nullable();
+         
             $table->string('subfertility');
             $table->string('gender')->nullable();
-            $table->string('male_factors')->nullable();
-            $table->string('ovulatory_disorder')->nullable();
-            $table->string('tubal_factors')->nullable();
-            $table->string('uterine_factors')->nullable();
+            $table->text('male_factors')->nullable();
+            $table->text('ovulatory_disorder')->nullable();
+            $table->text('tubal_factors')->nullable();
+            $table->text('uterine_factors')->nullable();
             $table->timestamps();
         });        
     }

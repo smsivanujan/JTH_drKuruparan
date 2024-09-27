@@ -55,6 +55,7 @@
         } else if (specialty === 'OBS') {
             complaintDropdown.innerHTML += `
                 <option value="Show">Show</option>
+                <option value="Nausea & Vomiting">Nausea & Vomiting</option>
                 <option value="Dribbling">Dribbling</option>
                 <option value="Lower abdominal pain">Lower abdominal pain</option>
                 <option value="Confinement">Confinement</option>
@@ -77,26 +78,30 @@
                         </select>
                     </div>
                     <!-- Duration -->
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label class="form-label" for="durations-dropdown-${fieldCount}">Duration</label>
-                        <select name="durations[]" class="form-control form-select" id="durations-dropdown-${fieldCount}" data-bs-placeholder="Select Duration">
+                        <select name="duration[]" class="form-control form-select" id="durations-dropdown-${fieldCount}" data-bs-placeholder="Select Duration">
                             <option label="Choose one" disabled selected></option>
-                            <option value="1 Day">1 Day</option>
+                            <option value="1-4 Hour">1-4 Hour</option>
+                            <option value="4-8 Hour">4-8 Hour</option>
+                            <option value="8-12 Hour">8-12 Hour</option>
+                            <option value="12-14 Hour">12-14 Hour</option>
+                            <option value="14-18 Hour">14-18 Hour</option>
+                            <option value="18-22 Hour">18-22 Hour</option>
+                            <option value="22-24 Hour">22-24 Hour</option>
                             <option value="2 Day">2 Day</option>
                             <option value="3 Day">3 Day</option>
                             <option value="4 Day">4 Day</option>
                             <option value="5 Day">5 Day</option>
+                            <option value="6 Day">6 Day</option>
                             <option value="1 Week">1 Week</option>
                             <option value="2 Week">2 Week</option>
-                            <option value="Half Month">Half Month</option>
                             <option value="3 Week">3 Week</option>
                             <option value="1 Month and more">1 Month and more</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">    
                     <!-- Severity -->
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label class="form-label" for="severity-dropdown-${fieldCount}">Severity</label>
                         <select name="severity[]" class="form-control form-select" id="severity-dropdown-${fieldCount}" data-bs-placeholder="Select Severity">
                             <option label="Choose one" disabled selected></option>
@@ -105,12 +110,14 @@
                             <option value="Severe">Severe</option>
                         </select>
                     </div>      
+                </div>
+                <div class="row">    
                     <!-- Remarks -->
-                    <div class="form-group col-md-7">
+                    <div class="form-group col-md-10">
                         <label for="remarksPC-${fieldCount}" class="form-label">Remarks</label>
                         <textarea class="form-control" id="remarksPC-${fieldCount}" name="remarksPC[]" rows="1"></textarea>
                     </div>
-                    <div class="form-group col-md-1 d-flex align-items-end">
+                    <div class="form-group col-md-2 d-flex align-items-end">
                         <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount}')"><i class="fe fe-trash-2"></i></button>
                     </div>
                 </div>`;

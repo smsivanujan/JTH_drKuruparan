@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('allergic_hxs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
-            $table->string('drugalergyhx')->nullable();
+            $table->text('drugalergyhx')->nullable();
             $table->string('foodallergyhx')->nullable();
             $table->string('otherallergyhx')->nullable();
             $table->timestamps();

@@ -36,6 +36,7 @@
                             <tr>
                                 <th></th>
                                 <th>View</th>
+                                <th>Visit</th>
                                 <th>Action</th>
                                 <th>No</th>
                                 <th>Category</th>
@@ -55,6 +56,11 @@
                                     <a class="btn btn-green view" title="View" data-idSearch="{{ $row->id }}"
                                         data-patientIDSearch="{{ $row->patientID }}">
                                         <i style="color:rgb(226, 210, 210);cursor: pointer" class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-yellow" href="{{ route('pregnanacyVisit.index') }}">
+                                        <i style="color:rgb(226, 210, 210);cursor: pointer" class="fa fa-plus"></i>
                                     </a>
                                 </td>
                                 <td>
@@ -541,8 +547,8 @@
                     }
                     complaintsHTML += ` </tbody> </table>`;
 
-                     // ixs
-                     complaintsHTML += `<label class="form-label">Management</label>`;
+                    // ixs
+                    complaintsHTML += `<label class="form-label">Management</label>`;
                     complaintsHTML += `<table class="table table-bordered">
                                 <thead>
                                     <tr>

@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('ixs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
-            $table->text('ctg')->nullable();
-            $table->text('tas')->nullable();
-            $table->text('hb')->nullable();
-            $table->text('plt')->nullable();
-            $table->text('wbc')->nullable();
-            $table->text('crp')->nullable(); 
-            $table->text('urine_full_report')->nullable();
-            $table->text('ohtt_bss')->nullable();
-            $table->text('antibiotics')->nullable();
-            $table->text('plan_delivery')->nullable();
+            $table->string('ctg')->nullable();
+            $table->string('tas')->nullable();
+            $table->string('hb')->nullable();
+            $table->string('plt')->nullable();
+            $table->string('wbc')->nullable();
+            $table->string('crp')->nullable(); 
+            $table->string('urine_full_report')->nullable();
+            $table->string('ohtt_bss')->nullable();
+            $table->string('antibiotics')->nullable();
+            $table->string('plan_delivery')->nullable();
             $table->timestamps();
         });
     }

@@ -1,8 +1,8 @@
-<div class="modal fade" id="modal_">
-    <div class="modal-dialog modal-lg modal-dialog-centered text-center" role="document">
+<div class="modal fade" id="modal3_">
+    <div class="modal-dialog modal-xl modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title" id="createFormModal"> Clinical Visit Record</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title" id="createFormModal">Pregnanacy Visit Record</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <div class="modal-body text-start">
@@ -10,74 +10,99 @@
                     <form id="form" action="{{ route('complaints.store') }}" method="POST">
                         @csrf
                         <div class="list-group">
-                            <!-- Patient -->
-                            <div class="d-flex flex-column align-items-center mb-4">
-                                <div class="form-group text-center">
-                                    <label class="form-label" for="search-box">Patient</label>
-                                    <form id="search-form" action="{{ route('patient.search') }}" method="GET">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="id_patient" id="id_patient" hidden>
-                                            <input type="text" class="form-control" id="search-box" name="search-term" placeholder="Search for...">
-                                            <button type="submit" id="search-button" class="input-group-text btn btn-primary text-white">Go!</button>
+                            <div style="display: flex;">
+                                <!-- Navigation Column -->
+                                <div style="width: 150px; background-color: #f8f9fa; padding: 10px; border-radius: 7px;">
+                                    <ul class="nav1 nav-column flex-column br-7" style="list-style-type: none; padding: 0;">
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page1" onclick="showPage(1)" style="text-decoration: none; color: #4CAF50; font-weight: bold;">Presenting Complaint</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page2" onclick="showPage(2)" style="text-decoration: none; color: black;">Gyn Examination</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page3" onclick="showPage(3)" style="text-decoration: none; color: black;">Obs Examination</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page4" onclick="showPage(4)" style="text-decoration: none; color: black;">IX</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Form Content -->
+                                <div style="flex-grow: 1; padding: 20px;">
+                                    <form id="form" action="{{ route('complaints.store') }}" method="POST">
+                                        @csrf
+                                        <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" hidden>
+
+                                        <!-- Category -->
+                                        <div class="container d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="category-dropdown">Category</label>
+                                                    <select name="category" class="form-control form-select" id="category-dropdown" data-bs-placeholder="Select Category" onchange="changeCategory()">
+                                                        <option label="Choose one" disabled selected></option>
+                                                        <option value="GYN">GYN</option>
+                                                        <option value="OBS">OBS</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <!-- Presenting Complaint -->
+                                        <div id="page1" class="form-page" style="display: block;">
+                                            <h2>Presenting Complaint</h2>
+                                            <div style="padding: 15px; background-color: #d9edf7;">
+                                                @include('pages.fields.presenting_complaint')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(1)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Gyn Examination -->
+                                        <div id="page2" class="form-page" style="display: none;">
+                                            <h2>Gyn Examination</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.gyn_examination')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(1)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(3)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Obs Examination -->
+                                        <div id="page3" class="form-page" style="display: none;">
+                                            <h2>Obs Examination</h2>
+                                            <div style="padding: 15px; background-color: #d9edf7;">
+                                                @include('pages.fields.obs_examination')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(2)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(4)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- IX -->
+                                        <div id="page4" class="form-page" style="display: none;">
+                                            <h2>IX</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.ix')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(3)">Back</button>
+                                                <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;">Submit</button>
+                                            </div>
+                                        </div>
+
                                     </form>
-                                    <small class="form-text text-muted">Search with PHN/NIC/Passport/BHT/Phone Number (Handphone or Landline)</small>
-                                    <div id="search-result" class="mt-3 text-danger"></div>
-                                </div>
-                                <!-- Personal Info Table -->
-                                <div class="row mb-3 bg-info p-3 w-100">
-                                    <h3 class="card-title text-center w-100">Personal Info</h3>
-                                    <table class="table table-borderless">
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>PHN:</strong><br><input type="text" class="form-control" id="patient" name="patient" readonly></td>
-                                                <td><strong>BHT:</strong><br><input type="text" class="form-control" id="BHTClinicFileNo" readonly></td>
-                                                <td><strong>Gender:</strong><br><input type="text" class="form-control" id="gender" readonly></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Full Name:</strong><br><input type="text" class="form-control" id="full_name" readonly></td>
-                                                <td><strong>Ward:</strong><br><input type="text" class="form-control" id="ward" readonly></td>
-                                                <td><strong>Age:</strong><br><input type="text" class="form-control" id="age" readonly></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
-
-                            <!-- Category -->
-                            <div class="container d-flex justify-content-center">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="form-label" for="category-dropdown">Category</label>
-                                        <select name="category" class="form-control form-select" id="category-dropdown" data-bs-placeholder="Select Category" onchange="changeCategory()">
-                                            <option label="Choose one" disabled selected></option>
-                                            <option value="GYN">GYN</option>
-                                            <option value="OBS">OBS</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Presenting Complaint -->
-                            <div class="list-group-item py-4 bg-info" data-acc-step>
-                                @include('pages.fields.presenting_complaint')
-                            </div>
-
-                            <!-- Gyn Examination -->
-                            <div class="list-group-item py-4" data-acc-step>
-                                @include('pages.fields.gyn_examination')
-                            </div>
-
-                            <!-- Obs Examination -->
-                            <div class="list-group-item py-4  bg-info" data-acc-step>
-                                @include('pages.fields.obs_examination')
-                            </div>
-
-                            <!-- IX -->
-                            <div class="list-group-item py-4" data-acc-step>
-                                @include('pages.fields.ix')
-                            </div>
-
                         </div>
                     </form>
                 </div>
@@ -86,6 +111,7 @@
     </div>
 </div>
 
+<!-- Patient Search -->
 <script>
     document.getElementById('search-button').addEventListener('click', function() {
         var searchTerm = document.getElementById('search-box').value;
@@ -154,6 +180,7 @@
             success: function(response) {
                 if (response) {
                     $('#id_patient').val(response.patientID);
+                    $('#input_id_patient').val(response.patientID);
                     $('#patient').val(response.patientID);
                     // $('#prefix').text(response.patientPersonalTitle);
                     // $('#full_name').val(response.patientName);
@@ -173,4 +200,24 @@
             }
         });
     });
+</script>
+
+<script>
+    function showPage(pageNumber) {
+        var pages = document.querySelectorAll('.form-page');
+        pages.forEach(function(page) {
+            page.style.display = 'none';
+        });
+        document.getElementById('page' + pageNumber).style.display = 'block';
+
+        // Update navigation link styles
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.style.color = 'black';
+            link.style.fontWeight = 'normal';
+        });
+        var activeLink = document.querySelector('a[href="#page' + pageNumber + '"]');
+        activeLink.style.color = '#4CAF50';
+        activeLink.style.fontWeight = 'bold';
+    }
 </script>

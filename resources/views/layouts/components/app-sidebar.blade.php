@@ -31,7 +31,7 @@
                             <li class="slide">
                                 <a class="side-menu__item" href="{{ route('pregnanacy.index') }}">
                                     <div class="fe fe-printer side-menu__icon"></div>
-                                    <span class="side-menu__label">Pregnency</span>
+                                    <span class="side-menu__label">Pregnency Record</span>
                                 </a>
                             </li>
                            {{--@endif--}}

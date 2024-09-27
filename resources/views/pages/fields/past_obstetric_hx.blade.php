@@ -27,7 +27,7 @@
                     <!-- Year -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="year-input-${fieldCount2}">Year</label>
-                        <input type="number" name="year[]" autocomplete="off" class="form-control" placeholder="YYYY" id="year-input-3" min="1000" max="9999" maxlength="4">
+                        <input type="number" name="year[]" class="form-control" placeholder="YYYY" id="year-input-3" min="1000" max="9999" maxlength="4" required>
                     </div>
                     <!-- POA -->
                     <div class="form-group col-md-3">
@@ -56,7 +56,7 @@
                     <!-- Remarks -->
                     <div class="form-group col-md-11">
                         <label for="pastObshx_remarks-${fieldCount}" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="pastObshx_remarks-${fieldCount}" name="pastObshx_remarks[]" rows="1"></textarea>
+                        <textarea class="form-control" id="pastObshx_remarks-${fieldCount}" name="pastObshx_remark[]" rows="1"></textarea>
                     </div>
                     <div class="form-group col-md-1 d-flex align-items-end">
                         <button class="btn btn-danger remove-field-btn" type="button" onclick="removeField('field-row-${fieldCount2}')"><i class="fe fe-trash-2"></i></button>
