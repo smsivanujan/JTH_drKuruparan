@@ -9,7 +9,7 @@
                 <div class="form-group col-md-3">
                     <label class="form-label" for="menstrualhx-label">Menstrual HX</label>
                     <label class="form-label" for="menarche_at-number">Menarche at</label>
-                    <input type="number" name="menarche_at" class="form-control" placeholder="Age">
+                    <input type="number" name="menarche_at" class="form-control" placeholder="">
                 </div>
 
                 <!-- Contraception HX -->
@@ -51,12 +51,12 @@
                 <!-- Amount -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="amount-text">Amount</label>
-                    <input type="text" name="amount" class="form-control" placeholder="Amount">
+                    <input type="text" name="amount" class="form-control" placeholder="">
                 </div>
                 <!-- Duration -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="duration-text">Duration</label>
-                    <input type="text" name="duration" class="form-control" placeholder="Duration">
+                    <input type="text" name="duration" class="form-control" placeholder="">
                 </div>
                 <!-- Regularity -->
                 <div class="form-group col-md-3">
@@ -134,7 +134,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-label" for="gender-dropdown">Gender</label>
-                                <select name="gender" class="form-control form-select" id="gender-dropdown" data-bs-placeholder="Select Gender">
+                                <select name="gender" class="form-control form-select" id="gender-dropdown" data-bs-placeholder="">
                                     <option label="Choose one" disabled selected></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>

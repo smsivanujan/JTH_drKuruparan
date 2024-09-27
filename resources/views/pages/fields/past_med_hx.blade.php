@@ -27,7 +27,7 @@
                     <!-- Past Med Hx -->
                     <div class="form-group col-md-4">
                         <label class="form-label" for="pastmedhx-text-${fieldCount3}">Past Med Hx</label>
-                        <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount3}" data-bs-placeholder="Select Past Med Hx">
+                        <select name="pastmedhx[]" class="form-control form-select" id="pastmedhx-text-${fieldCount3}" data-bs-placeholder="">
                             <option selected disabled value="">Choose...</option>
                              <option value="Anaemia">Anaemia</option>
                               <option value="SLE">SLE</option>

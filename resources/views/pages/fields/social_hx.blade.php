@@ -6,7 +6,7 @@
                 <!-- Family Status -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="family_status-dropdown">Family Status</label>
-                    <select name="family_status" class="form-control form-select" id="family_status-dropdown" data-bs-placeholder="Select Family Status">
+                    <select name="family_status" class="form-control form-select" id="family_status-dropdown" data-bs-placeholder="">
                         <option label="Choose one" disabled selected></option>
                         <option value="Extended Family">Extended Family</option>
                         <option value="Nuclear Family">Nuclear Family</option>
@@ -15,7 +15,7 @@
                 <!-- Monthly Income -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="monthly_income-dropdown">Monthly Income</label>
-                    <select name="monthly_income" class="form-control form-select" id="monthly_income-dropdown" data-bs-placeholder="Select Monthly Income">
+                    <select name="monthly_income" class="form-control form-select" id="monthly_income-dropdown" data-bs-placeholder="">
                         <option label="Choose one" disabled selected></option>
                         <option value="Low">Low</option>
                         <option value="Middle">Middle</option>
@@ -31,7 +31,7 @@
                         <!-- Education-Patient -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="patient_education-dropdown">Education</label>
-                            <select name="patient_education" class="form-control form-select" id="patient_education-dropdown" data-bs-placeholder="Select Patient Education">
+                            <select name="patient_education" class="form-control form-select" id="patient_education-dropdown" data-bs-placeholder="">
                                 <option label="Choose one" disabled selected></option>
                                 <option value="Primary">Primary</option>
                                 <option value="Secondary">Secondary</option>
@@ -71,7 +71,7 @@
                         <!-- Education-Partner -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="partner_education-dropdown">Education</label>
-                            <select name="partner_education" class="form-control form-select" id="partner_education-dropdown" data-bs-placeholder="Select Partner Education">
+                            <select name="partner_education" class="form-control form-select" id="partner_education-dropdown" data-bs-placeholder="">
                                 <option label="Choose one" disabled selected></option>
                                 <option value="Primary">Primary</option>
                                 <option value="Secondary">Secondary</option>

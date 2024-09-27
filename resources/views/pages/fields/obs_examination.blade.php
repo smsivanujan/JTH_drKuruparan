@@ -20,12 +20,12 @@
                 <!-- BP -->
                 <div class="form-group col-md-2">
                     <label class="form-label" for="bp-number">BP</label>
-                    <input type="number" name="bp" class="form-control" placeholder="BP">
+                    <input type="number" name="bp" class="form-control" placeholder="">
                 </div>
                 <!-- PR -->
                 <div class="form-group col-md-2">
                     <label class="form-label" for="pr-number">PR</label>
-                    <input type="number" name="pr" class="form-control" placeholder="PR">
+                    <input type="number" name="pr" class="form-control" placeholder="">
                 </div>
                 <!-- Thyroid Examination -->
                 <div class="form-group col-md-5">
@@ -48,7 +48,7 @@
             <div>
                 <div class="row">
                     <!-- inspectionObs -->
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label class="form-label" for="inspectionObs-dropdown">Inspection OBS</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
@@ -71,13 +71,18 @@
                     </div>
                     <!-- SFH (cm) -->
                     <div class="form-group col-md-2">
-                        <label class="form-label" for="sfh-number">SFH (cm)</label>
-                        <input type="number" name="sfh" class="form-control" placeholder="cm">
+                        <label class="form-label" for="sfh-number">SFH</label>
+                        <div class="input-group">
+                            <input type="number" name="sfh" class="form-control" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- Lie -->
                     <div class="form-group col-md-2">
                         <label class="form-label" for="lie-dropdown">Lie</label>
-                        <select name="lie" class="form-control form-select" id="lie-dropdown" data-bs-placeholder="Select Lie">
+                        <select name="lie" class="form-control form-select" id="lie-dropdown" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="Longitudinal">Longitudinal</option>
                             <option value="Transverse">Transverse</option>
@@ -87,7 +92,7 @@
                     <!-- Position -->
                     <div class="form-group col-md-2">
                         <label class="form-label" for="position-dropdown">Position</label>
-                        <select name="position" class="form-control form-select" id="position-dropdown" data-bs-placeholder="Select Position">
+                        <select name="position" class="form-control form-select" id="position-dropdown" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="LOA">LOA</option>
                             <option value="LOP">LOP</option>
@@ -96,9 +101,8 @@
                     </div>
                 </div>
                 <div class="row">
-
                     <!-- Engagement -->
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label class="form-label" for="engagement-radio">Engagement</label>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked6">
@@ -111,9 +115,8 @@
                             </label>
                         </div>
                     </div>
-
                     <!-- FHS -->
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-6">
                         <label class="form-label" for="fhs-radio">FHS</label>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked8">
@@ -136,11 +139,21 @@
                 <div class="row">
                     <!-- Cervical Dilatation -->
                     <div class="form-group col-md-2">
+                        <label class="form-label" id="score-label">SCORE <br></label>
+                        <label class="form-label" id="score-label">0</label>
+                    </div>
+                    <!-- Cervical Dilatation -->
+                    <div class="form-group col-md-2">
                         <label class="form-label" for="cervicaldilatation-text">Cervical Dilatation</label>
-                        <input type="text" id="cervical-dilatation" name="cervical_dilatation" class="form-control" placeholder="cm">
+                        <div class="input-group">
+                            <input type="text" id="cervical-dilatation" name="cervical_dilatation" class="form-control" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- Cervical Consistency -->
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-2">
                         <label class="form-label" for="cervicalconsistency-dropdown">Cervical Consistency</label>
                         <select id="cervical-consistency" name="cervical_consistency" class="form-control form-select">
                             <option label="Choose one" disabled selected></option>
@@ -152,12 +165,17 @@
                     </div>
                     <!-- Cervical Canel -->
                     <div class="form-group col-md-2">
-                        <label class="form-label" for="cervical_canel-text">Cervical Canel</label>
-                        <input type="text" id="cervical_canel" name="cervical_canel" class="form-control" placeholder="cm">
+                        <label class="form-label" for="cervical_canel-text">Cervical <br>Canel</label>
+                        <div class="input-group">
+                            <input type="text" id="cervical_canel" name="cervical_canel" class="form-control" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- Cervical Position -->
                     <div class="form-group col-md-2">
-                        <label class="form-label" for="cervicalposition-dropdown">Cervical Position</label>
+                        <label class="form-label" for="cervicalposition-dropdown">Cervical <br> Position</label>
                         <select id="cervical-position" name="cervical_position" class="form-control form-select">
                             <option label="Choose one" disabled selected></option>
                             <option value="Anterior">Anterior</option>
@@ -190,9 +208,9 @@
                 <label class="form-label" for="tas-label">TAS</label>
                 <div class="row">
                     <!-- Fetus -->
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label class="form-label" for="fetus-dropdown">Fetus</label>
-                        <select name="fetus" class="form-control form-select" id="fetus-dropdown" data-bs-placeholder="Select Fetus">
+                        <select name="fetus" class="form-control form-select" id="fetus-dropdown" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="Single">Single</option>
                             <option value="Twin">Twin</option>
@@ -201,33 +219,33 @@
                     <!-- Precentation -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="precentation-dropdown">Precentation</label>
-                        <select name="precentation" class="form-control form-select" id="precentation-dropdown" data-bs-placeholder="Select Precentation">
+                        <select name="precentation" class="form-control form-select" id="precentation-dropdown" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="Cephalic P/C">Cephalic P/C</option>
                             <option value="Breech P/C">Breech P/C</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-7">
                         <div class="row">
                             <div class="form-group col-md-2">
                                 <label class="form-label" for="bpd-text">BPD</label>
-                                <input type="text" id="bpd" name="bpd" class="form-control" placeholder="BPD">
+                                <input type="text" id="bpd" name="bpd" class="form-control" placeholder="">
                             </div>
                             <div class="form-group col-md-2">
                                 <label class="form-label" for="ac-text">AC</label>
-                                <input type="text" id="ac" name="ac" class="form-control" placeholder="AC">
+                                <input type="text" id="ac" name="ac" class="form-control" placeholder="">
                             </div>
                             <div class="form-group col-md-2">
                                 <label class="form-label" for="hc-text">HC</label>
-                                <input type="text" id="hc" name="hc" class="form-control" placeholder="HC">
+                                <input type="text" id="hc" name="hc" class="form-control" placeholder="">
                             </div>
                             <div class="form-group col-md-2">
                                 <label class="form-label" for="fl-text">FL</label>
-                                <input type="text" id="fl" name="fl" class="form-control" placeholder="FL">
+                                <input type="text" id="fl" name="fl" class="form-control" placeholder="">
                             </div>
                             <div class="form-group col-md-2">
                                 <label class="form-label" for="crl-text">CRL</label>
-                                <input type="text" id="crl" name="crl" class="form-control" placeholder="CRL">
+                                <input type="text" id="crl" name="crl" class="form-control" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -239,12 +257,22 @@
                     <!-- Placental Position -->
                     <div class="form-group col-md-2">
                         <label class="form-label" for="placental_position-text">Placental Position</label>
-                        <input type="text" name="placental_position" class="form-control" placeholder="cm">
+                        <div class="input-group">
+                            <input type="text" name="placental_position" class="form-control" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- EFW -->
                     <div class="form-group col-md-2">
                         <label class="form-label" for="efw-text">EFW</label>
-                        <input type="text" name="efw" class="form-control" placeholder="Kg">
+                        <div class="input-group">
+                            <input type="text" name="efw" class="form-control" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">kg</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- Liquor -->
                     <div class="form-group col-md-4">
@@ -261,9 +289,9 @@
                         </div>
                     </div>
                     <!-- UT.A.Dopplier -->
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label class="form-label" for="dopplier-dropdown">UT.A.Dopplier</label>
-                        <select name="dopplier" class="form-control form-select" id="dopplier-dropdown" data-bs-placeholder="Select Dopplier">
+                        <select name="dopplier" class="form-control form-select" id="dopplier-dropdown" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="Normal">Normal</option>
                             <option value="Abnormal">Abnormal</option>

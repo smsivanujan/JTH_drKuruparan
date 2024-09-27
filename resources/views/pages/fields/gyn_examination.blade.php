@@ -64,7 +64,7 @@
                     <!-- BMI -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="bmi">BMI</label>
-                        <input type="number" name="bmi" id="bmi" class="form-control" step="0.01" placeholder="BMI">
+                        <input type="number" name="bmi" id="bmi" class="form-control" step="0.01" placeholder="">
                     </div>
                     <!-- Temperature -->
                     <div class="form-group col-md-3">
@@ -284,7 +284,7 @@
                     <!-- Inspection + Speculum -->
                     <div class="form-group col-md-6">
                         <label class="form-label" for="inspectionSpeculum-dropdown">Inspection + Speculum</label>
-                        <select name="inspectionSpeculum[]" id="inspectionSpeculum-dropdown" class="form-control select2-style1" data-placeholder="Select Inspection Speculum" multiple>
+                        <select name="inspectionSpeculum[]" id="inspectionSpeculum-dropdown" class="form-control select2-style1" data-placeholder="" multiple>
                             <option label="Choose one" disabled></option>
                             <option value="Vulval Area Mass">Vulval Area Mass</option>
                             <option value="Vulval Area Ulcers">Vulval Area Ulcers</option>
@@ -553,7 +553,7 @@
                     <!-- Problem list -->
                     <div class="form-group col-md-12">
                         <label class="form-label" for="problist">Problem list</label>
-                        <textarea id="problist" name="problist" class="form-control" rows="4" placeholder="Enter Problem List"></textarea>
+                        <textarea id="problist" name="problist" class="form-control" rows="4" placeholder=""></textarea>
                     </div>
                 </div>
                 <div class="row">

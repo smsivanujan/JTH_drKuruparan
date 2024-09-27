@@ -6,7 +6,7 @@
                 <!-- Drug Allergy Hx -->
                 <div class="form-group col-md-12">
                     <label class="form-label" for="drugalergyhx-dropdown">Drug Allergy Hx</label>
-                    <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="Select Drug Allergy Hx" multiple>
+                    <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="" multiple>
                         <option label="Choose one" disabled></option>
                         <option value="Other Diagnostic Procedures">Other Diagnostic Procedures</option>
                         <option value="Preventive Imunisations/Medications">Preventive Imunisations/Medications</option>
@@ -19,12 +19,12 @@
                 <!-- Food Allergy HX -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="foodallergyhx-text">Food Allergy HX</label>
-                    <textarea class="form-control" id="foodallergyhx" name="foodallergyhx" placeholder="Food Allergy HX" rows="1"></textarea>
+                    <textarea class="form-control" id="foodallergyhx" name="foodallergyhx" placeholder="" rows="1"></textarea>
                 </div>
                 <!-- Other Allergy HX -->
                 <div class="form-group col-md-6">
                     <label class="form-label" for="otherallergyhx-text">Other Allergy HX</label>
-                    <textarea class="form-control" id="otherallergyhx" name="otherallergyhx" placeholder="Other Allergy HX" rows="1"></textarea>
+                    <textarea class="form-control" id="otherallergyhx" name="otherallergyhx" placeholder="" rows="1"></textarea>
                 </div>
             </div>
         </div>

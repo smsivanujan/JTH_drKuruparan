@@ -3,7 +3,7 @@
     <!-- Plan -->
     <div class="form-group col-md-6">
         <label class="form-label" for="plan-dropdown">Plan</label>
-        <select name="antibiotics" class="form-control form-select" id="antibiotics-dropdown" data-bs-placeholder="Select Antibiotics">
+        <select name="antibiotics" class="form-control form-select" id="antibiotics-dropdown" data-bs-placeholder="">
             <option label="Choose one" disabled selected></option>
             <option value="Antibiotics">Antibiotics</option>
             <option value="Analogeis">Analogeis</option>
@@ -15,7 +15,7 @@
     <!-- Plan Delivery -->
     <div class="form-group col-md-6">
         <label class="form-label" for="plandelivery-dropdown">Plan Delivery</label>
-        <select name="plan_delivery" class="form-control form-select" id="plandelivery-dropdown" data-bs-placeholder="Select Plan Delivery">
+        <select name="plan_delivery" class="form-control form-select" id="plandelivery-dropdown" data-bs-placeholder="">
             <option label="Choose one" disabled selected></option>
             <option value="IOC">IOC</option>
             <option value="SOS">SOS</option>

@@ -5,17 +5,17 @@
             <!-- Past Surgery HX -->
             <div class="form-group col-md-4">
                 <label class="form-label" for="pastsurgeryhx-text">Past Surgery HX</label>
-                <textarea id="pastsurgeryhx" name="pastsurgeryhx" class="form-control" rows="4" placeholder="Past Surgery HX"></textarea>
+                <textarea id="pastsurgeryhx" name="pastsurgeryhx" class="form-control" rows="4" placeholder=""></textarea>
             </div>
             <!-- Family HX -->
             <div class="form-group col-md-4">
                 <label class="form-label" for="familyhx-text">Family HX</label>
-                <textarea id="familyhx" name="familyhx" class="form-control" rows="4" placeholder="Family HX"></textarea>
+                <textarea id="familyhx" name="familyhx" class="form-control" rows="4" placeholder=""></textarea>
             </div>
             <!-- Social HX -->
             <div class="form-group col-md-4">
                 <label class="form-label" for="socialhx-text">Social HX</label>
-                <textarea id="socialhx" name="socialhx" class="form-control" rows="4" placeholder="Social HX"></textarea>
+                <textarea id="socialhx" name="socialhx" class="form-control" rows="4" placeholder=""></textarea>
             </div>
         </div>
     </div>

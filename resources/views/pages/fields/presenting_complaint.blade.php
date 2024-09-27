@@ -8,7 +8,7 @@
                 </div>
             </div>
             <button class="btn btn-success mb-3" type="button" id="add-field-btn">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Complaint
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Presenting Complaint
             </button>
         </div>
     </div>
@@ -73,14 +73,14 @@
                     <!-- Complaint -->
                     <div class="form-group col-md-6">
                         <label class="form-label" for="complaint-dropdown-${fieldCount}">Complaint</label>
-                        <select name="complaint[]" class="form-control form-select" id="complaint-dropdown-${fieldCount}" data-bs-placeholder="Select Complaint">
+                        <select name="complaint[]" class="form-control form-select" id="complaint-dropdown-${fieldCount}" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                         </select>
                     </div>
                     <!-- Duration -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="durations-dropdown-${fieldCount}">Duration</label>
-                        <select name="duration[]" class="form-control form-select" id="durations-dropdown-${fieldCount}" data-bs-placeholder="Select Duration">
+                        <select name="duration[]" class="form-control form-select" id="durations-dropdown-${fieldCount}" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="1-4 Hour">1-4 Hour</option>
                             <option value="4-8 Hour">4-8 Hour</option>
@@ -103,7 +103,7 @@
                     <!-- Severity -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="severity-dropdown-${fieldCount}">Severity</label>
-                        <select name="severity[]" class="form-control form-select" id="severity-dropdown-${fieldCount}" data-bs-placeholder="Select Severity">
+                        <select name="severity[]" class="form-control form-select" id="severity-dropdown-${fieldCount}" data-bs-placeholder="">
                             <option label="Choose one" disabled selected></option>
                             <option value="Mild">Mild</option>
                             <option value="Moderate">Moderate</option>

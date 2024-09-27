@@ -27,17 +27,17 @@
                     <!-- Year -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="year-input-${fieldCount2}">Year</label>
-                        <input type="number" name="year[]" class="form-control" placeholder="YYYY" id="year-input-3" min="1000" max="9999" maxlength="4" required>
+                        <input type="number" name="year[]" class="form-control" placeholder="yyyy" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
                     </div>
                     <!-- POA -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="poa-text-${fieldCount2}">POA</label>
-                        <input type="text" name="poa[]" class="form-control" placeholder="POA" id="poa-text-${fieldCount2}">
+                        <input type="text" name="poa[]" class="form-control" placeholder="" id="poa-text-${fieldCount2}">
                     </div>
                     <!-- MOD -->
                     <div class="form-group col-md-4">
                         <label class="form-label" for="mod-text-${fieldCount2}">MOD</label>
-                        <select name="mod[]" class="form-control form-select" id="mod-text-${fieldCount2}" data-bs-placeholder="Select MOD">
+                        <select name="mod[]" class="form-control form-select" id="mod-text-${fieldCount2}" data-bs-placeholder="">
                              <option selected disabled value="">Choose...</option>
                             <option Value="LSCS">LSCS</option>
                             <option Value="AVD">AVD</option>
@@ -48,8 +48,12 @@
                     </div>
                     <!-- Birth Weight -->
                     <div class="form-group col-md-2">
-                        <label class="form-label" for="birth-weight-text-${fieldCount2}">B.Weight</label>
-                        <input type="text" name="birth_weight[]" class="form-control" placeholder="KG" id="birth-weight-text-${fieldCount2}">
+                    <label class="form-label" for="birth-weight-text-${fieldCount2}">Birth Weight</label>
+                    <div class="input-group">
+                        <input type="text" name="birth_weight[]" class="form-control" placeholder="" id="birth-weight-text-${fieldCount2}" min="0" max="200" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kg</span>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
