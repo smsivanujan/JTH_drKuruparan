@@ -25,12 +25,12 @@ class PregnanacyController extends Controller
     use ValidatesRequests;
     public function index()
     {
-        $pregnanacies = DB::table('pregnanacies')
+        $pregnancies = DB::table('pregnancies')
             ->select(
-                'pregnanacies.id',
-                'pregnanacies.patient_id',
-                'pregnanacies.category',
-                'pregnanacies.detail',
+                'pregnancies.id',
+                'pregnancies.patient_id',
+                'pregnancies.category',
+                'pregnancies.detail',
                 'jthhims.patientdemographic.patientID',
                 'jthhims.patientdemographic.patientPersonalTitle',
                 'jthhims.patientdemographic.patientName',
@@ -39,17 +39,17 @@ class PregnanacyController extends Controller
                 'jthhims.department.departmentTitle AS ward',
                 'jthhims.admission.BHTClinicFileNo'
             )
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', 'jthhims.department.departmentCode')
             ->get();
 
         // Calculate age
-        foreach ($pregnanacies as $pregnanacyAge) {
+        foreach ($pregnancies as $pregnanacyAge) {
             $pregnanacyAge->age = Carbon::parse($pregnanacyAge->patientDateofbirth)->age; // Correct field name here
         }
 
-        return view('pages.patientIndex', compact('pregnanacies'));
+        return view('pages.patientIndex', compact('pregnancies'));
     }
 
     public function SearchByPHN(Request $request)
@@ -58,8 +58,8 @@ class PregnanacyController extends Controller
 
         $present_complaints = DB::table('present_complaints')
             ->select('*')
-            ->join('pregnanacies', 'present_complaints.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'present_complaints.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -67,8 +67,8 @@ class PregnanacyController extends Controller
 
         $current_pregnancy_hxs = DB::table('current_pregnancy_hxs')
             ->select('*')
-            ->join('pregnanacies', 'current_pregnancy_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'current_pregnancy_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -76,8 +76,8 @@ class PregnanacyController extends Controller
 
         $past_obs_hxs = DB::table('past_obs_hxs')
             ->select('*')
-            ->join('pregnanacies', 'past_obs_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'past_obs_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -85,8 +85,8 @@ class PregnanacyController extends Controller
 
         $past_gyn_hxs = DB::table('past_gyn_hxs')
             ->select('*')
-            ->join('pregnanacies', 'past_gyn_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'past_gyn_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -94,8 +94,8 @@ class PregnanacyController extends Controller
 
         $past_med_hxs = DB::table('past_med_hxs')
             ->select('*')
-            ->join('pregnanacies', 'past_med_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'past_med_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -103,8 +103,8 @@ class PregnanacyController extends Controller
 
         $allergic_hxs = DB::table('allergic_hxs')
             ->select('*')
-            ->join('pregnanacies', 'allergic_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'allergic_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -112,8 +112,8 @@ class PregnanacyController extends Controller
 
         $other_hxs = DB::table('other_hxs')
             ->select('*')
-            ->join('pregnanacies', 'other_hxs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'other_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -121,8 +121,8 @@ class PregnanacyController extends Controller
 
         $gyn_examinations = DB::table('gyn_examinations')
             ->select('*')
-            ->join('pregnanacies', 'gyn_examinations.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'gyn_examinations.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -130,8 +130,8 @@ class PregnanacyController extends Controller
 
         $obs_examinations = DB::table('obs_examinations')
             ->select('*')
-            ->join('pregnanacies', 'obs_examinations.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'obs_examinations.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -139,8 +139,8 @@ class PregnanacyController extends Controller
 
         $ixs = DB::table('ixs')
             ->select('*')
-            ->join('pregnanacies', 'ixs.pregnancy_id', '=', 'pregnanacies.id')
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('pregnancies', 'ixs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
@@ -325,8 +325,6 @@ class PregnanacyController extends Controller
             $otherHx = new OtherHX();
             $otherHx->pregnancy_id = $savedId;
             $otherHx->past_surgery_hx = $request->input('pastsurgeryhx', '');
-            $otherHx->family_hx = $request->input('familyhx', '');
-            $otherHx->social_hx = $request->input('socialhx', '');
             $otherHx->save();
 
             $gynExamination = new GynExaminations();
@@ -375,7 +373,7 @@ class PregnanacyController extends Controller
             $gynExamination->direction_tvs = $request->input('direction_tvs');
             $gynExamination->cavity_tas = $request->input('cavity_tas');
             $gynExamination->polyps_tvs = $request->input('polyps_tvs');
-            $gynExamination->echopic_tvs = $request->input('echopic_tvs');
+            $gynExamination->ectopic_tvs = $request->input('ectopic_tvs');
             $gynExamination->adnexialmass_tvs = $request->input('adnexialmass_tvs');
             $gynExamination->problist = $request->input('problist');
             $gynExamination->medical_hx = $request->input('medical_hx');
@@ -558,7 +556,7 @@ class PregnanacyController extends Controller
         $gynExamination->size_tvs = $request->input('size_tvs');
         $gynExamination->direction_tvs = $request->input('direction_tvs');
         $gynExamination->polyps_tvs = $request->input('polyps_tvs');
-        $gynExamination->echopic_tvs = $request->input('echopic_tvs');
+        $gynExamination->ectopic_tvs = $request->input('ectopic_tvs');
         $gynExamination->adnexialmass_tvs = $request->input('adnexialmass_tvs');
         $gynExamination->problist = $request->input('problist');
         $gynExamination->medical_hx = $request->input('medical_hx');

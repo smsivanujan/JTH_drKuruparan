@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('obs_examinations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->text('generalObs')->nullable();
             $table->integer('bp')->nullable();
             $table->integer('pr')->nullable();
@@ -37,12 +37,13 @@ return new class extends Migration
             $table->float('fl')->nullable();
             $table->float('crl')->nullable();
             $table->float('placental_position')->nullable();
-            $table->float('efw')->nullable();     
-            $table->string('liquor')->nullable();     
+            $table->float('efw')->nullable();
+            $table->string('liquor')->nullable();
             $table->string('dopplier')->nullable();
             $table->timestamps();
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
         });
-        
     }
 
     /**

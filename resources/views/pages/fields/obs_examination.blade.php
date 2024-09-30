@@ -134,13 +134,12 @@
 
             <!-- VE/Modified Bishops Score -->
             <label class="form-label" for="ve-modifiedbishops-score-label">VE/Modified Bishops Score</label>
-            <label class="form-label" id="score-label">SCORE: 0</label>
             <div>
                 <div class="row">
-                    <!-- Cervical Dilatation -->
+                    <!-- SCORE -->
                     <div class="form-group col-md-2">
-                        <label class="form-label" id="score-label">SCORE <br></label>
-                        <label class="form-label" id="score-label">0</label>
+                        <label class="form-label" style="font-size: 24px; text-align: center; display: block;">SCORE<br></label>
+                        <label class="form-label" id="score-label" style="font-size: 24px; color: red; text-align: center; display: block;">0</label>
                     </div>
                     <!-- Cervical Dilatation -->
                     <div class="form-group col-md-2">
@@ -308,7 +307,7 @@
     function calculateScore() {
         const dilatation = parseFloat(document.getElementById('cervical-dilatation').value) || 0;
         const consistency = document.getElementById('cervical-consistency').value;
-        const canel = parseFloat(document.getElementById('effacement').value) || 0;
+        const canel = parseFloat(document.getElementById('cervical_canel').value) || 0;
         const position = document.getElementById('cervical-position').value;
         const station = document.getElementById('station').value;
 
@@ -366,13 +365,13 @@
         }
 
         // Display the calculated score
-        document.getElementById('score-label').innerText = 'SCORE: ' + score;
+        document.getElementById('score-label').innerText = score;
     }
 
     // Attach event listeners to input elements
     document.getElementById('cervical-dilatation').addEventListener('input', calculateScore);
     document.getElementById('cervical-consistency').addEventListener('change', calculateScore);
-    document.getElementById('effacement').addEventListener('input', calculateScore);
+    document.getElementById('cervical_canel').addEventListener('input', calculateScore);
     document.getElementById('cervical-position').addEventListener('change', calculateScore);
     document.getElementById('station').addEventListener('change', calculateScore);
 </script>

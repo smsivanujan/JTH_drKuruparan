@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('present_complaints', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->string('complaint');
             $table->string('duration');
             $table->string('severity');
             $table->text('remarks')->nullable();
             $table->timestamps();
-        });        
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
+        });
     }
 
     /**

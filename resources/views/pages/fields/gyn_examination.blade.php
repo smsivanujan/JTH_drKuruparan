@@ -519,10 +519,10 @@
                                     <option value="-">-</option>
                                 </select>
                             </div>
-                            <!-- Echopic -->
+                            <!-- Ectopic -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="echopic-tvs-dropdown">Echopic</label>
-                                <select name="echopic_tvs" class="form-control form-select" id="echopic-tvs-dropdown">
+                                <label class="form-label" for="ectopic-tvs-dropdown">Ectopic</label>
+                                <select name="ectopic_tvs" class="form-control form-select" id="ectopic-tvs-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="+">+</option>
                                     <option value="-">-</option>

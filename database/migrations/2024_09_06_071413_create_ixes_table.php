@@ -13,18 +13,20 @@ return new class extends Migration
     {
         Schema::create('ixs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->string('ctg')->nullable();
             $table->string('tas')->nullable();
             $table->string('hb')->nullable();
             $table->string('plt')->nullable();
             $table->string('wbc')->nullable();
-            $table->string('crp')->nullable(); 
+            $table->string('crp')->nullable();
             $table->string('urine_full_report')->nullable();
             $table->string('ohtt_bss')->nullable();
             $table->string('antibiotics')->nullable();
             $table->string('plan_delivery')->nullable();
             $table->timestamps();
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
         });
     }
 

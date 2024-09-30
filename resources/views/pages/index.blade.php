@@ -30,7 +30,7 @@
                         @foreach ($total_surgeries as $item)
                         <h3 class="mb-2 fw-semibold">{{$item->totalSurgeries}}</h3>
                         @endforeach
-                        <p class="text-muted fs-13 mb-0">Total Surgeries</p>
+                        <p class="text-muted fs-13 mb-0">Total Patients</p>
                     </div>
                     <div class="col col-auto top-icn dash">
                         <div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
@@ -51,7 +51,7 @@
                         @foreach ($today_surgeries as $item)
                         <h3 class="mb-2 fw-semibold">{{$item->todaySurgeries}}</h3>
                         @endforeach
-                        <p class="text-muted fs-13 mb-0">Today Surgeries</p>
+                        <p class="text-muted fs-13 mb-0">GYN Patients</p>
                     </div>
                     <div class="col col-auto top-icn dash">
                         <div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
@@ -72,7 +72,7 @@
                         @foreach ($total_surgery_types as $item)
                         <h3 class="mb-2 fw-semibold">{{$item->surgeryTypes}}</h3>
                         @endforeach
-                        <p class="text-muted fs-13 mb-0">Surgery Types</p>
+                        <p class="text-muted fs-13 mb-0">OBS Patients</p>
                     </div>
                     <div class="col col-auto top-icn dash">
                         <div class="counter-icon bg-primary dash ms-auto box-shadow-primary">

@@ -49,7 +49,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pregnanacies as $row)
+                            @foreach ($pregnancies as $row)
                             <tr>
                                 <td></td>
                                 <td>
@@ -59,7 +59,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-yellow" href="{{ route('pregnanacyVisit.index') }}">
+                                    <a class="btn btn-yellow" href="{{ route('pregnanacyVisit.index', ['patientID' => $row->patientID]) }}">
                                         <i style="color:rgb(226, 210, 210);cursor: pointer" class="fa fa-plus"></i>
                                     </a>
                                 </td>

@@ -7,7 +7,7 @@
 
             <div class="modal-body text-start">
                 <div class="card-body">
-                    <form id="form" action="{{ route('complaints.store') }}" method="POST">
+                    <form id="form" action="{{ route('pregnanacy.store') }}" method="POST">
                         @csrf
                         <div class="list-group">
                             <!-- Patient -->
@@ -89,7 +89,7 @@
 
                                 <!-- Form Content -->
                                 <div style="flex-grow: 1; padding: 20px;">
-                                    <form id="form" action="{{ route('complaints.store') }}" method="POST">
+                                    <form id="form" action="{{ route('pregnanacy.store') }}" method="POST">
                                         @csrf
                                         <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" hidden>
                                         

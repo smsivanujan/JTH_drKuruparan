@@ -35,7 +35,7 @@
                     <h3 class="card-title text-center w-100">Personal Info</h3>
                     <table class="table table-borderless">
                         <tbody>
-                            @foreach ($pregnanacies as $row)
+                            @foreach ($pregnancies as $row)
                             <tr>
                                 <td><strong>PHN:</strong><br><input type="text" class="form-control" id="patient" name="patient" value="{{ $row->patient_id }}" readonly></td>
                                 <td><strong>BHT:</strong><br><input type="text" class="form-control" id="BHTClinicFileNo" value="{{ $row->BHTClinicFileNo }}" readonly></td>
@@ -557,7 +557,16 @@
     });
 </script>
 
-
+<!-- Pass patient_id to model -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addButton = document.getElementById('btn-add');
+        addButton.addEventListener('click', function () {
+            const patientId = document.getElementById('patient').value;
+            document.getElementById('input_id_patient').value = patientId;
+        });
+    });
+</script>
 
 
 @endsection

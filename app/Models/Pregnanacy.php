@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pregnanacy extends Model
 {
-    protected $table = 'pregnanacies';
+    protected $table = 'pregnancies';
     protected $fillable = [
         'category',
     ];

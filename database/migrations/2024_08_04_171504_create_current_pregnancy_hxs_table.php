@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('current_pregnancy_hxs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->string('g')->nullable();
             $table->string('p')->nullable();
             $table->string('c')->nullable();
@@ -22,7 +22,9 @@ return new class extends Migration
             $table->date('edd')->nullable();
             $table->date('working_edd')->nullable();
             $table->timestamps();
-        });        
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
+        });
     }
 
     /**

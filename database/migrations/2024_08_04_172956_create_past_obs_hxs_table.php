@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('past_obs_hxs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->integer('year')->nullable();
             $table->string('poa')->nullable();
             $table->string('mod')->nullable();
             $table->string('birth_weight')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
-        });        
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
+        });
     }
 
     /**

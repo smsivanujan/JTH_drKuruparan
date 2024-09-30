@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('socials_hxs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->string('family_status')->nullable();
             $table->string('monthly_income')->nullable();
             $table->string('patient_education')->nullable();
@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('partner_occupation')->nullable();
             $table->text('partner_social_problem')->nullable();
             $table->timestamps();
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
         });
     }
 

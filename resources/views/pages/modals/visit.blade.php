@@ -7,7 +7,7 @@
 
             <div class="modal-body text-start">
                 <div class="card-body">
-                    <form id="form" action="{{ route('complaints.store') }}" method="POST">
+                    <form id="form" action="{{ route('pregnanacyVisit.store') }}" method="POST">
                         @csrf
                         <div class="list-group">
                             <div style="display: flex;">
@@ -31,9 +31,9 @@
 
                                 <!-- Form Content -->
                                 <div style="flex-grow: 1; padding: 20px;">
-                                    <form id="form" action="{{ route('complaints.store') }}" method="POST">
+                                    <form id="form" action="{{ route('pregnanacyVisit.store') }}" method="POST">
                                         @csrf
-                                        <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" hidden>
+                                        <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" readonly >
 
                                         <!-- Category -->
                                         <div class="container d-flex justify-content-center">
@@ -57,7 +57,7 @@
                                             </div>
 
                                             <div style="padding-top: 10px;">
-                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(1)">Next</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(2)">Next</button>
                                             </div>
                                         </div>
 

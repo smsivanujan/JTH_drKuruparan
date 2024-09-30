@@ -12,12 +12,12 @@ class SocialsHxController extends Controller
 
     public function index()
     {
-        $pregnanacies = DB::table('pregnanacies')
+        $pregnancies = DB::table('pregnancies')
             ->select(
-                'pregnanacies.id',
-                'pregnanacies.patient_id',
-                'pregnanacies.category',
-                'pregnanacies.detail',
+                'pregnancies.id',
+                'pregnancies.patient_id',
+                'pregnancies.category',
+                'pregnancies.detail',
                 'jthhims.patientdemographic.patientID',
                 'jthhims.patientdemographic.patientPersonalTitle',
                 'jthhims.patientdemographic.patientName',
@@ -26,17 +26,17 @@ class SocialsHxController extends Controller
                 'jthhims.department.departmentTitle AS ward',
                 'jthhims.admission.BHTClinicFileNo'
             )
-            ->join('jthhims.patientdemographic', 'pregnanacies.patient_id', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', 'jthhims.department.departmentCode')
             ->get();
 
         // Calculate age
-        foreach ($pregnanacies as $pregnanacyAge) {
+        foreach ($pregnancies as $pregnanacyAge) {
             $pregnanacyAge->age = Carbon::parse($pregnanacyAge->patientDateofbirth)->age; // Correct field name here
         }
 
-        return view('pages.testIndex', compact('pregnanacies'));
+        return view('pages.testIndex', compact('pregnancies'));
     }
 
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('gyn_examinations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pregnancy_id')->constrained('pregnanacies')->onDelete('cascade');
+            $table->unsignedBigInteger('pregnancy_id');
             $table->text('generalGyn')->nullable();
             $table->string('thyroid_examinationGyn')->nullable();
             $table->integer('height')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('heart_sound')->nullable();
             $table->string('murmur')->nullable();
             $table->integer('systolic')->nullable();
-            $table->integer('diastolic')->nullable();      
+            $table->integer('diastolic')->nullable();
             $table->string('breath_sound')->nullable();
             $table->text('inspectionGyn')->nullable();
 
@@ -57,14 +57,15 @@ return new class extends Migration
             $table->string('direction_tvs')->nullable();
             $table->string('cavity_tas')->nullable();
             $table->string('polyps_tvs')->nullable();
-            $table->string('echopic_tvs')->nullable();
+            $table->string('ectopic_tvs')->nullable();
             $table->string('adnexialmass_tvs')->nullable();
             $table->string('problist')->nullable();
             $table->string('medical_hx')->nullable();
             $table->string('surgery_hx')->nullable();
             $table->timestamps();
+
+            $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
         });
-        
     }
 
     /**
