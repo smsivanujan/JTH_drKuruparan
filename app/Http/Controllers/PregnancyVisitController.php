@@ -61,12 +61,10 @@ class PregnancyVisitController extends Controller
             $savedId = $pregnancy->id;
         }
         
-
         $complaints = $request->input('complaint', []);
         $durations = $request->input('duration', []);
         $severities = $request->input('severity', []);
         $remarksPCs = $request->input('remarksPC', []);
-
         foreach ($remarksPCs as $key => $remarkPC) {
             $presentComplaint = new PresentComplaint();
             $presentComplaint->pregnancy_id = $savedId;
@@ -93,13 +91,10 @@ class PregnancyVisitController extends Controller
         $gynExamination->diastolic = $request->input('diastolic');
         $gynExamination->breath_sound = $request->input('breath_sound');
         $gynExamination->inspectionGyn = implode(', ', $request->input('inspectionGyn', []));
-
-        //MASS
         $gynExamination->site_mass = $request->input('site_mass');
         $gynExamination->size_mass = $request->input('size_mass');
         $gynExamination->percussion_mass = $request->input('percussion_mass');
         $gynExamination->auscultator_mass = $request->input('auscultator_mass');
-
         $gynExamination->palpation = $request->input('palpation');
         $gynExamination->percussion = $request->input('percussion');
         $gynExamination->auscultation = $request->input('auscultation');

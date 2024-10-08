@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SocialsHx;
+use App\Models\SocialHx;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SocialsHxController extends Controller
+class SocialHxController extends Controller
 {
 
     public function index()
@@ -48,7 +48,7 @@ class SocialsHxController extends Controller
 
     public function store(Request $request)
     {
-        $socialHx = new SocialsHx();
+        $socialHx = new SocialHx();
             $socialHx->pregnancy_id = "1";
             $socialHx->family_status = $request->input('family_status', '');
             $socialHx->monthly_income = $request->input('monthly_income', '');
@@ -64,7 +64,7 @@ class SocialsHxController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SocialsHx $socialsHx)
+    public function show(SocialHx $socialsHx)
     {
         //
     }
@@ -72,7 +72,7 @@ class SocialsHxController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SocialsHx $socialsHx)
+    public function edit(SocialHx $socialsHx)
     {
         //
     }
@@ -80,7 +80,7 @@ class SocialsHxController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SocialsHx $socialsHx)
+    public function update(Request $request, SocialHx $socialsHx)
     {
         //
     }
@@ -88,7 +88,7 @@ class SocialsHxController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SocialsHx $socialsHx)
+    public function destroy(SocialHx $socialsHx)
     {
         //
     }

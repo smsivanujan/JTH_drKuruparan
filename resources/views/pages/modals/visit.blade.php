@@ -24,7 +24,7 @@
                                             <a class="nav-link thumb text-dark-light active" href="#page3" onclick="showPage(3)" style="text-decoration: none; color: black;">Obs Examination</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page4" onclick="showPage(4)" style="text-decoration: none; color: black;">IX</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page4" onclick="showPage(4)" style="text-decoration: none; color: black;">Investigation</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -87,11 +87,11 @@
                                             </div>
                                         </div>
 
-                                        <!-- IX -->
+                                        <!-- Investigation -->
                                         <div id="page4" class="form-page" style="display: none;">
-                                            <h2>IX</h2>
+                                            <h2>Investigation</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
-                                                @include('pages.fields.ix')
+                                                @include('pages.fields.investigation')
                                             </div>
 
                                             <div style="padding-top: 10px;">

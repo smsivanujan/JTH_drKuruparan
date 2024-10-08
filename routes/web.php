@@ -10,6 +10,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('index.dashboard');
 
 Route::get('/pregnancy', [PregnanacyController::class, 'index'])->name('pregnanacy.index');
 Route::get('/pregnanacy/show', [PregnanacyController::class, 'SearchByPHN'])->name('pregnanacy.show');
+Route::get('/pregnanacy/editz', [PregnanacyController::class, 'EditzByPHN'])->name('pregnanacy.editz');
 Route::post('/pregnanacy/store', [PregnanacyController::class, 'store'])->name('pregnanacy.store');
 Route::get('/search', [PregnanacyController::class, 'search'])->name('patient.search');
 

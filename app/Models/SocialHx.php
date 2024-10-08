@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SocialsHx extends Model
+class SocialHx extends Model
 {
-    protected $table = 'socials_hxs';
-
+    protected $table = 'social_hxs';
     protected $fillable = [
         'family_status',
         'monthly_income',

@@ -82,7 +82,16 @@
                                             <a class="nav-link thumb text-dark-light active" href="#page11" onclick="showPage(11)" style="text-decoration: none; color: black;">Obs Examination</a>
                                         </li>
                                         <li class="nav-item1" style="margin-bottom: 10px;">
-                                            <a class="nav-link thumb text-dark-light active" href="#page12" onclick="showPage(12)" style="text-decoration: none; color: black;">IX</a>
+                                            <a class="nav-link thumb text-dark-light active" href="#page12" onclick="showPage(12)" style="text-decoration: none; color: black;">Investigation</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page13" onclick="showPage(13)" style="text-decoration: none; color: black;">Management</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page14" onclick="showPage(14)" style="text-decoration: none; color: black;">Vital Monitoring</a>
+                                        </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page15" onclick="showPage(15)" style="text-decoration: none; color: black;">New Born Status</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -92,7 +101,7 @@
                                     <form id="form" action="{{ route('pregnanacy.store') }}" method="POST">
                                         @csrf
                                         <input type="text" class="form-control" name="input_id_patient" id="input_id_patient" hidden>
-                                        
+
                                         <!-- Category -->
                                         <div class="container d-flex justify-content-center">
                                             <div class="col-md-4">
@@ -179,8 +188,8 @@
                                             </div>
 
                                             <div style="padding-top: 10px;">
-                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(5)">Back</button>
-                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(7)">Next</button>
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(6)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(8)">Next</button>
                                             </div>
                                         </div>
 
@@ -249,15 +258,54 @@
                                             </div>
                                         </div>
 
-                                        <!-- IX -->
-                                        <div id="page12" class="form-page" style="display: none;">
-                                            <h2>IX</h2>
+                                         <!-- Investigation -->
+                                         <div id="page12" class="form-page" style="display: none;">
+                                            <h2>Investigation</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
-                                                @include('pages.fields.ix')
+                                                @include('pages.fields.investigation')
                                             </div>
 
                                             <div style="padding-top: 10px;">
                                                 <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(11)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(13)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Management -->
+                                        <div id="page13" class="form-page" style="display: none;">
+                                            <h2>Management</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.management')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(12)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(14)">Next</button>
+                                            </div>
+                                        </div>
+
+                                         <!-- Vital Monitoring -->
+                                         <div id="page14" class="form-page" style="display: none;">
+                                            <h2>Vital Monitoring</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.vital_monitoring')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(13)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(15)">Next</button>
+                                            </div>
+                                        </div>
+
+                                         <!-- New Born Status -->
+                                         <div id="page15" class="form-page" style="display: none;">
+                                            <h2>New Born Status</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.new_born_status')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(14)">Back</button>
                                                 <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;">Submit</button>
                                             </div>
                                         </div>
@@ -318,9 +366,7 @@
                 searchButton.disabled = false;
             });
     });
-</script>
 
-<script>
     function calculateAge(dateOfBirth) {
         var dob = new Date(dateOfBirth);
         var today = new Date();
@@ -345,8 +391,6 @@
                     $('#id_patient').val(response.patientID);
                     $('#input_id_patient').val(response.patientID);
                     $('#patient').val(response.patientID);
-                    // $('#prefix').text(response.patientPersonalTitle);
-                    // $('#full_name').val(response.patientName);
                     var fullname = response.patientPersonalTitle + ' ' + response.patientName;
                     $('#full_name').val(fullname);
                     $('#gender').val(response.patientSex);
@@ -365,6 +409,8 @@
     });
 </script>
 
+
+<!-- Page Number -->
 <script>
     function showPage(pageNumber) {
         var pages = document.querySelectorAll('.form-page');

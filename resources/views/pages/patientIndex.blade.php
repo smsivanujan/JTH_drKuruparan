@@ -66,15 +66,14 @@
                                 <td>
                                     <a class="btn btn-blue edit" title="Edit"
                                         data-id="{{ $row->id }}"
-                                        data-patientID="{{ $row->patientID }}"
-                                        data-category="{{ $row->category }}"
-                                        data-prefix="{{ $row->patientPersonalTitle }}"
-                                        data-full_name="{{ $row->patientName }}"
-                                        data-age="{{ $row->age }}"
-                                        data-gender="{{ $row->patientSex }}"
-                                        data-ward="{{ $row->ward }}"
-                                        data-BHTClinicFileNo="{{ $row->BHTClinicFileNo }}">
-                                        <i style="color:rgb(226, 210, 210);cursor: pointer" class="fa fa-edit"></i>
+                                    data-patientID="{{ $row->patientID }}"
+                                    data-category="{{ $row->category }}"
+                                    data-full_name="{{ $row->patientPersonalTitle }} {{ $row->patientName }}"
+                                    data-age="{{ $row->age }}"
+                                    data-gender="{{ $row->patientSex }}"
+                                    data-ward="{{ $row->ward }}"
+                                    data-BHTClinicFileNo="{{ $row->BHTClinicFileNo }}">
+                                    <i style="color:rgb(226, 210, 210);cursor: pointer" class="fa fa-edit"></i>
                                     </a>
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
@@ -110,7 +109,6 @@
         // show modal on backend validation error
         if (!@json($errors -> isEmpty())) {
             $('#modal_').modal('show');
-            $('#modal2z_').modal('show');
             var id = $('#id').val();
             if (id == 0) {
                 $('#createFormModal').html('Create Pregnanacy');
@@ -127,15 +125,11 @@
             $("#id").val(0);
             $("#category").val('').trigger('change');
             $("#patient").val('');
-            $("#surgery").val('').trigger('change');
-            $("#surgery_date").val('');
-            // $("#prefix").text('');
             $("#full_name").val('');
             $("#gender").val('');
             $("#age").val('');
             $("#ward").val('');
             $("#BHTClinicFileNo").val('');
-            $("#diagnosis").val('');
             $('#createFormModal').html('Create Operation List');
             $('p').html('');
             $('#modal_').modal('show');
@@ -143,17 +137,20 @@
 
         // edit record
         $('.operationList-table').on('click', '.edit', function() {
-
+            // basic
             $("#id").val($(this).attr('data-id'));
-            $("#category").val($(this).attr('data-category'));
+            $("#category-dropdown").val($(this).attr('data-category'));
             $("#patient").val($(this).attr('data-patientID'));
-            $("#surgery").val($(this).attr('data-surgery')).trigger('change');
-            $("#surgery_date").val($(this).attr('data-surgery_date'));
+            $("#full_name").val($(this).attr('data-full_name'));
             $("#gender").val($(this).attr('data-gender'));
             $("#age").val($(this).attr('data-age'));
             $("#ward").val($(this).attr('data-ward'));
             $("#BHTClinicFileNo").val($(this).attr('data-BHTClinicFileNo'));
-            $("#diagnosis").val($(this).attr('data-diagnosis')).trigger('change');
+            // $("#diagnosis").val($(this).attr('data-diagnosis')).trigger('change');
+
+            //Detail
+
+
             $('#createFormModal').html('Update Operation List');
             $('p').html('');
             $('#modal_').modal('show');
@@ -547,7 +544,7 @@
                     }
                     complaintsHTML += ` </tbody> </table>`;
 
-                    // ixs
+                    // investigation
                     complaintsHTML += `<label class="form-label">Management</label>`;
                     complaintsHTML += `<table class="table table-bordered">
                                 <thead>
@@ -597,8 +594,5 @@
         });
     });
 </script>
-
-
-
 
 @endsection

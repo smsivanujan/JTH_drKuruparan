@@ -26,7 +26,7 @@
             <!-- Patient & Partner -->
             <div class="row">
                 <div class="col-md-6">
-                    <label class="form-label" for="ix-label">Patient</label>
+                    <label class="form-label" for="patient-label">Patient</label>
                     <div class="row">
                         <!-- Education-Patient -->
                         <div class="form-group col-md-6">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label" for="ix-label">Partner</label>
+                    <label class="form-label" for="partner-label">Partner</label>
                     <div class="row">
                         <!-- Education-Partner -->
                         <div class="form-group col-md-6">

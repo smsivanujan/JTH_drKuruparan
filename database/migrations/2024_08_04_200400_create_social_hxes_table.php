@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('socials_hxs', function (Blueprint $table) {
+        Schema::create('social_hxs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
             $table->string('family_status')->nullable();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('socials_hxs');
+        Schema::dropIfExists('social_hxs');
     }
 };

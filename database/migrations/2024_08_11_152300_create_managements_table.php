@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('past_obs_hxs', function (Blueprint $table) {
+        Schema::create('managements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->integer('year')->nullable();
-            $table->string('past_obs_poa')->nullable();
-            $table->string('past_obs_mod')->nullable();
-            $table->string('past_obs_birth_weight')->nullable();
-            $table->text('remarks')->nullable();
+            $table->string('plan_delivery')->nullable();
+            $table->string('mng_poa')->nullable();
+            $table->string('mng_mod')->nullable();
+            $table->string('avd')->nullable();
+            $table->string('em')->nullable();
+            $table->string('el')->nullable();
             $table->timestamps();
 
             $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('past_obs_hxs');
+        Schema::dropIfExists('managements');
     }
 };

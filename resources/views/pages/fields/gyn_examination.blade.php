@@ -6,21 +6,21 @@
             <div class="row">
                 <!-- General -->
                 <div class="form-group col-md-6">
-                    <label class="form-label" for="general-dropdown">General</label>
+                    <label class="form-label" for="gyn_general-dropdown">General</label>
                     <div class="selectgroup selectgroup-pills">
                         <label class="selectgroup-item">
-                            <input type="checkbox" name="generalGyn[]" value="Pallor" class="selectgroup-input">
+                            <input type="checkbox" name="gyn_general[]" value="Pallor" class="selectgroup-input">
                             <span class="selectgroup-button">Pallor</span>
                         </label>
                         <label class="selectgroup-item">
-                            <input type="checkbox" name="generalGyn[]" value="Oedema" class="selectgroup-input">
+                            <input type="checkbox" name="gyn_general[]" value="Oedema" class="selectgroup-input">
                             <span class="selectgroup-button">Oedema</span>
                         </label>
                     </div>
                 </div>
                 <!-- GYN Thyroid Examination -->
                 <div class="form-group col-md-6">
-                    <label class="form-label" for="gyn_thyroid-examination">Thyroid Examination</label>
+                    <label class="form-label" for="gyn_thyroidexamination">Thyroid Examination</label>
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <label class="rdiobox" style="margin-right: 10px;" for="rdio-primary-unchecked4">
                             <input name="rdio-primary4" type="radio" id="rdio-primary-unchecked4" value="Enlarged" style="margin-right: 5px;">
@@ -68,9 +68,9 @@
                     </div>
                     <!-- Temperature -->
                     <div class="form-group col-md-3">
-                        <label class="form-label" for="temperature">Temperature</label>
+                        <label class="form-label" for="gyn_temperature">Temperature</label>
                         <div class="input-group">
-                            <input type="number" name="temperature" class="form-control" placeholder="">
+                            <input type="number" name="gyn_temperature" class="form-control" placeholder="">
                             <div class="input-group-append">
                                 <span class="input-group-text">°C</span>
                             </div>
@@ -88,9 +88,9 @@
                 <div class="row">
                     <!-- Pulse Rate -->
                     <div class="form-group col-md-3">
-                        <label class="form-label" for="pulse-rate">Pulse Rate</label>
+                        <label class="form-label" for="gyn_pulse-rate">Pulse Rate</label>
                         <div class="input-group">
-                            <input type="text" name="pulse_rate" id="pulse-rate" class="form-control" placeholder="">
+                            <input type="text" name="gyn_pulse_rate" id="gyn_pulse-rate" class="form-control" placeholder="">
                             <div class="input-group-append">
                                 <span class="input-group-text">bpm</span>
                             </div>
@@ -129,21 +129,21 @@
                     <div class="form-group col-md-8">
                         <label class="form-label" for="blood-pressure">Blood Pressure</label>
                         <div class="row">
-                            <!-- Systolic -->
+                            <!-- GYN Systolic -->
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="systolic-input">Systolic</label>
+                                <label class="form-label" for="gyn_systolic-input">Systolic</label>
                                 <div class="input-group">
-                                    <input type="number" name="systolic" id="systolic-input" class="form-control" placeholder="">
+                                    <input type="number" name="gyn_systolic" id="gyn_systolic-input" class="form-control" placeholder="">
                                     <div class="input-group-append">
                                         <span class="input-group-text">mmHg</span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Diastolic -->
+                            <!-- GYN Diastolic -->
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="diastolic-input">Diastolic</label>
+                                <label class="form-label" for="gyn_diastolic-input">Diastolic</label>
                                 <div class="input-group">
-                                    <input type="number" name="diastolic" id="diastolic-input" class="form-control" placeholder="">
+                                    <input type="number" name="gyn_diastolic" id="gyn_diastolic-input" class="form-control" placeholder="">
                                     <div class="input-group-append">
                                         <span class="input-group-text">mmHg</span>
                                     </div>
@@ -176,20 +176,20 @@
                     <label class="form-label" for="abdominalexamination-label">Abdominal Examination</label>
                 </div>
                 <div class="row">
-                    <!-- InspectionGyn -->
+                    <!-- GYN Inspection -->
                     <div class="form-group col-md-12">
-                        <label class="form-label" for="inspectionGyn-dropdown">Inspection GYN</label>
+                        <label class="form-label" for="gyn_inspection-dropdown">Inspection</label>
                         <div class="selectgroup selectgroup-pills">
                             <label class="selectgroup-item">
-                                <input type="checkbox" id="mass-checkbox" name="inspectionGyn[]" value="Mass" class="selectgroup-input">
+                                <input type="checkbox" id="mass-checkbox" name="gyn_inspection[]" value="Mass" class="selectgroup-input">
                                 <span class="selectgroup-button">Mass</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="inspectionGyn[]" value="Surgical Scar" class="selectgroup-input">
+                                <input type="checkbox" name="gyn_inspection[]" value="Surgical Scar" class="selectgroup-input">
                                 <span class="selectgroup-button">Surgical Scar</span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="checkbox" name="inspectionGyn[]" value="Distended" class="selectgroup-input">
+                                <input type="checkbox" name="gyn_inspection[]" value="Distended" class="selectgroup-input">
                                 <span class="selectgroup-button">Distended</span>
                             </label>
                         </div>
@@ -362,8 +362,8 @@
             <div class="form-group">
                 <label class="form-label" for="scan-label">Scan</label>
                 <div>
-                    <!-- TAS -->
-                    <label class="form-label" for="tas-label">TAS</label>
+                    <!-- TAS/TVS -->
+                    <label class="form-label" for="tas-label">TAS/TVS</label>
                     <div>
                         <!-- Uterus -->
                         <div class="row">
@@ -371,9 +371,9 @@
                             <div class="row">
                                 <!-- Endometrium-TAS -->
                                 <div class="form-group col-md-3">
-                                    <label class="form-label" for="endometrium-tas">Endometrial (Thickness)</label>
+                                    <label class="form-label" for="endometrium">Endometrial (Thickness)</label>
                                     <div class="input-group">
-                                        <input type="number" name="endometrium_tas" id="endometrium-tas" class="form-control" placeholder="">
+                                        <input type="number" name="endometrium" id="endometrium" class="form-control" placeholder="">
                                         <div class="input-group-append">
                                             <span class="input-group-text">mm</span>
                                         </div>
@@ -381,8 +381,8 @@
                                 </div>
                                 <!-- Fibroid -->
                                 <div class="form-group col-md-2">
-                                    <label class="form-label" for="fibroid-tas-dropdown">Fibroid</label>
-                                    <select name="fibroid_tas" class="form-control form-select" id="fibroid-tas-dropdown">
+                                    <label class="form-label" for="fibroid-dropdown">Fibroid</label>
+                                    <select name="fibroid" class="form-control form-select" id="fibroid-dropdown">
                                         <option value="" disabled selected>Choose</option>
                                         <option value="+">+</option>
                                         <option value="-">-</option>
@@ -390,9 +390,9 @@
                                 </div>
                                 <!-- Size -->
                                 <div class="form-group col-md-3">
-                                    <label class="form-label" for="size-tas">Size</label>
+                                    <label class="form-label" for="size">Size</label>
                                     <div class="input-group">
-                                        <input type="text" name="size_tas" id="size-tas" class="form-control" placeholder="">
+                                        <input type="text" name="size" id="size" class="form-control" placeholder="">
                                         <div class="input-group-append">
                                             <span class="input-group-text">cm</span>
                                         </div>
@@ -400,8 +400,8 @@
                                 </div>
                                 <!-- Direction -->
                                 <div class="form-group col-md-4">
-                                    <label class="form-label" for="direction-tas-dropdown">Direction</label>
-                                    <select name="direction_tas" class="form-control form-select" id="direction-tas-dropdown">
+                                    <label class="form-label" for="direction-dropdown">Direction</label>
+                                    <select name="direction" class="form-control form-select" id="direction-dropdown">
                                         <option value="" disabled selected>Choose</option>
                                         <option value="Anteverted">Anteverted</option>
                                         <option value="Retroverted">Retroverted</option>
@@ -412,8 +412,8 @@
                         <div class="row">
                             <!-- Ovary -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="ovary-tas-dropdown">Ovary</label>
-                                <select name="ovary_tas" class="form-control form-select" id="fiber-tas-dropdown">
+                                <label class="form-label" for="ovary-dropdown">Ovary</label>
+                                <select name="ovary" class="form-control form-select" id="fiber-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="Normal">Normal</option>
                                     <option value="Cyst">Cyst</option>
@@ -422,8 +422,8 @@
                             </div>
                             <!-- Adnexial Mass -->
                             <div class="form-group col-md-4">
-                                <label class="form-label" for="adnexialmass-tas-dropdown">Adnexial Mass</label>
-                                <select name="adnexialmass_tas" class="form-control form-select" id="adnexialmass-tas-dropdown">
+                                <label class="form-label" for="adnexialmass-dropdown">Adnexial Mass</label>
+                                <select name="adnexialmass" class="form-control form-select" id="adnexialmass-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="Present in Both">Present in Both</option>
                                     <option value="Present in Right">Present in Right</option>
@@ -433,8 +433,8 @@
                             </div>
                             <!-- Bladder -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="bladder-tas-dropdown">Bladder</label>
-                                <select name="bladder_tas" class="form-control form-select" id="bladder-tas-dropdown">
+                                <label class="form-label" for="bladder-dropdown">Bladder</label>
+                                <select name="bladder" class="form-control form-select" id="bladder-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="Normal">Normal</option>
                                     <option value="Abnormal">Abnormal</option>
@@ -442,8 +442,8 @@
                             </div>
                             <!-- Free fluid -->
                             <div class="form-group col-md-2">
-                                <label class="form-label" for="free_fluid-tas-dropdown">Free fluid</label>
-                                <select name="free_fluid_tas" class="form-control form-select" id="free_fluid-tas-dropdown">
+                                <label class="form-label" for="free_fluid-dropdown">Free fluid</label>
+                                <select name="free_fluid" class="form-control form-select" id="free_fluid-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="-">-</option>
                                     <option value="+">+</option>
@@ -452,68 +452,18 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- TVS -->
-                    <label class="form-label" for="tvs-label">TVS</label>
-                    <div>
-                        <!-- Uterus -->
                         <div class="row">
-                            <label class="form-label" for="uterus-tvs-label">Uterus</label>
-                            <div class="row">
-                                <!-- Endometrium-TVS -->
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="endometrium-tvs">Endometrial (Thickness)</label>
-                                    <div class="input-group">
-                                        <input type="number" name="endometrium_tvs" id="endometrium-tvs" class="form-control" placeholder="">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">mm</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fibroid -->
-                                <div class="form-group col-md-2">
-                                    <label class="form-label" for="fibroid-tvs-dropdown">Fibroid</label>
-                                    <select name="fibroid_tvs" class="form-control form-select" id="fibroid-tvs-dropdown">
-                                        <option value="" disabled selected>Choose</option>
-                                        <option value="+">+</option>
-                                        <option value="-">-</option>
-                                    </select>
-                                </div>
-                                <!-- Size -->
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="size-tvs">Size</label>
-                                    <div class="input-group">
-                                        <input type="text" name="size_tvs" id="size-tvs" class="form-control" placeholder="">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">cm</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Direction -->
-                                <div class="form-group col-md-4">
-                                    <label class="form-label" for="direction-tvs-dropdown">Direction</label>
-                                    <select name="direction_tvs" class="form-control form-select" id="direction-tvs-dropdown">
-                                        <option value="" disabled selected>Choose</option>
-                                        <option value="Anteverted">Anteverted</option>
-                                        <option value="Retroverted">Retroverted</option>
-                                    </select>
-                                </div>
-                                <!-- Size -->
-                                <div class="form-group col-md-3">
-                                    <label class="form-label" for="cavity-tas">Cavity</label>
-                                    <div class="input-group">
-                                        <input type="text" name="cavity_tas" id="cavity-tas" class="form-control" placeholder="">
-                                    </div>
+                            <!-- Cavity -->
+                            <div class="form-group col-md-3">
+                                <label class="form-label" for="cavity-tas">Cavity</label>
+                                <div class="input-group">
+                                    <input type="text" name="cavity" id="cavity" class="form-control" placeholder="">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <!-- CX -->
-                            <label class="form-label" for="cx-dropdown">CX</label>
+                            <!-- Polyps -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="polyps-tvs-dropdown">Polyps</label>
-                                <select name="polyps_tvs" class="form-control form-select" id="polyps-tvs-dropdown">
+                                <label class="form-label" for="polyps-dropdown">Polyps</label>
+                                <select name="polyps" class="form-control form-select" id="polyps-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="+">+</option>
                                     <option value="-">-</option>
@@ -521,25 +471,15 @@
                             </div>
                             <!-- Ectopic -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="ectopic-tvs-dropdown">Ectopic</label>
-                                <select name="ectopic_tvs" class="form-control form-select" id="ectopic-tvs-dropdown">
+                                <label class="form-label" for="ectopic-dropdown">Ectopic</label>
+                                <select name="ectopic" class="form-control form-select" id="ectopic-dropdown">
                                     <option value="" disabled selected>Choose</option>
                                     <option value="+">+</option>
                                     <option value="-">-</option>
                                 </select>
                             </div>
-                            <!-- Adnexial Mass -->
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="adnexialmass-tvs-dropdown">Adnexial Mass</label>
-                                <select name="adnexialmass_tvs" class="form-control form-select" id="adnexialmass-tvs-dropdown">
-                                    <option value="" disabled selected>Choose</option>
-                                    <option value="Present in Both">Present in Both</option>
-                                    <option value="Present in Right">Present in Right</option>
-                                    <option value="Present in Left">Present in Left</option>
-                                    <option value="Absent">Absent</option>
-                                </select>
-                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -613,9 +553,9 @@
 
         massCheckbox.addEventListener('change', function() {
             if (massCheckbox.checked) {
-                massSection.style.display = 'block'; // Show the Mass section
+                massSection.style.display = 'block';
             } else {
-                massSection.style.display = 'none'; // Hide the Mass section
+                massSection.style.display = 'none';
             }
         });
     });

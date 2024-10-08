@@ -43,10 +43,6 @@
 <!-- FORMVALIDATION JS -->
 <script src="{{ asset('assets/js/form-validation.js') }}"></script>
 
-
-
-<!-- /////////// -->
-
 <!-- FORM WIZARD JS -->
 <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
 <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
@@ -58,8 +54,6 @@
 <!-- INTERNAL ACCORDION-WIZARD-FORM JS -->
 <script src="{{ asset('assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
 <script src="{{ asset('assets/js/form-wizard.js') }}"></script>
-
-<!-- /////// -->
 
 
 @yield('scripts')

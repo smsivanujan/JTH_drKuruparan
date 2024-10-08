@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ix;
+use App\Models\Investigation;
 use Illuminate\Http\Request;
 
-class IxController extends Controller
+class InvestigationController extends Controller
 {
     public function index()
     {
@@ -22,22 +22,22 @@ class IxController extends Controller
         //
     }
 
-    public function show(Ix $ix)
+    public function show(Investigation $investigation)
     {
         //
     }
 
-    public function edit(Ix $ix)
+    public function edit(Investigation $investigation)
     {
         //
     }
 
-    public function update(Request $request, Ix $ix)
+    public function update(Request $request, Investigation $investigation)
     {
         //
     }
 
-    public function destroy(Ix $ix)
+    public function destroy(Investigation $investigation)
     {
         //
     }

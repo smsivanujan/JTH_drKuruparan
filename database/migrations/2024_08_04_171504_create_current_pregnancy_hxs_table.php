@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('lmp')->nullable();
             $table->date('edd')->nullable();
             $table->date('working_edd')->nullable();
+            $table->string('past_history_status')->nullable();
+            $table->string('past_history_complicated_status')->nullable();
             $table->timestamps();
 
             $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');

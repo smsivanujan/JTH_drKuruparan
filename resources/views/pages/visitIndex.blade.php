@@ -50,6 +50,40 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card overflow-hidden">
+                            <div class="card-header border-bottom">
+                                <h3 class="card-title">Visit Record</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="panel-group1" id="accordion11" role="tablist">
+                                    <div class="card overflow-hidden mb-2 border-0">
+                                        <a class="accordion-toggle panel-heading1 collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion11" href="#collapseFour1" aria-expanded="false">2024-12-12</a>
+                                        <div id="collapseFour1" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                            <div class="panel-body">
+                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words </p>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card overflow-hidden border-0">
+                                        <a class="accordion-toggle panel-heading1 collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion11" href="#collapseFive2" aria-expanded="false">2024-12-18</a>
+                                        <div id="collapseFive2" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                            <div class="panel-body ">
+                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words </p>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -69,7 +103,6 @@
         // show modal on backend validation error
         if (!@json($errors -> isEmpty())) {
             $('#modal_').modal('show');
-            $('#modal2z_').modal('show');
             var id = $('#id').val();
             if (id == 0) {
                 $('#createFormModal').html('Create Pregnanacy');
@@ -506,7 +539,7 @@
                     }
                     complaintsHTML += ` </tbody> </table>`;
 
-                    // ixs
+                    // investigation
                     complaintsHTML += `<label class="form-label">Management</label>`;
                     complaintsHTML += `<table class="table table-bordered">
                                 <thead>
@@ -559,14 +592,13 @@
 
 <!-- Pass patient_id to model -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const addButton = document.getElementById('btn-add');
-        addButton.addEventListener('click', function () {
+        addButton.addEventListener('click', function() {
             const patientId = document.getElementById('patient').value;
             document.getElementById('input_id_patient').value = patientId;
         });
     });
 </script>
-
 
 @endsection

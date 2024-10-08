@@ -32,12 +32,12 @@
                     <!-- POA -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="poa-text-${fieldCount2}">POA</label>
-                        <input type="text" name="poa[]" class="form-control" placeholder="" id="poa-text-${fieldCount2}">
+                        <input type="text" name="past_obs_poa[]" class="form-control" placeholder="" id="poa-text-${fieldCount2}">
                     </div>
                     <!-- MOD -->
                     <div class="form-group col-md-4">
                         <label class="form-label" for="mod-text-${fieldCount2}">MOD</label>
-                        <select name="mod[]" class="form-control form-select" id="mod-text-${fieldCount2}" data-bs-placeholder="">
+                        <select name="past_obs_mod[]" class="form-control form-select" id="mod-text-${fieldCount2}" data-bs-placeholder="">
                              <option selected disabled value="">Choose...</option>
                             <option Value="LSCS">LSCS</option>
                             <option Value="AVD">AVD</option>
@@ -48,9 +48,9 @@
                     </div>
                     <!-- Birth Weight -->
                     <div class="form-group col-md-2">
-                    <label class="form-label" for="birth-weight-text-${fieldCount2}">Birth Weight</label>
+                    <label class="form-label" for="past_obs_birth-weight-text-${fieldCount2}">Birth Weight</label>
                     <div class="input-group">
-                        <input type="text" name="birth_weight[]" class="form-control" placeholder="" id="birth-weight-text-${fieldCount2}" min="0" max="200" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3">
+                        <input type="text" name="past_obs_birth_weight[]" class="form-control" placeholder="" id="past_obs_birth-weight-text-${fieldCount2}" min="0" max="200" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3">
                         <div class="input-group-append">
                             <span class="input-group-text">kg</span>
                         </div>

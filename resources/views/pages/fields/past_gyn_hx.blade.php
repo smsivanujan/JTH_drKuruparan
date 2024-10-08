@@ -2,7 +2,6 @@
 <div>
     <div class="my-3">
         <div>
-
             <!-- Menstrual HX & Contraception HX -->
             <div class="row">
                 <!-- Menstrual HX -->
@@ -44,7 +43,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Bleeding Pattern -->
             <label class="form-label" for="bleedingpattern-label">Bleeding Pattern</label>
             <div class="row">
@@ -87,7 +85,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Subfertility -->
             <label class="form-label" style="margin-right: 10px;" for="default-label">Subfertility</label>
             <div class="row">
@@ -105,12 +102,11 @@
                     <div id="newRowGender">
                         <!-- Gender -->
                     </div>
-                    <div id="newRow">
+                    <div id="newRowPGH">
                         <!-- Gyn -->
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -128,7 +124,7 @@
         });
 
         const newRowGender = document.getElementById('newRowGender');
-        if (selectedValue === 'Yes') { // Case-sensitive check for 'Yes'
+        if (selectedValue === 'Yes') {
             newRowGender.innerHTML = `
                     <div class="container d-flex justify-content-center">
                         <div class="col-md-4">
@@ -142,18 +138,18 @@
                             </div>
                         </div>
                     </div>`;
-            document.getElementById('gender-dropdown').addEventListener('change', changeGender); // Corrected ID here
+            document.getElementById('gender-dropdown').addEventListener('change', changeGender);
         } else {
             newRowGender.innerHTML = '';
-            document.getElementById('newRow').innerHTML = '';
+            document.getElementById('newRowPGH').innerHTML = '';
         }
     }
 
     function changeGender() {
-        const specialtyGender = document.getElementById('gender-dropdown').value; // Corrected ID here
-        const newRow = document.getElementById('newRow');
+        const specialtyGender = document.getElementById('gender-dropdown').value;
+        const newRow = document.getElementById('newRowPGH');
 
-        if (specialtyGender === 'Male') { // Case-sensitive check for 'Male'
+        if (specialtyGender === 'Male') { 
             newRow.innerHTML = `
                     <div class="row">
                         <!-- SFA -->
@@ -164,7 +160,7 @@
                             </label>
                         </div>
                     </div>`;
-        } else if (specialtyGender === 'Female') { // Case-sensitive check for 'Female'
+        } else if (specialtyGender === 'Female') {
             newRow.innerHTML = `
                     <div class="row">
                         <!-- Ovulatory Disorder -->

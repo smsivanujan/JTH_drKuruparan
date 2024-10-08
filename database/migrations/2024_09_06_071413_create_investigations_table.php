@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ixs', function (Blueprint $table) {
+        Schema::create('investigations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
             $table->string('ctg')->nullable();
@@ -22,8 +22,20 @@ return new class extends Migration
             $table->string('crp')->nullable();
             $table->string('urine_full_report')->nullable();
             $table->string('ohtt_bss')->nullable();
-            $table->string('antibiotics')->nullable();
-            $table->string('plan_delivery')->nullable();
+            $table->string('rbs')->nullable();
+            $table->string('rbs_unit')->nullable();
+            $table->string('fbs')->nullable();
+            $table->string('fbs_unit')->nullable();
+            $table->string('ppbs')->nullable();
+            $table->string('ppbs_unit')->nullable();
+            $table->string('scr')->nullable();
+            $table->string('bun')->nullable();
+            $table->string('sodium')->nullable();
+            $table->string('potassium')->nullable();
+            $table->string('ast')->nullable();
+            $table->string('alt')->nullable();
+            $table->string('pt')->nullable();
+            $table->string('aptt')->nullable();
             $table->timestamps();
 
             $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');
@@ -35,6 +47,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ixes');
+        Schema::dropIfExists('investigations');
     }
 };

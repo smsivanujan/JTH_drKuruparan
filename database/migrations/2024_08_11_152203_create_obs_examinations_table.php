@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('obs_examinations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->text('generalObs')->nullable();
-            $table->integer('bp')->nullable();
-            $table->integer('pr')->nullable();
-            $table->string('thyroid_examinationObs')->nullable();
-            $table->string('inspectionObs')->nullable();
+            $table->text('obs_general')->nullable();
+            $table->integer('obs_systolic')->nullable();
+            $table->integer('obs_diastolic')->nullable();
+            $table->integer('obs_pulse_rate')->nullable();
+            $table->string('obs_thyroid_examination')->nullable();
+            $table->string('obs_inspection')->nullable();
             $table->float('sfh')->nullable();
             $table->string('lie')->nullable();
             $table->string('position')->nullable();

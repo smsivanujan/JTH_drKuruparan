@@ -8,10 +8,9 @@
                     <label class="form-label" for="drugalergyhx-dropdown">Drug Allergy Hx</label>
                     <select name="drugalergyhx[]" class="form-control select2-style1" data-placeholder="" multiple>
                         <option label="Choose one" disabled></option>
-                        <option value="Other Diagnostic Procedures">Other Diagnostic Procedures</option>
-                        <option value="Preventive Imunisations/Medications">Preventive Imunisations/Medications</option>
-                        <option value="Observe/Educate/Advice/Diet">Observe/Educate/Advice/Diet</option>
-                        <option value="Consult with Primary Care Provider">Consult with Primary Care Provider</option>
+                        @foreach($drugAllergies as $allergy)
+                        <option value="{{ $allergy->virtualItemId }}">{{ $allergy->virtualItemName }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
