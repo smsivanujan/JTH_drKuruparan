@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('family_hxs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->string('medical_diseases')->nullable();
-            $table->string('ovarian')->nullable();
-            $table->string('breast')->nullable();
-            $table->string('endometrial')->nullable();
-            $table->string('cervical')->nullable();
-            $table->string('colonic')->nullable();
+            $table->string('family_med_hx')->nullable();
+            $table->string('remarks')->nullable();
             $table->timestamps();
 
             $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');

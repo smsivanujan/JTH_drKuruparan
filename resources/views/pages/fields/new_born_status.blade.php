@@ -18,10 +18,10 @@
                         <option value="Girl">Girl</option>
                     </select>
                 </div>
-                <!-- AphAr -->
+                <!-- APGAR -->
                 <div class="form-group col-md-1">
-                    <label class="form-label" for="aphar-number">AphAr</label>
-                    <input type="text" name="aphar" class="form-control" id="aphar-input" placeholder="">
+                    <label class="form-label" for="apgar-number">APGAR</label>
+                    <input type="text" name="apgar" class="form-control" id="apgar-input" placeholder="">
                 </div>
                 <!-- Birth Weight -->
                 <div class="form-group col-md-2">
@@ -36,13 +36,49 @@
                 <!-- PBU Admission -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="pbu_admission-dropdown">PBU Admission</label>
-                    <select name="pbu_admission" class="form-control form-select" id="pbu_admission" data-bs-placeholder="">
+                    <select name="pbu_admission" class="form-control form-select" id="pbu_admission-dropdown">
                         <option label="Choose one" disabled selected></option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                 </div>
             </div>
+            <!-- Dynamic Field -->
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <!-- PBU Admission I (Choosable) -->
+                    <div id="pbu_admission_i-section" style="display: none;">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="avd">PBU Admission Text</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">I<sup>0</sup></span>
+                                    <input type="text" name="pbu_admission_i" id="pbu_admission_i" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pbuAdmissionDropdown = document.getElementById('pbu_admission-dropdown');
+        const pbuAdmissionI = document.getElementById('pbu_admission_i-section');
+
+        pbuAdmissionDropdown.addEventListener('change', function() {
+            const selectedMod = pbuAdmissionDropdown.value;
+
+            // Reset sections visibility
+            pbuAdmissionI.style.display = 'none';
+
+            // Show the corresponding section based on the selected MOD
+            if (selectedMod === 'Yes') {
+                pbuAdmissionI.style.display = 'block';
+            }
+        });
+    });
+</script>

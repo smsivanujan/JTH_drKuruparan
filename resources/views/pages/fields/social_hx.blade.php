@@ -50,16 +50,16 @@
                             <label class="form-label" for="social_problems-dropdown">Social Problems</label>
                             <div class="selectgroup selectgroup-pills">
                                 <label class="selectgroup-item">
-                                    <input type="checkbox" name="patient_social_problem[]" value="Drugs Addict" class="selectgroup-input">
-                                    <span class="selectgroup-button">Drugs Addict</span>
+                                    <input type="checkbox" name="patient_social_problem[]" value="Drug addiction" class="selectgroup-input">
+                                    <span class="selectgroup-button">Drug Addiction</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="checkbox" name="patient_social_problem[]" value="Alacaholic" class="selectgroup-input">
-                                    <span class="selectgroup-button">Alacaholic</span>
+                                    <input type="checkbox" name="patient_social_problem[]" value="Alcoholic" class="selectgroup-input">
+                                    <span class="selectgroup-button">Alcoholic</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="checkbox" name="patient_social_problem[]" value="Domestic Violance" class="selectgroup-input">
-                                    <span class="selectgroup-button">Domestic Violance</span>
+                                    <input type="checkbox" name="patient_social_problem[]" value="Domestic Violence" class="selectgroup-input">
+                                    <span class="selectgroup-button">Domestic Violence</span>
                                 </label>
                             </div>
                         </div>
@@ -90,12 +90,12 @@
                             <label class="form-label" for="partner_social_problem-dropdown">Social Problems</label>
                             <div class="selectgroup selectgroup-pills">
                                 <label class="selectgroup-item">
-                                    <input type="checkbox" name="partner_social_problem[]" value="Drugs Addict" class="selectgroup-input">
-                                    <span class="selectgroup-button">Drugs Addict</span>
+                                    <input type="checkbox" name="partner_social_problem[]" value="Drug Addiction" class="selectgroup-input">
+                                    <span class="selectgroup-button">Drug Addiction</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="checkbox" name="partner_social_problem[]" value="Alacaholic" class="selectgroup-input">
-                                    <span class="selectgroup-button">Alacaholic</span>
+                                    <input type="checkbox" name="partner_social_problem[]" value="Alcoholic" class="selectgroup-input">
+                                    <span class="selectgroup-button">Alcoholic</span>
                                 </label>
                             </div>
                         </div>

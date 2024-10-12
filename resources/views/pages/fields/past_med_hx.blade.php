@@ -62,7 +62,9 @@
         }
     }
 </script>
+
 <hr>
+
 <!-- <h6 class="mb-0">Past Med Hx Drugs</h6> -->
 <div>
     <div class="my-3">
@@ -93,7 +95,7 @@
             <!-- Drug  Name -->
             <div class="form-group col-md-10">
                 <label class="form-label" for="drugpastmedhx_drug_name-text-${fieldCount4}">Drug Name</label>
-                <select name="drugpastmedhx_drug_name[]" class="form-control form-select" id="drugpastmedhx_drug_name-text-${fieldCount4}" onchange="updatePastMedHxDosageUnit(${fieldCount4})">
+                <select name="drugpastmedhx_drug_name[]" class="form-control select2-show-search form-select" id="drugpastmedhx_drug_name-text-${fieldCount4}" onchange="updatePastMedHxDosageUnit(${fieldCount4})">
                     <option selected disabled value="">Choose...</option>
                     @foreach($drugs as $drug)
                         <option value="{{ $drug->actualItemId }}" data-unit="{{ $drug->displayUnit }}">{{ $drug->actualItemName }}</option>
@@ -154,6 +156,8 @@
         </div>`;
 
         complaintFields.appendChild(newRow);
+        $(`#drugpastmedhx_drug_name-text-${fieldCount4}`).select2();
+        $('.select2-show-search').select2();
         fieldCount4++;
     });
 

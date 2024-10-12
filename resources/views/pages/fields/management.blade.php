@@ -1,19 +1,7 @@
 <!-- <h6 class="mb-0">Management</h6> -->
 <div class="row">
-    <!-- Plan -->
-    <!-- <div class="form-group col-md-6">
-        <label class="form-label" for="plan-dropdown">Plan</label>
-        <select name="antibiotics" class="form-control form-select" id="antibiotics-dropdown" data-bs-placeholder="">
-            <option label="Choose one" disabled selected></option>
-            <option value="Antibiotics">Antibiotics</option>
-            <option value="Analogeis">Analogeis</option>
-            <option value="DM Mx">DM Mx</option>
-            <option value="DM Mx">BP Mx</option>
-            <option value="Steroids">Steroids</option>
-        </select>
-    </div> -->
     <!-- Plan Delivery -->
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-4">
         <label class="form-label" for="plandelivery-dropdown">Plan Delivery</label>
         <select name="plan_delivery" class="form-control form-select" id="plandelivery-dropdown" data-bs-placeholder="">
             <option label="Choose one" disabled selected></option>
@@ -22,7 +10,7 @@
         </select>
     </div>
     <!-- POA -->
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-4">
         <label class="form-label" for="mng_poa">POA</label>
         <div class="input-group">
             <input type="text" name="mng_poa" class="form-control" placeholder="" id="mng_poa-text">
@@ -32,33 +20,27 @@
         </div>
     </div>
     <!-- MOD -->
-    <div class="form-group col-md-6">
-        <label class="form-label" for="mng_mod-text">MOD</label>
-        <div class="selectgroup selectgroup-pills">
-            <label class="selectgroup-item">
-                <input type="checkbox" name="mng_mod[]" value="NVD" class="selectgroup-input">
-                <span class="selectgroup-button">NVD</span>
-            </label>
-            <label class="selectgroup-item">
-                <input type="checkbox" name="mng_mod[]" id="avd-checkbox" value="AVD" class="selectgroup-input">
-                <span class="selectgroup-button">AVD</span>
-            </label>
-            <label class="selectgroup-item">
-                <input type="checkbox" name="mng_mod[]" id="lscs-checkbox" value="LSCS" class="selectgroup-input">
-                <span class="selectgroup-button">LSCS</span>
-            </label>
-        </div>
+    <div class="form-group col-md-4">
+        <label class="form-label" for="mng_mod-dropdown">MOD</label>
+        <select name="mng_mod" class="form-control form-select" id="mng_mod-dropdown">
+            <option label="Choose one" disabled selected></option>
+            <option value="NVD">NVD</option>
+            <option value="AVD">AVD</option>
+            <option value="LSCS">LSCS</option>
+        </select>
+    </div>
+</div>
 
+<div class="row">
+    <div class="form-group col-md-12">
         <!-- AVD (Choosable) -->
         <div id="avd-section" style="display: none;">
             <div class="row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-6">
                     <label class="form-label" for="avd">AVD</label>
                     <div class="input-group">
+                        <span class="input-group-text">I<sup>0</sup></span>
                         <input type="text" name="avd" id="avd" class="form-control" placeholder="">
-                        <div class="input-group-append">
-                            <span class="input-group-text">I<sup>0</sup></span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -67,22 +49,18 @@
         <div id="lscs-section" style="display: none;">
             <label class="form-label" for="lscs-dropdown">LSCS</label>
             <div class="row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-6">
                     <label class="form-label" for="em">EM</label>
                     <div class="input-group">
+                        <span class="input-group-text">I<sup>0</sup></span>
                         <input type="text" name="em" id="em" class="form-control" placeholder="">
-                        <div class="input-group-append">
-                            <span class="input-group-text">I<sup>0</sup></span>
-                        </div>
                     </div>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-6">
                     <label class="form-label" for="el">EL</label>
                     <div class="input-group">
+                        <span class="input-group-text">I<sup>0</sup></span>
                         <input type="text" name="el" id="el" class="form-control" placeholder="">
-                        <div class="input-group-append">
-                            <span class="input-group-text">I<sup>0</sup></span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -92,24 +70,22 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const avdCheckbox = document.getElementById('avd-checkbox');
-        const lscsCheckbox = document.getElementById('lscs-checkbox');
+        const modDropdown = document.getElementById('mng_mod-dropdown');
         const avdSection = document.getElementById('avd-section');
         const lscsSection = document.getElementById('lscs-section');
 
-        avdCheckbox.addEventListener('change', function() {
-            if (avdCheckbox.checked) {
-                avdSection.style.display = 'block';
-            } else {
-                avdSection.style.display = 'none';
-            }
-        });
+        modDropdown.addEventListener('change', function() {
+            const selectedMod = modDropdown.value;
 
-        lscsCheckbox.addEventListener('change', function() {
-            if (lscsCheckbox.checked) {
+            // Reset sections visibility
+            avdSection.style.display = 'none';
+            lscsSection.style.display = 'none';
+
+            // Show the corresponding section based on the selected MOD
+            if (selectedMod === 'AVD') {
+                avdSection.style.display = 'block';
+            } else if (selectedMod === 'LSCS') {
                 lscsSection.style.display = 'block';
-            } else {
-                lscsSection.style.display = 'none';
             }
         });
     });
@@ -117,6 +93,7 @@
 
 <hr>
 
+<!-- Drugs -->
 <div class="row">
     <div class="my-3">
         <div>
@@ -133,7 +110,6 @@
         </div>
     </div>
 </div>
-
 <!-- Drugs Script -->
 <script>
     let fieldCount5 = 5;
@@ -209,6 +185,8 @@
         </div>`;
 
         complaintFields.appendChild(newRow);
+        $(`#drugmng_drug_name-text-${fieldCount5}`).select2();
+        $('.select2-show-search').select2();
         fieldCount5++;
     });
 

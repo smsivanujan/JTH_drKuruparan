@@ -12,6 +12,6 @@ class PastObsHX extends Model
         'past_obs_poa',
         'past_obs_mod',
         'past_obs_birth_weight',
-        'pastObshx_remark'
+        'pastObshx_remark',
     ];
 }

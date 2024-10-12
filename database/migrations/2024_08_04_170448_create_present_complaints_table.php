@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('present_complaints', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->string('complaint');
-            $table->string('duration');
-            $table->string('severity');
+            $table->string('complaint')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('severity')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
 

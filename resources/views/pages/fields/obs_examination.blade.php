@@ -3,7 +3,7 @@
     <div>
         <div class="row">
             <!-- General -->
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label class="form-label" for="obs_general-checkbox">General</label>
                 <div class="selectgroup selectgroup-pills">
                     <label class="selectgroup-item">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <!-- Blood Pressure -->
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-5">
                 <label class="form-label" for="blood-pressure">Blood Pressure</label>
                 <div class="row">
                     <!-- OBS Systolic -->
@@ -81,7 +81,7 @@
         <div>
             <div class="row">
                 <!-- OBS inspections -->
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label class="form-label" for="obs_inspection-dropdown">Inspection OBS</label>
                     <div class="selectgroup selectgroup-pills">
                         <label class="selectgroup-item">
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <!-- Lie -->
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label class="form-label" for="lie-dropdown">Lie</label>
                     <select name="lie" class="form-control form-select" id="lie-dropdown" data-bs-placeholder="">
                         <option label="Choose one" disabled selected></option>
@@ -248,10 +248,10 @@
                         <option value="Twin">Twin</option>
                     </select>
                 </div>
-                <!-- Precentation -->
+                <!-- Presentation -->
                 <div class="form-group col-md-3">
-                    <label class="form-label" for="precentation-dropdown">Precentation</label>
-                    <select name="precentation" class="form-control form-select" id="precentation-dropdown" data-bs-placeholder="">
+                    <label class="form-label" for="presentation-dropdown">Presentation</label>
+                    <select name="presentation" class="form-control form-select" id="presentation-dropdown" data-bs-placeholder="">
                         <option label="Choose one" disabled selected></option>
                         <option value="Cephalic P/C">Cephalic P/C</option>
                         <option value="Breech P/C">Breech P/C</option>
@@ -260,29 +260,24 @@
                 <div class="form-group col-md-7">
                     <div class="row">
                         <!-- BPD -->
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label class="form-label" for="bpd-text">BPD</label>
                             <input type="text" id="bpd" name="bpd" class="form-control" placeholder="">
                         </div>
                         <!-- AC -->
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label class="form-label" for="ac-text">AC</label>
                             <input type="text" id="ac" name="ac" class="form-control" placeholder="">
                         </div>
                         <!-- HC -->
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label class="form-label" for="hc-text">HC</label>
                             <input type="text" id="hc" name="hc" class="form-control" placeholder="">
                         </div>
                         <!-- FL -->
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label class="form-label" for="fl-text">FL</label>
                             <input type="text" id="fl" name="fl" class="form-control" placeholder="">
-                        </div>
-                        <!-- CRL -->
-                        <div class="form-group col-md-2">
-                            <label class="form-label" for="crl-text">CRL</label>
-                            <input type="text" id="crl" name="crl" class="form-control" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -293,12 +288,7 @@
                 <!-- Placental Position -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="placental_position-text">Placental Position</label>
-                    <div class="input-group">
-                        <input type="text" name="placental_position" class="form-control" placeholder="">
-                        <div class="input-group-append">
-                            <span class="input-group-text">cm</span>
-                        </div>
-                    </div>
+                    <input type="text" name="placental_position" class="form-control" placeholder="">
                 </div>
                 <!-- EFW -->
                 <div class="form-group col-md-2">

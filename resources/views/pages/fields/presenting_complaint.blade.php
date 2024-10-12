@@ -60,6 +60,14 @@
                 <option value="Lower abdominal pain">Lower abdominal pain</option>
                 <option value="Confinement">Confinement</option>
                 <option value="Blood sugar series (BSS) monitoring">Blood sugar series (BSS) monitoring</option>
+                <option value="Reduced Fetal Movement">Reduced Fetal Movement</option>
+                <option value="Elevated BP">Elevated BP</option>
+                <option value="Leg Swelling/Ankle Oedema">Leg Swelling/Ankle Oedema</option>
+                <option value="Blurred Vision">Blurred Vision</option>
+                <option value="Head ache">Head ache</option>
+                <option value="Epigastric Pain">Epigastric Pain</option>
+                <option value="Nausea">Nausea</option>
+                <option value="Vomiting">Vomiting</option>
                 <option value="Other">Other</option>`;
         }
     }

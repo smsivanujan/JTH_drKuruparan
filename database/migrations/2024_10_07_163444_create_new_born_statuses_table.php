@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('pregnancy_id');
             $table->timestamp('baby_dob')->nullable();
             $table->string('baby_gender')->nullable();
-            $table->string('aphar')->nullable();
-            $table->decimal('nbs_birth_weight')->nullable();
+            $table->string('apgar')->nullable();
+            $table->string('nbs_birth_weight')->nullable();
             $table->string('pbu_admission')->nullable();
+            $table->string('pbu_admission_i')->nullable();
             $table->timestamps();
 
             $table->foreign('pregnancy_id')->references('id')->on('pregnancies')->onDelete('cascade');

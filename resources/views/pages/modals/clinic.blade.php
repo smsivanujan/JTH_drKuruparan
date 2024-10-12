@@ -93,6 +93,9 @@
                                         <li class="nav-item1" style="margin-bottom: 10px;">
                                             <a class="nav-link thumb text-dark-light active" href="#page15" onclick="showPage(15)" style="text-decoration: none; color: black;">New Born Status</a>
                                         </li>
+                                        <li class="nav-item1" style="margin-bottom: 10px;">
+                                            <a class="nav-link thumb text-dark-light active" href="#page16" onclick="showPage(16)" style="text-decoration: none; color: black;">Summery</a>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -188,8 +191,8 @@
                                             </div>
 
                                             <div style="padding-top: 10px;">
-                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(6)">Back</button>
-                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(8)">Next</button>
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(5)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(7)">Next</button>
                                             </div>
                                         </div>
 
@@ -258,8 +261,8 @@
                                             </div>
                                         </div>
 
-                                         <!-- Investigation -->
-                                         <div id="page12" class="form-page" style="display: none;">
+                                        <!-- Investigation -->
+                                        <div id="page12" class="form-page" style="display: none;">
                                             <h2>Investigation</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
                                                 @include('pages.fields.investigation')
@@ -284,8 +287,8 @@
                                             </div>
                                         </div>
 
-                                         <!-- Vital Monitoring -->
-                                         <div id="page14" class="form-page" style="display: none;">
+                                        <!-- Vital Monitoring -->
+                                        <div id="page14" class="form-page" style="display: none;">
                                             <h2>Vital Monitoring</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
                                                 @include('pages.fields.vital_monitoring')
@@ -297,8 +300,8 @@
                                             </div>
                                         </div>
 
-                                         <!-- New Born Status -->
-                                         <div id="page15" class="form-page" style="display: none;">
+                                        <!-- New Born Status -->
+                                        <div id="page15" class="form-page" style="display: none;">
                                             <h2>New Born Status</h2>
                                             <div style="padding: 15px; background-color: #f5f5f5;">
                                                 @include('pages.fields.new_born_status')
@@ -306,6 +309,19 @@
 
                                             <div style="padding-top: 10px;">
                                                 <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(14)">Back</button>
+                                                <button type="button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;" onclick="showPage(16)">Next</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Summery -->
+                                        <div id="page16" class="form-page" style="display: none;">
+                                            <h2>Summery</h2>
+                                            <div style="padding: 15px; background-color: #f5f5f5;">
+                                                @include('pages.fields.summery')
+                                            </div>
+
+                                            <div style="padding-top: 10px;">
+                                                <button type="button" style="background-color: gray; color: white; padding: 10px 20px; border: none;" onclick="showPage(15)">Back</button>
                                                 <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none;">Submit</button>
                                             </div>
                                         </div>
@@ -409,7 +425,6 @@
     });
 </script>
 
-
 <!-- Page Number -->
 <script>
     function showPage(pageNumber) {
@@ -429,4 +444,16 @@
         activeLink.style.color = '#4CAF50';
         activeLink.style.fontWeight = 'bold';
     }
+</script>
+
+<!-- Prevent Submit with Enter Key -->
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const isTextInput = ['TEXTAREA', 'INPUT'].includes(document.activeElement.tagName);
+            if (isTextInput) {
+                event.preventDefault(); 
+            }
+        }
+    });
 </script>

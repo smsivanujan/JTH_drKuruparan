@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\AllergicHX;
 use App\Models\CurrentPregnancyHX;
+use App\Models\FamilyHx;
+use App\Models\SocialHx;
 use App\Models\GynExaminations;
 use App\Models\Investigation;
 use App\Models\Management;
@@ -17,7 +19,6 @@ use App\Models\PastMedHxDrugs;
 use App\Models\PastObsHX;
 use App\Models\Pregnanacy;
 use App\Models\PresentComplaint;
-use App\Models\SocialHx;
 use App\Models\Summery;
 use App\Models\VitalMonitoring;
 use Carbon\Carbon;
@@ -350,9 +351,16 @@ class PregnanacyController extends Controller
             $allergicHx->otherallergyhx = $request->input('otherallergyhx', '');
             $allergicHx->save();
 
-            //FamilHX
-
-            //END
+            //Family HX
+            $familyMedicineHX = $request->input('familymedicinehx', []);
+            $remarksFMHXs = $request->input('familymedicinehx_remarks', []);
+            foreach ($remarksFMHXs as $key => $remarksFMHX) {
+                $familyHx = new FamilyHx();
+                $familyHx->pregnancy_id = $savedId;
+                $familyHx->family_med_hx = $familyMedicineHX[$key] ?? null;
+                $familyHx->remarks = $remarksFMHX;
+                $familyHx->save();
+            }
 
             // SocialsHx
             $socialHx = new SocialHx();
@@ -439,12 +447,11 @@ class PregnanacyController extends Controller
             $obsExamination->cervical_position = $request->input('cervical_position');
             $obsExamination->station = $request->input('station');
             $obsExamination->fetus = $request->input('fetus');
-            $obsExamination->precentation = $request->input('precentation');
+            $obsExamination->presentation = $request->input('presentation');
             $obsExamination->bpd = $request->input('bpd');
             $obsExamination->ac = $request->input('ac');
             $obsExamination->hc = $request->input('hc');
             $obsExamination->fl = $request->input('fl');
-            $obsExamination->crl = $request->input('crl');
             $obsExamination->placental_position = $request->input('placental_position');
             $obsExamination->efw = $request->input('efw');
             $obsExamination->liquor = $request->input('rdio-primary7');
@@ -452,10 +459,9 @@ class PregnanacyController extends Controller
             $obsExamination->save();
 
             // Investigation
-            $investigation = new Investigation(); 
+            $investigation = new Investigation();
             $investigation->pregnancy_id = $savedId;
             $investigation->ctg = $request->input('ctg');
-            $investigation->tas = $request->input('tas');
             $investigation->hb = $request->input('hb');
             $investigation->plt = $request->input('plt');
             $investigation->wbc = $request->input('wbc');
@@ -483,9 +489,9 @@ class PregnanacyController extends Controller
             $management->pregnancy_id = $savedId;
             $management->plan_delivery = $request->input('plan_delivery');
             $management->mng_poa = $request->input('mng_poa');
-            $management->mng_mod = implode(', ', $request->input('mng_mod', []));
+            $management->mng_mod = $request->input('mng_mod');
             $management->avd = $request->input('avd');
-            $management->em = $request->input('em'); 
+            $management->em = $request->input('em');
             $management->el = $request->input('el');
             $management->save();
 
@@ -496,7 +502,7 @@ class PregnanacyController extends Controller
             $drugmngRoutes = $request->input('drugmng_route', []);
             $drugmngFrequencies = $request->input('drugmng_frequency', []);
             foreach ($drugmngFrequencies as $key => $drugmngFrequency) {
-                $managementDrugs= new ManagementDrugs();
+                $managementDrugs = new ManagementDrugs();
                 $managementDrugs->pregnancy_id = $savedId;
                 $managementDrugs->drugmng_drug_name = $drugmngDrugNames[$key] ?? null;
                 $managementDrugs->drugmng_dosage = $drugmngDosages[$key] ?? null;
@@ -506,34 +512,44 @@ class PregnanacyController extends Controller
                 $managementDrugs->save();
             }
 
+            // Vital Monitoring
             $vitalMonitoring = new VitalMonitoring();
             $vitalMonitoring->pregnancy_id = $savedId;
             $vitalMonitoring->vm_systolic = $request->input('vm_systolic');
             $vitalMonitoring->vm_diastolic = $request->input('vm_diastolic');
             $vitalMonitoring->vm_pulse_rate = $request->input('vm_pulse_rate');
             $vitalMonitoring->vm_temperature = $request->input('vm_temperature');
-            $vitalMonitoring->pph = $request->input('pph'); 
+            $vitalMonitoring->pph = $request->input('pph');
+            $vitalMonitoring->pph_i = $request->input('pph_i');
             $vitalMonitoring->htn = $request->input('htn');
+            $vitalMonitoring->htn_i = $request->input('htn_i');
             $vitalMonitoring->pp_psychosis_depressional = $request->input('pp_psychosis_depressional');
+            $vitalMonitoring->pp_psychosis_depressional_i = $request->input('pp_psychosis_depressional_i');
             $vitalMonitoring->pp_sepsis = $request->input('pp_sepsis');
+            $vitalMonitoring->pp_sepsis_i = $request->input('pp_sepsis_i');
             $vitalMonitoring->dvt = $request->input('dvt');
+            $vitalMonitoring->dvt_i = $request->input('dvt_i');
             $vitalMonitoring->icu_admission = $request->input('icu_admission');
+            $vitalMonitoring->icu_admission_i = $request->input('icu_admission_i');
+            $vitalMonitoring->icu_admission_mx = $request->input('icu_admission_mx');
             $vitalMonitoring->save();
 
-            $newBornStatus= new NewBornStatus();
+            // New Born Status
+            $newBornStatus = new NewBornStatus();
             $newBornStatus->pregnancy_id = $savedId;
             $newBornStatus->baby_dob = $request->input('baby_dob');
             $newBornStatus->baby_gender = $request->input('baby_gender');
-            $newBornStatus->aphar = $request->input('aphar');
+            $newBornStatus->apgar = $request->input('apgar');
             $newBornStatus->nbs_birth_weight = $request->input('nbs_birth_weight');
             $newBornStatus->pbu_admission = $request->input('pbu_admission');
+            $newBornStatus->pbu_admission_i = $request->input('pbu_admission_i');
             $newBornStatus->save();
 
             // Summaries
-            // $summery = new Summery();
-            // $summery->pregnancy_id = $savedId;
-            // $summery->summery = $request->input('summery', '');
-            // $summery->save();
+            $summery = new Summery();
+            $summery->pregnancy_id = $savedId;
+            $summery->summery = $request->input('summery', '');
+            $summery->save();
         }
         return redirect()->back()->with('success', 'Complaints saved successfully.');
     }
@@ -601,7 +617,7 @@ class PregnanacyController extends Controller
     //     $pastGynHx->duration = $request->input('duration');
     //     $pastGynHx->status = $request->input('rdio-primary1');
     //     $pastGynHx->aub = $request->input('rdio-primary2');
-      
+
     //     $pastGynHx->subfertility = $request->input('rdio-primary3');
     //     $pastGynHx->gender = $request->input('gender');
     //     $pastGynHx->male_factors = implode(', ', $request->input('male_factors', []));
@@ -699,7 +715,6 @@ class PregnanacyController extends Controller
     //     $obsExamination->ac = $request->input('ac');
     //     $obsExamination->hc = $request->input('hc');
     //     $obsExamination->fl = $request->input('fl');
-    //     $obsExamination->crl = $request->input('crl');
     //     $obsExamination->placental_position = $request->input('placental_position');
     //     $obsExamination->efw = $request->input('efw');
     //     $obsExamination->liquor = $request->input('rdio-primary7');

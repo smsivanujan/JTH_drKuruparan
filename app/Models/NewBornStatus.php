@@ -10,8 +10,9 @@ class NewBornStatus extends Model
     protected $fillable = [
         'baby_dob',
         'baby_gender',
-        'aphar',
+        'apgar',
         'nbs_birth_weight',
         'pbu_admission',
+        'pbu_admission_i',
     ];
 }

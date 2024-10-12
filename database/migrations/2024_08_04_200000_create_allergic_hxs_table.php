@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('allergic_hxs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->text('drugalergyhx')->nullable();
+            $table->string('drugalergyhx')->nullable();
             $table->string('foodallergyhx')->nullable();
             $table->string('otherallergyhx')->nullable();
             $table->timestamps();

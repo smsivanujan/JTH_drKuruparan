@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GynExaminations;
-use App\Models\Ix;
+use App\Models\Investigation;
 use App\Models\ObsExaminations;
 use App\Models\Pregnanacy;
 use App\Models\PresentComplaint;
@@ -60,7 +60,8 @@ class PregnancyVisitController extends Controller
         if ($pregnancy) {
             $savedId = $pregnancy->id;
         }
-        
+
+        // PresentComplaint
         $complaints = $request->input('complaint', []);
         $durations = $request->input('duration', []);
         $severities = $request->input('severity', []);
@@ -75,22 +76,23 @@ class PregnancyVisitController extends Controller
             $presentComplaint->save();
         }
 
+        // GynExaminations
         $gynExamination = new GynExaminations();
         $gynExamination->pregnancy_id = $savedId;
-        $gynExamination->generalGyn = implode(', ', $request->input('generalGyn', []));
-        $gynExamination->thyroid_examinationGyn = $request->input('rdio-primary4');
+        $gynExamination->gyn_general = implode(', ', $request->input('gyn_general', []));
+        $gynExamination->gyn_thyroid_examination = $request->input('rdio-primary4');
         $gynExamination->height = $request->input('height');
         $gynExamination->weight = $request->input('weight');
         $gynExamination->bmi = $request->input('bmi');
-        $gynExamination->temperature = $request->input('temperature');
-        $gynExamination->pulse_rate = $request->input('pulse_rate');
+        $gynExamination->gyn_temperature = $request->input('gyn_temperature');
+        $gynExamination->gyn_pulse_rate = $request->input('gyn_pulse_rate');
         $gynExamination->rhythm = $request->input('rhythm');
         $gynExamination->heart_sound = $request->input('heart_sound');
         $gynExamination->murmur = $request->input('murmur');
-        $gynExamination->systolic = $request->input('systolic');
-        $gynExamination->diastolic = $request->input('diastolic');
+        $gynExamination->gyn_systolic = $request->input('gyn_systolic');
+        $gynExamination->gyn_diastolic = $request->input('gyn_diastolic');
         $gynExamination->breath_sound = $request->input('breath_sound');
-        $gynExamination->inspectionGyn = implode(', ', $request->input('inspectionGyn', []));
+        $gynExamination->gyn_inspection = implode(', ', $request->input('gyn_inspection', []));
         $gynExamination->site_mass = $request->input('site_mass');
         $gynExamination->size_mass = $request->input('size_mass');
         $gynExamination->percussion_mass = $request->input('percussion_mass');
@@ -104,34 +106,31 @@ class PregnancyVisitController extends Controller
         $gynExamination->os = $request->input('os');
         $gynExamination->polyp_ulcer = $request->input('polyp_ulcer');
         $gynExamination->cervical_motion_tenderness = $request->input('cervical_motion_tenderness');
-        $gynExamination->endometrium_tas = $request->input('endometrium_tas');
-        $gynExamination->fibroid_tas = $request->input('fibroid_tas');
-        $gynExamination->size_tas = $request->input('size_tas');
-        $gynExamination->direction_tas = $request->input('direction_tas');
-        $gynExamination->ovary_tas = $request->input('ovary_tas');
-        $gynExamination->adnexialmass_tas = $request->input('adnexialmass_tas');
-        $gynExamination->bladder_tas = $request->input('bladder_tas');
-        $gynExamination->free_fluid_tas = $request->input('free_fluid_tas');
-        $gynExamination->endometrium_tvs = $request->input('endometrium_tvs');
-        $gynExamination->fibroid_tvs = $request->input('fibroid_tvs');
-        $gynExamination->size_tvs = $request->input('size_tvs');
-        $gynExamination->direction_tvs = $request->input('direction_tvs');
-        $gynExamination->cavity_tas = $request->input('cavity_tas');
-        $gynExamination->polyps_tvs = $request->input('polyps_tvs');
-        $gynExamination->ectopic_tvs = $request->input('ectopic_tvs');
-        $gynExamination->adnexialmass_tvs = $request->input('adnexialmass_tvs');
+        $gynExamination->endometrium = $request->input('endometrium');
+        $gynExamination->fibroid = $request->input('fibroid');
+        $gynExamination->size = $request->input('size');
+        $gynExamination->direction = $request->input('direction');
+        $gynExamination->ovary = $request->input('ovary');
+        $gynExamination->adnexialmass = $request->input('adnexialmass');
+        $gynExamination->bladder = $request->input('bladder');
+        $gynExamination->free_fluid = $request->input('free_fluid');
+        $gynExamination->cavity = $request->input('cavity');
+        $gynExamination->polyps = $request->input('polyps');
+        $gynExamination->ectopic = $request->input('ectopic');
         $gynExamination->problist = $request->input('problist');
         $gynExamination->medical_hx = $request->input('medical_hx');
         $gynExamination->surgery_hx = $request->input('surgery_hx');
         $gynExamination->save();
 
+        // ObsExaminations
         $obsExamination = new ObsExaminations();
         $obsExamination->pregnancy_id = $savedId;
-        $obsExamination->generalObs = implode(', ', $request->input('generalObs', []));
-        $obsExamination->bp = $request->input('bp');
-        $obsExamination->pr = $request->input('pr');
-        $obsExamination->thyroid_examinationObs = $request->input('rdio-primary5');
-        $obsExamination->inspectionObs = implode(', ', $request->input('inspectionObs', []));
+        $obsExamination->obs_general = implode(', ', $request->input('obs_general', []));
+        $obsExamination->obs_systolic = $request->input('obs_systolic');
+        $obsExamination->obs_diastolic = $request->input('obs_diastolic');
+        $obsExamination->obs_pulse_rate = $request->input('obs_pulse_rate');
+        $obsExamination->obs_thyroid_examination = $request->input('rdio-primary5');
+        $obsExamination->obs_inspection = implode(', ', $request->input('obs_inspection', []));
         $obsExamination->sfh = $request->input('sfh');
         $obsExamination->lie = $request->input('lie');
         $obsExamination->position = $request->input('position');
@@ -148,26 +147,37 @@ class PregnancyVisitController extends Controller
         $obsExamination->ac = $request->input('ac');
         $obsExamination->hc = $request->input('hc');
         $obsExamination->fl = $request->input('fl');
-        $obsExamination->crl = $request->input('crl');
         $obsExamination->placental_position = $request->input('placental_position');
         $obsExamination->efw = $request->input('efw');
         $obsExamination->liquor = $request->input('rdio-primary7');
         $obsExamination->dopplier = $request->input('dopplier');
         $obsExamination->save();
 
-        $ix = new Ix();
-        $ix->pregnancy_id = $savedId;
-        $ix->ctg = $request->input('ctg');
-        $ix->tas = $request->input('tas');
-        $ix->hb = $request->input('hb');
-        $ix->plt = $request->input('plt');
-        $ix->wbc = $request->input('wbc');
-        $ix->crp = $request->input('crp');
-        $ix->urine_full_report = $request->input('urine_full_report');
-        $ix->ohtt_bss = $request->input('ohtt_bss');
-        $ix->antibiotics = $request->input('antibiotics');
-        $ix->plan_delivery = $request->input('plan_delivery');
-        $ix->save();
+        // Investigation
+        $investigation = new Investigation();
+        $investigation->pregnancy_id = $savedId;
+        $investigation->ctg = $request->input('ctg');
+        $investigation->hb = $request->input('hb');
+        $investigation->plt = $request->input('plt');
+        $investigation->wbc = $request->input('wbc');
+        $investigation->crp = $request->input('crp');
+        $investigation->urine_full_report = $request->input('urine_full_report');
+        $investigation->ohtt_bss = $request->input('ohtt_bss');
+        $investigation->rbs = $request->input('rbs');
+        $investigation->rbs_unit = $request->input('rbs_unit');
+        $investigation->fbs = $request->input('fbs');
+        $investigation->fbs_unit = $request->input('fbs_unit');
+        $investigation->ppbs = $request->input('ppbs');
+        $investigation->ppbs_unit = $request->input('ppbs_unit');
+        $investigation->scr = $request->input('scr');
+        $investigation->bun = $request->input('bun');
+        $investigation->sodium = $request->input('sodium');
+        $investigation->potassium = $request->input('potassium');
+        $investigation->ast = $request->input('ast');
+        $investigation->alt = $request->input('alt');
+        $investigation->pt = $request->input('pt');
+        $investigation->aptt = $request->input('aptt');
+        $investigation->save();
 
         return redirect()->back()->with('success', 'Complaints saved successfully.');
     }

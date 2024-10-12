@@ -9,7 +9,6 @@ class Investigation extends Model
     protected $table = 'investigations';
     protected $fillable = [
         'ctg',
-        'tas',
         'hb',
         'plt',
         'wbc',

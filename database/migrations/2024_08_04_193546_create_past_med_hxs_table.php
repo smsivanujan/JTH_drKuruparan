@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('past_med_hxs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
-            $table->string('past_med_hx');
+            $table->string('past_med_hx')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
 

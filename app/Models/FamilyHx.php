@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FamilyHx extends Model
 {
-    // protected $table = 'past_med_hxs';
-    // protected $fillable = [
-    //     'past_med_hx',
-    //     'remarks',
-    // ];
+    protected $table = 'family_hxs';
+    protected $fillable = [
+        'family_med_hx',
+        'remarks',
+    ];
 }

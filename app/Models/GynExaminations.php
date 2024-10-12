@@ -8,7 +8,6 @@ class GynExaminations extends Model
 {
     protected $table = 'gyn_examinations';
     protected $fillable = [
-        'pregnancy_id',
         'general',
         'height',
         'weight',

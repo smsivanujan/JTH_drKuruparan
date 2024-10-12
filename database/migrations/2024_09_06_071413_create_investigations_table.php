@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pregnancy_id');
             $table->string('ctg')->nullable();
-            $table->string('tas')->nullable();
             $table->string('hb')->nullable();
             $table->string('plt')->nullable();
             $table->string('wbc')->nullable();

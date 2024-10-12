@@ -68,8 +68,6 @@
         const newRow = document.getElementById('newRowCPH');
 
         if (specialtyStatus === 'Complicated') {
-            newRow.innerHTML = '';
-        } else if (specialtyStatus === 'Not Complicated') {
             newRow.innerHTML = `
                 <div class="row">
                     <!-- Not Complicated -->
@@ -121,6 +119,9 @@
                         </label>
                     </div>
                 </div>`;
+           
+        } else if (specialtyStatus === 'Not Complicated') {
+            newRow.innerHTML = '';
         }
     }
 </script>

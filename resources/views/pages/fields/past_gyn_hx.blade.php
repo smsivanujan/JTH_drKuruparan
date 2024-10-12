@@ -14,7 +14,7 @@
                 <!-- Contraception HX -->
                 <div class="form-group col-md-9">
                     <label class="form-label" for="contraceptionhx-label">Contraception HX</label>
-                    <label class="form-label" for="amount-text">Types of Contraception</label>
+                    <label class="form-label" for="typeofcontraceptionhx-label">Types of Contraception</label>
                     <div class="selectgroup selectgroup-pills">
                         <label class="selectgroup-item">
                             <input type="checkbox" name="contraception[]" value="OCP" class="selectgroup-input">
@@ -149,7 +149,7 @@
         const specialtyGender = document.getElementById('gender-dropdown').value;
         const newRow = document.getElementById('newRowPGH');
 
-        if (specialtyGender === 'Male') { 
+        if (specialtyGender === 'Male') {
             newRow.innerHTML = `
                     <div class="row">
                         <!-- SFA -->

@@ -9,13 +9,12 @@ class AllergicHX extends Model
     protected $table = 'allergic_hxs';
 
     protected $fillable = [
-        'pregnancy_id',
         'drugalergyhx',
         'foodallergyhx',
         'otherallergyhx',
     ];
 
     protected $casts = [
-        'drugalergyhx' => 'array', // Automatically cast JSON to array
+        'drugalergyhx' => 'array',
     ];
 }
