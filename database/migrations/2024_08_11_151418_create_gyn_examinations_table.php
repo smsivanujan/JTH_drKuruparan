@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('site_mass')->nullable();
             $table->string('size_mass')->nullable();
             $table->string('percussion_mass')->nullable();
-            $table->string('auscultator_mass')->nullable();
+            $table->string('auscultation_mass')->nullable();
             $table->string('palpation')->nullable();
             $table->string('percussion')->nullable();
             $table->string('auscultation')->nullable();

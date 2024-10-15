@@ -519,7 +519,7 @@ class PregnanacyController extends Controller
                 'site_mass' => $request->input('site_mass'),
                 'size_mass' => $request->input('size_mass'),
                 'percussion_mass' => $request->input('percussion_mass'),
-                'auscultator_mass' => $request->input('auscultator_mass'),
+                'auscultation_mass' => $request->input('auscultation_mass'),
                 'palpation' => $request->input('palpation'),
                 'percussion' => $request->input('percussion'),
                 'auscultation' => $request->input('auscultation'),

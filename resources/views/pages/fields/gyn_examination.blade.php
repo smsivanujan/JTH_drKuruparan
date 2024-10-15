@@ -198,7 +198,7 @@
                     <div id="mass-section" style="display: none;">
                         <label class="form-label" for="palpation-dropdown">Mass</label>
                         <div class="row">
-                            <!-- Site -->
+                            <!-- Site Mass -->
                             <div class="form-group col-md-3">
                                 <label class="form-label" for="site-dropdown">Site</label>
                                 <select name="site_mass" class="form-control form-select" id="site-dropdown" data-bs-placeholder="">
@@ -214,7 +214,7 @@
                                     <option value="LIF">LIF</option>
                                 </select>
                             </div>
-                            <!-- Size -->
+                            <!-- Size Mass -->
                             <div class="form-group col-md-3">
                                 <label class="form-label" for="size-number">Size(POA)</label>
                                 <div class="input-group">
@@ -224,7 +224,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Percussion -->
+                            <!-- Percussion Mass -->
                             <div class="form-group col-md-3">
                                 <label class="form-label" for="percussion-dropdown">Percussion</label>
                                 <select name="percussion_mass" class="form-control form-select" id="percussion-dropdown" data-bs-placeholder="">
@@ -233,13 +233,13 @@
                                     <option value="Resonance">Resonance</option>
                                 </select>
                             </div>
-                            <!-- Auscultator -->
+                            <!-- Auscultation Mass -->
                             <div class="form-group col-md-3">
-                                <label class="form-label" for="auscultator-dropdown">Auscultator</label>
-                                <select name="auscultator_mass" class="form-control form-select" id="auscultator-dropdown" data-bs-placeholder="">
+                                <label class="form-label" for="auscultation-dropdown">Auscultation</label>
+                                <select name="auscultation_mass" class="form-control form-select" id="auscultator-dropdown-dropdown" data-bs-placeholder="">
                                     <option label="Choose" disabled selected></option>
-                                    <option value="Palpable (+)">Palpable (+)</option>
-                                    <option value="Palpable (-)">Palpable (-)</option>
+                                    <option value="Bruit (+)">Bruit (+)</option>
+                                    <option value="Bruit (-)">Bruit (-)</option>
                                 </select>
                             </div>
                         </div>
@@ -504,7 +504,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="medicalhx-dropdown">Medical MX</label>
                                 <select name="medical_hx" class="form-control form-select" id="medicalhx-dropdown">
-                                    <option value="" disabled selected>Select Medical HX</option>
+                                    <option value="" disabled selected>Choose</option>
                                     <option value="Antibiotics">Antibiotics</option>
                                     <option value="Analgesics">Analgesics</option>
                                     <option value="Tranexamic acid">Tranexamic acid</option>
@@ -516,7 +516,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="surgeryhx-dropdown">Surgery MX</label>
                                 <select name="surgery_hx" class="form-control form-select" id="surgeryhx-dropdown">
-                                    <option value="" disabled selected>Select Surgery HX</option>
+                                    <option value="" disabled selected>Choose</option>
                                     <option value="Open Surgery">Open Surgery</option>
                                     <option value="Laparoscopic Surgery">Laparoscopic Surgery</option>
                                 </select>
