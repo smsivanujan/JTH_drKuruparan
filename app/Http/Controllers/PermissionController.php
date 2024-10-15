@@ -10,21 +10,22 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+
     public function index($id)
     {
-        //get user role permission array
-        $permission = Permission::where('user_id', $id)->first();
-        // get user role by id
-        $user = User::find($id);
-        //get Access models
-        $access_model = AccessModel::all();
-        //get all access point
-        $access_point = AccessPoint::all();
-        return view('layouts.auth.permission')
-            ->with('access_model', $access_model)
-            ->with('user', $user)
-            ->with('permission', $permission)
-            ->with('access_point', $access_point);
+       //get user role permission array
+       $permission = Permission::where('user_id', $id)->first();
+       // get user role by id
+       $user = User::find($id);
+       //get Access models
+       $access_model = AccessModel::all();
+       //get all access point
+       $access_point = AccessPoint::all();
+       return view('layouts.auth.permission')
+           ->with('access_model', $access_model)
+           ->with('user', $user)
+           ->with('permission', $permission)
+           ->with('access_point', $access_point);
     }
 
     public function store(Request $request)

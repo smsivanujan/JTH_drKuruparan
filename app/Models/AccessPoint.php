@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AccessPoint extends Model
 {
+    use HasFactory;
     protected $table = 'access_points';
     protected $primarykey = 'id';
 

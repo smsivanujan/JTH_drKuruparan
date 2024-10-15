@@ -17,16 +17,16 @@ class AccessPointController extends Controller
         $access_point = AccessPoint::where('access_model_id', $id)->get();
 
         return view('layouts.auth.accessPoint')
-        ->with('access_model', $access_model)
-        ->with('access_point', $access_point);
+            ->with('access_model', $access_model)
+            ->with('access_point', $access_point);
     }
 
     public function store(Request $request)
     {
-
         $id = $request->id;
 
-        if ($id == 0
+        if (
+            $id == 0
         ) { // create
 
             $this->validate($request, [
