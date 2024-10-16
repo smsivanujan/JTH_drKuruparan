@@ -230,9 +230,19 @@ class PregnanacyController extends Controller
 
         if ($patients->isEmpty()) {
             return response()->json(['message' => 'No data found'], 404);
-        }
+        } else {
+            $patient = $patients->first();
 
-        return response()->json($patients->first());
+            $pregnancyExists = DB::table('pregnancies')
+                ->where('patient_id', $patient->patientID)
+                ->exists();
+ 
+            if ($pregnancyExists) {
+                return response()->json(['redirect' => route('pregnanacyVisit.index', ['patientID' => $patient->patientID])]);
+            } else {
+                return response()->json($patient);
+            }
+        }
     }
 
     public function store(Request $request)
@@ -290,18 +300,7 @@ class PregnanacyController extends Controller
                 'past_history_status' => $request->input('past_history_status'),
                 'past_history_complicated_status' => implode(', ', $request->input('past_history_complicated_status', [])),
             ];
-            // if (array_filter($data)) {
-            //     $currentPregnancyHX->g = $request->input('g');
-            //     $currentPregnancyHX->p = $request->input('p');
-            //     $currentPregnancyHX->c = $request->input('c');
-            //     $currentPregnancyHX->married_year = $request->input('married_year');
-            //     $currentPregnancyHX->lmp = $request->input('lmp');
-            //     $currentPregnancyHX->edd = $request->input('edd');
-            //     $currentPregnancyHX->working_edd = $request->input('working_edd');
-            //     $currentPregnancyHX->past_history_status = $request->input('past_history_status');
-            //     $currentPregnancyHX->past_history_complicated_status = implode(', ', $request->input('past_history_complicated_status', []));
-            //     $currentPregnancyHX->save();
-            // }
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $currentPregnancyHX->$key = $value;
@@ -354,19 +353,7 @@ class PregnanacyController extends Controller
                 'tubal_factors' => implode(', ', $request->input('tubal_factors', [])),
                 'uterine_factors' => implode(', ', $request->input('uterine_factors', [])),
             ];
-            // $pastGynHx->menarche_at = $request->input('menarche_at');
-            // $pastGynHx->contraception = implode(', ', $request->input('contraception', []));
-            // $pastGynHx->amount = $request->input('amount');
-            // $pastGynHx->duration = $request->input('duration');
-            // $pastGynHx->regularity = $request->input('rdio-primary1');
-            // $pastGynHx->aub = $request->input('rdio-primary2');
-            // $pastGynHx->subfertility = $request->input('rdio-primary3');
-            // $pastGynHx->gender = $request->input('gender');
-            // $pastGynHx->male_factors = implode(', ', $request->input('male_factors', []));
-            // $pastGynHx->ovulatory_disorder = implode(', ', $request->input('ovulatory_disorder', []));
-            // $pastGynHx->tubal_factors = implode(', ', $request->input('tubal_factors', []));
-            // $pastGynHx->uterine_factors = implode(', ', $request->input('uterine_factors', []));
-            // $pastGynHx->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $pastGynHx->$key = $value;
@@ -426,10 +413,7 @@ class PregnanacyController extends Controller
                 'foodallergyhx' => $request->input('foodallergyhx', ''),
                 'otherallergyhx' => $request->input('otherallergyhx', ''),
             ];
-            // $allergicHx->drugalergyhx = implode(', ', $request->input('drugalergyhx', []));
-            // $allergicHx->foodallergyhx = $request->input('foodallergyhx', '');
-            // $allergicHx->otherallergyhx = $request->input('otherallergyhx', '');
-            // $allergicHx->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $allergicHx->$key = $value;
@@ -467,15 +451,7 @@ class PregnanacyController extends Controller
                 'partner_occupation' => $request->input('partner_occupation', ''),
                 'partner_social_problem' => implode(', ', $request->input('partner_social_problem', [])),
             ];
-            // $socialHx->family_status = $request->input('family_status', '');
-            // $socialHx->monthly_income = $request->input('monthly_income', '');
-            // $socialHx->patient_education = $request->input('patient_education', '');
-            // $socialHx->patient_occupation = $request->input('patient_occupation', '');
-            // $socialHx->patient_social_problem = implode(', ', $request->input('patient_social_problem', []));
-            // $socialHx->partner_education = $request->input('partner_education', '');
-            // $socialHx->partner_occupation = $request->input('partner_occupation', '');
-            // $socialHx->partner_social_problem = implode(', ', $request->input('partner_social_problem', []));
-            // $socialHx->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $socialHx->$key = $value;
@@ -489,8 +465,7 @@ class PregnanacyController extends Controller
             $data = [
                 'past_surgery_hx' => $request->input('pastsurgeryhx', ''),
             ];
-            // $otherHx->past_surgery_hx = $request->input('pastsurgeryhx', '');
-            // $otherHx->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $otherHx->$key = $value;
@@ -544,48 +519,7 @@ class PregnanacyController extends Controller
                 'medical_hx' => $request->input('medical_hx'),
                 'surgery_hx' => $request->input('surgery_hx'),
             ];
-            // $gynExamination->gyn_general = implode(', ', $request->input('gyn_general', []));
-            // $gynExamination->gyn_thyroid_examination = $request->input('rdio-primary4');
-            // $gynExamination->height = $request->input('height');
-            // $gynExamination->weight = $request->input('weight');
-            // $gynExamination->bmi = $request->input('bmi');
-            // $gynExamination->gyn_temperature = $request->input('gyn_temperature');
-            // $gynExamination->gyn_pulse_rate = $request->input('gyn_pulse_rate');
-            // $gynExamination->rhythm = $request->input('rhythm');
-            // $gynExamination->heart_sound = $request->input('heart_sound');
-            // $gynExamination->murmur = $request->input('murmur');
-            // $gynExamination->gyn_systolic = $request->input('gyn_systolic');
-            // $gynExamination->gyn_diastolic = $request->input('gyn_diastolic');
-            // $gynExamination->breath_sound = $request->input('breath_sound');
-            // $gynExamination->gyn_inspection = implode(', ', $request->input('gyn_inspection', []));
-            // $gynExamination->site_mass = $request->input('site_mass');
-            // $gynExamination->size_mass = $request->input('size_mass');
-            // $gynExamination->percussion_mass = $request->input('percussion_mass');
-            // $gynExamination->auscultator_mass = $request->input('auscultator_mass');
-            // $gynExamination->palpation = $request->input('palpation');
-            // $gynExamination->percussion = $request->input('percussion');
-            // $gynExamination->auscultation = $request->input('auscultation');
-            // $gynExamination->inspectionSpeculum = implode(', ', $request->input('inspectionSpeculum', []));
-            // $gynExamination->stress_incontinence = $request->input('stress_incontinence');
-            // $gynExamination->cervical_consistency = $request->input('cervical_consistency');
-            // $gynExamination->os = $request->input('os');
-            // $gynExamination->polyp_ulcer = $request->input('polyp_ulcer');
-            // $gynExamination->cervical_motion_tenderness = $request->input('cervical_motion_tenderness');
-            // $gynExamination->endometrium = $request->input('endometrium');
-            // $gynExamination->fibroid = $request->input('fibroid');
-            // $gynExamination->size = $request->input('size');
-            // $gynExamination->direction = $request->input('direction');
-            // $gynExamination->ovary = $request->input('ovary');
-            // $gynExamination->adnexialmass = $request->input('adnexialmass');
-            // $gynExamination->bladder = $request->input('bladder');
-            // $gynExamination->free_fluid = $request->input('free_fluid');
-            // $gynExamination->cavity = $request->input('cavity');
-            // $gynExamination->polyps = $request->input('polyps');
-            // $gynExamination->ectopic = $request->input('ectopic');
-            // $gynExamination->problist = $request->input('problist');
-            // $gynExamination->medical_hx = $request->input('medical_hx');
-            // $gynExamination->surgery_hx = $request->input('surgery_hx');
-            // $gynExamination->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $gynExamination->$key = $value;
@@ -624,33 +558,7 @@ class PregnanacyController extends Controller
                 'liquor' => $request->input('rdio-primary7'),
                 'dopplier' => $request->input('dopplier'),
             ];
-            // $obsExamination->obs_general = implode(', ', $request->input('obs_general', []));
-            // $obsExamination->obs_systolic = $request->input('obs_systolic');
-            // $obsExamination->obs_diastolic = $request->input('obs_diastolic');
-            // $obsExamination->obs_pulse_rate = $request->input('obs_pulse_rate');
-            // $obsExamination->obs_thyroid_examination = $request->input('rdio-primary5');
-            // $obsExamination->obs_inspection = implode(', ', $request->input('obs_inspection', []));
-            // $obsExamination->sfh = $request->input('sfh');
-            // $obsExamination->lie = $request->input('lie');
-            // $obsExamination->position = $request->input('position');
-            // $obsExamination->engagement = $request->input('rdio-primary6');
-            // $obsExamination->fhs = $request->input('rdio-primary8');
-            // $obsExamination->cervical_dilatation = $request->input('cervical_dilatation');
-            // $obsExamination->cervical_consistency = $request->input('cervical_consistency');
-            // $obsExamination->cervical_canel = $request->input('cervical_canel');
-            // $obsExamination->cervical_position = $request->input('cervical_position');
-            // $obsExamination->station = $request->input('station');
-            // $obsExamination->fetus = $request->input('fetus');
-            // $obsExamination->presentation = $request->input('presentation');
-            // $obsExamination->bpd = $request->input('bpd');
-            // $obsExamination->ac = $request->input('ac');
-            // $obsExamination->hc = $request->input('hc');
-            // $obsExamination->fl = $request->input('fl');
-            // $obsExamination->placental_position = $request->input('placental_position');
-            // $obsExamination->efw = $request->input('efw');
-            // $obsExamination->liquor = $request->input('rdio-primary7');
-            // $obsExamination->dopplier = $request->input('dopplier');
-            // $obsExamination->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $obsExamination->$key = $value;
@@ -699,28 +607,7 @@ class PregnanacyController extends Controller
             } else {
                 $data['ppbs_unit'] = null;
             }
-            // $investigation->ctg = $request->input('ctg');
-            // $investigation->hb = $request->input('hb');
-            // $investigation->plt = $request->input('plt');
-            // $investigation->wbc = $request->input('wbc');
-            // $investigation->crp = $request->input('crp');
-            // $investigation->urine_full_report = $request->input('urine_full_report');
-            // $investigation->ohtt_bss = $request->input('ohtt_bss');
-            // $investigation->rbs = $request->input('rbs');
-            // $investigation->rbs_unit = $request->input('rbs_unit');
-            // $investigation->fbs = $request->input('fbs');
-            // $investigation->fbs_unit = $request->input('fbs_unit');
-            // $investigation->ppbs = $request->input('ppbs');
-            // $investigation->ppbs_unit = $request->input('ppbs_unit');
-            // $investigation->scr = $request->input('scr');
-            // $investigation->bun = $request->input('bun');
-            // $investigation->sodium = $request->input('sodium');
-            // $investigation->potassium = $request->input('potassium');
-            // $investigation->ast = $request->input('ast');
-            // $investigation->alt = $request->input('alt');
-            // $investigation->pt = $request->input('pt');
-            // $investigation->aptt = $request->input('aptt');
-            // $investigation->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $investigation->$key = $value; // Assign values dynamically
@@ -739,13 +626,7 @@ class PregnanacyController extends Controller
                 'em' => $request->input('em'),
                 'el' => $request->input('el'),
             ];
-            // $management->plan_delivery = $request->input('plan_delivery');
-            // $management->mng_poa = $request->input('mng_poa');
-            // $management->mng_mod = $request->input('mng_mod');
-            // $management->avd = $request->input('avd');
-            // $management->em = $request->input('em');
-            // $management->el = $request->input('el');
-            // $management->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $management->$key = $value;
@@ -801,24 +682,7 @@ class PregnanacyController extends Controller
                 'icu_admission_i' => $request->input('icu_admission_i'),
                 'icu_admission_mx' => $request->input('icu_admission_mx'),
             ];
-            // $vitalMonitoring->vm_systolic = $request->input('vm_systolic');
-            // $vitalMonitoring->vm_diastolic = $request->input('vm_diastolic');
-            // $vitalMonitoring->vm_pulse_rate = $request->input('vm_pulse_rate');
-            // $vitalMonitoring->vm_temperature = $request->input('vm_temperature');
-            // $vitalMonitoring->pph = $request->input('pph');
-            // $vitalMonitoring->pph_i = $request->input('pph_i');
-            // $vitalMonitoring->htn = $request->input('htn');
-            // $vitalMonitoring->htn_i = $request->input('htn_i');
-            // $vitalMonitoring->pp_psychosis_depressional = $request->input('pp_psychosis_depressional');
-            // $vitalMonitoring->pp_psychosis_depressional_i = $request->input('pp_psychosis_depressional_i');
-            // $vitalMonitoring->pp_sepsis = $request->input('pp_sepsis');
-            // $vitalMonitoring->pp_sepsis_i = $request->input('pp_sepsis_i');
-            // $vitalMonitoring->dvt = $request->input('dvt');
-            // $vitalMonitoring->dvt_i = $request->input('dvt_i');
-            // $vitalMonitoring->icu_admission = $request->input('icu_admission');
-            // $vitalMonitoring->icu_admission_i = $request->input('icu_admission_i');
-            // $vitalMonitoring->icu_admission_mx = $request->input('icu_admission_mx');
-            // $vitalMonitoring->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $vitalMonitoring->$key = $value;
@@ -837,13 +701,7 @@ class PregnanacyController extends Controller
                 'pbu_admission' => $request->input('pbu_admission'),
                 'pbu_admission_i' => $request->input('pbu_admission_i'),
             ];
-            // $newBornStatus->baby_dob = $request->input('baby_dob');
-            // $newBornStatus->baby_gender = $request->input('baby_gender');
-            // $newBornStatus->apgar = $request->input('apgar');
-            // $newBornStatus->nbs_birth_weight = $request->input('nbs_birth_weight');
-            // $newBornStatus->pbu_admission = $request->input('pbu_admission');
-            // $newBornStatus->pbu_admission_i = $request->input('pbu_admission_i');
-            // $newBornStatus->save();
+
             if (array_filter($data)) {
                 foreach ($data as $key => $value) {
                     $newBornStatus->$key = $value;
@@ -857,8 +715,7 @@ class PregnanacyController extends Controller
             $data = [
                 'summery' => $request->input('summery', ''),
             ];
-            // $summery->summery = $request->input('summery', '');
-            // $summery->save();
+
             if (!empty($data['summery'])) {
                 foreach ($data as $key => $value) {
                     $summery->$key = $value;
