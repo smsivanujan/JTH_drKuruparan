@@ -59,31 +59,30 @@
                             </div>
                             <div class="card-body">
                                 <div class="panel-group1" id="accordion11" role="tablist">
+                                    @foreach($visitData as $date => $visit)
                                     <div class="card overflow-hidden mb-2 border-0">
-                                        <a class="accordion-toggle panel-heading1 collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion11" href="#collapseFour1" aria-expanded="false">2024-12-12</a>
-                                        <div id="collapseFour1" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                        <a class="accordion-toggle panel-heading1 collapsed"
+                                            data-bs-toggle="collapse"
+                                            data-bs-parent="#accordion11"
+                                            href="#collapse{{ $loop->index }}"
+                                            aria-expanded="false">
+                                            Visit Date: {{ $date }}
+                                        </a>
+
+                                        <div id="collapse{{ $loop->index }}" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                             <div class="panel-body">
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words </p>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise</p>
+                                                @foreach($visit['records'] as $record)
+                                                <a href="javascript:void(0)" class="btn btn-info">{{ $record->table_name }}</a>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card overflow-hidden border-0">
-                                        <a class="accordion-toggle panel-heading1 collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion11" href="#collapseFive2" aria-expanded="false">2024-12-18</a>
-                                        <div id="collapseFive2" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-                                            <div class="panel-body ">
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words </p>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

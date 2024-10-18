@@ -6,6 +6,7 @@ use App\Models\GynExaminations;
 use App\Models\Investigation;
 use App\Models\ObsExaminations;
 use App\Models\Pregnanacy;
+use App\Models\PregnancyVisitRecord;
 use App\Models\PresentComplaint;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -36,21 +37,137 @@ class PregnancyVisitController extends Controller
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode');
 
-        $patients = DB::table('pregnancies');
         if ($patientID) {
             $pregnancies->where('pregnancies.patient_id', $patientID);
+
+            $visitRecords = DB::table('pregnancy_visit_records')
+                ->join('pregnancies', 'pregnancy_visit_records.pregnancy_id', '=', 'pregnancies.id')
+                ->where('pregnancies.patient_id', $patientID)
+                ->select('pregnancy_visit_records.pregnancy_visit', 'pregnancy_visit_records.pregnancy_id')
+                ->distinct()
+                ->get();
+
+            $visitData = [];
+
+            foreach ($visitRecords as $visit) {
+                $visitDate = $visit->pregnancy_visit;
+                $pregnancyId = $visit->pregnancy_id;
+
+                if (!isset($visitData[$visitDate])) {
+                    $visitData[$visitDate] = [
+                        'visit_info' => $visit,
+                        'records' => []
+                    ];
+                }
+
+                $records = DB::table('present_complaints')->select(DB::raw("'Presenting Complaint' as table_name"))
+                    ->where('pregnancy_id', $pregnancyId)
+                    ->whereDate('created_at', $visitDate)
+                    ->unionAll(
+                        DB::table('current_pregnancy_hxs')->select(DB::raw("'Current Pregnancy Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('past_obs_hxs')->select(DB::raw("'Past Obstetric Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('past_gyn_hxs')->select(DB::raw("'Past Gyn Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('past_med_hxs')->select(DB::raw("'Past Med Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('past_med_hx_drugs')->select(DB::raw("'Past Med Drugs Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('allergic_hxs')->select(DB::raw("'Allergic Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('family_hxs')->select(DB::raw("'Family Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('social_hxs')->select(DB::raw("'Social Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('other_hxs')->select(DB::raw("'Other Hx' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('gyn_examinations')->select(DB::raw("'Gyn Examination' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('obs_examinations')->select(DB::raw("'Obs Examination' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('investigations')->select(DB::raw("'Investigation' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('managements')->select(DB::raw("'Management' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('management_drugs')->select(DB::raw("'Management Drugs' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('vital_monitorings')->select(DB::raw("'Vital Monitoring' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('new_born_statuses')->select(DB::raw("'New Born Status' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->unionAll(
+                        DB::table('summeries')->select(DB::raw("'Summary' as table_name"))
+                            ->where('pregnancy_id', $pregnancyId)
+                            ->whereDate('created_at', $visitDate)
+                    )
+                    ->groupBy('table_name')
+                    ->get();
+
+                $visitData[$visitDate]['records'] = $records;
+            }
+
+            $patients = DB::table('pregnancies')->get();
+            $pregnancies = $pregnancies->get();
+
+            foreach ($pregnancies as $pregnancy) {
+                $pregnancy->age = Carbon::parse($pregnancy->patientDateofbirth)->age;
+            }
+
+            return view('pages.visitIndex', compact('pregnancies', 'patients', 'visitData'));
         }
 
-        $patients = $patients->get(); // Fetch the results
-        $pregnancies = $pregnancies->get(); // Fetch the results
-
-        // Calculate age
-        foreach ($pregnancies as $pregnanacyAge) {
-            $pregnanacyAge->age = Carbon::parse($pregnanacyAge->patientDateofbirth)->age;
-        }
-
+        $patients = DB::table('pregnancies')->get();
         return view('pages.visitIndex', compact('pregnancies', 'patients'));
     }
+
 
     public function storeVisit(Request $request)
     {
@@ -60,6 +177,11 @@ class PregnancyVisitController extends Controller
         if ($pregnancy) {
             $savedId = $pregnancy->id;
         }
+
+        $pregnancyVisitRecord = new PregnancyVisitRecord();
+        $pregnancyVisitRecord->pregnancy_id = $savedId;
+        $pregnancyVisitRecord->pregnancy_visit = now()->toDateString();
+        $pregnancyVisitRecord->save();
 
         // PresentComplaint
         $complaints = $request->input('complaint', []);
@@ -106,7 +228,7 @@ class PregnancyVisitController extends Controller
             'site_mass' => $request->input('site_mass'),
             'size_mass' => $request->input('size_mass'),
             'percussion_mass' => $request->input('percussion_mass'),
-            'auscultator_mass' => $request->input('auscultator_mass'),
+            'auscultation_mass' => $request->input('auscultation_mass'),
             'palpation' => $request->input('palpation'),
             'percussion' => $request->input('percussion'),
             'auscultation' => $request->input('auscultation'),
@@ -131,48 +253,7 @@ class PregnancyVisitController extends Controller
             'medical_hx' => $request->input('medical_hx'),
             'surgery_hx' => $request->input('surgery_hx'),
         ];
-        // $gynExamination->gyn_general = implode(', ', $request->input('gyn_general', []));
-        // $gynExamination->gyn_thyroid_examination = $request->input('rdio-primary4');
-        // $gynExamination->height = $request->input('height');
-        // $gynExamination->weight = $request->input('weight');
-        // $gynExamination->bmi = $request->input('bmi');
-        // $gynExamination->gyn_temperature = $request->input('gyn_temperature');
-        // $gynExamination->gyn_pulse_rate = $request->input('gyn_pulse_rate');
-        // $gynExamination->rhythm = $request->input('rhythm');
-        // $gynExamination->heart_sound = $request->input('heart_sound');
-        // $gynExamination->murmur = $request->input('murmur');
-        // $gynExamination->gyn_systolic = $request->input('gyn_systolic');
-        // $gynExamination->gyn_diastolic = $request->input('gyn_diastolic');
-        // $gynExamination->breath_sound = $request->input('breath_sound');
-        // $gynExamination->gyn_inspection = implode(', ', $request->input('gyn_inspection', []));
-        // $gynExamination->site_mass = $request->input('site_mass');
-        // $gynExamination->size_mass = $request->input('size_mass');
-        // $gynExamination->percussion_mass = $request->input('percussion_mass');
-        // $gynExamination->auscultator_mass = $request->input('auscultator_mass');
-        // $gynExamination->palpation = $request->input('palpation');
-        // $gynExamination->percussion = $request->input('percussion');
-        // $gynExamination->auscultation = $request->input('auscultation');
-        // $gynExamination->inspectionSpeculum = implode(', ', $request->input('inspectionSpeculum', []));
-        // $gynExamination->stress_incontinence = $request->input('stress_incontinence');
-        // $gynExamination->cervical_consistency = $request->input('cervical_consistency');
-        // $gynExamination->os = $request->input('os');
-        // $gynExamination->polyp_ulcer = $request->input('polyp_ulcer');
-        // $gynExamination->cervical_motion_tenderness = $request->input('cervical_motion_tenderness');
-        // $gynExamination->endometrium = $request->input('endometrium');
-        // $gynExamination->fibroid = $request->input('fibroid');
-        // $gynExamination->size = $request->input('size');
-        // $gynExamination->direction = $request->input('direction');
-        // $gynExamination->ovary = $request->input('ovary');
-        // $gynExamination->adnexialmass = $request->input('adnexialmass');
-        // $gynExamination->bladder = $request->input('bladder');
-        // $gynExamination->free_fluid = $request->input('free_fluid');
-        // $gynExamination->cavity = $request->input('cavity');
-        // $gynExamination->polyps = $request->input('polyps');
-        // $gynExamination->ectopic = $request->input('ectopic');
-        // $gynExamination->problist = $request->input('problist');
-        // $gynExamination->medical_hx = $request->input('medical_hx');
-        // $gynExamination->surgery_hx = $request->input('surgery_hx');
-        // $gynExamination->save();
+
         if (array_filter($data)) {
             foreach ($data as $key => $value) {
                 $gynExamination->$key = $value;
@@ -211,33 +292,7 @@ class PregnancyVisitController extends Controller
             'liquor' => $request->input('rdio-primary7'),
             'dopplier' => $request->input('dopplier'),
         ];
-        // $obsExamination->obs_general = implode(', ', $request->input('obs_general', []));
-        // $obsExamination->obs_systolic = $request->input('obs_systolic');
-        // $obsExamination->obs_diastolic = $request->input('obs_diastolic');
-        // $obsExamination->obs_pulse_rate = $request->input('obs_pulse_rate');
-        // $obsExamination->obs_thyroid_examination = $request->input('rdio-primary5');
-        // $obsExamination->obs_inspection = implode(', ', $request->input('obs_inspection', []));
-        // $obsExamination->sfh = $request->input('sfh');
-        // $obsExamination->lie = $request->input('lie');
-        // $obsExamination->position = $request->input('position');
-        // $obsExamination->engagement = $request->input('rdio-primary6');
-        // $obsExamination->fhs = $request->input('rdio-primary8');
-        // $obsExamination->cervical_dilatation = $request->input('cervical_dilatation');
-        // $obsExamination->cervical_consistency = $request->input('cervical_consistency');
-        // $obsExamination->cervical_canel = $request->input('cervical_canel');
-        // $obsExamination->cervical_position = $request->input('cervical_position');
-        // $obsExamination->station = $request->input('station');
-        // $obsExamination->fetus = $request->input('fetus');
-        // $obsExamination->precentation = $request->input('precentation');
-        // $obsExamination->bpd = $request->input('bpd');
-        // $obsExamination->ac = $request->input('ac');
-        // $obsExamination->hc = $request->input('hc');
-        // $obsExamination->fl = $request->input('fl');
-        // $obsExamination->placental_position = $request->input('placental_position');
-        // $obsExamination->efw = $request->input('efw');
-        // $obsExamination->liquor = $request->input('rdio-primary7');
-        // $obsExamination->dopplier = $request->input('dopplier');
-        // $obsExamination->save();
+
         if (array_filter($data)) {
             foreach ($data as $key => $value) {
                 $obsExamination->$key = $value;
@@ -286,28 +341,7 @@ class PregnancyVisitController extends Controller
         } else {
             $data['ppbs_unit'] = null;
         }
-        // $investigation->ctg = $request->input('ctg');
-        // $investigation->hb = $request->input('hb');
-        // $investigation->plt = $request->input('plt');
-        // $investigation->wbc = $request->input('wbc');
-        // $investigation->crp = $request->input('crp');
-        // $investigation->urine_full_report = $request->input('urine_full_report');
-        // $investigation->ohtt_bss = $request->input('ohtt_bss');
-        // $investigation->rbs = $request->input('rbs');
-        // $investigation->rbs_unit = $request->input('rbs_unit');
-        // $investigation->fbs = $request->input('fbs');
-        // $investigation->fbs_unit = $request->input('fbs_unit');
-        // $investigation->ppbs = $request->input('ppbs');
-        // $investigation->ppbs_unit = $request->input('ppbs_unit');
-        // $investigation->scr = $request->input('scr');
-        // $investigation->bun = $request->input('bun');
-        // $investigation->sodium = $request->input('sodium');
-        // $investigation->potassium = $request->input('potassium');
-        // $investigation->ast = $request->input('ast');
-        // $investigation->alt = $request->input('alt');
-        // $investigation->pt = $request->input('pt');
-        // $investigation->aptt = $request->input('aptt');
-        // $investigation->save();
+
         if (array_filter($data)) {
             foreach ($data as $key => $value) {
                 $investigation->$key = $value; // Assign values dynamically
