@@ -22,7 +22,7 @@
                         <div class="form-group col-md-3">
                             <label class="form-label" for="hb-input">HB</label>
                             <div class="input-group">
-                                <input type="number" name="hb" class="form-control" id="hb-input" placeholder="">
+                                <input type="number" step="any" name="hb" class="form-control" id="hb-input" placeholder="">
                                 <span class="input-group-text">g/dL</span>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                         <div class="form-group col-md-3">
                             <label class="form-label" for="wbc-input">WBC</label>
                             <div class="input-group">
-                                <input type="number" name="wbc" class="form-control" id="wbc-input" placeholder="">
+                                <input type="number" step="any" name="wbc" class="form-control" id="wbc-input" placeholder="">
                                 <span class="input-group-text">x10<sup>9</sup>/L</span>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                         <div class="form-group col-md-3">
                             <label class="form-label" for="plt-input">PLT</label>
                             <div class="input-group">
-                                <input type="number" name="plt" class="form-control" id="plt-input" placeholder="">
+                                <input type="number" step="any" name="plt" class="form-control" id="plt-input" placeholder="">
                                 <span class="input-group-text">x10<sup>9</sup>/L</span>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                 <!-- CRP -->
                 <div class="form-group col-md-4">
                     <label class="form-label" for="crp-number">CRP</label>
-                    <input type="number" name="crp" class="form-control" id="crp-input" placeholder="">
+                    <input type="number" step="any" name="crp" class="form-control" id="crp-input" placeholder="">
                 </div>
                 <!-- Urine Full Report (UFR) -->
                 <div class="form-group col-md-4">
@@ -80,7 +80,7 @@
                     <div class="form-group col-md-3">
                         <label class="form-label" for="rbs-number">RBS</label>
                         <div class="input-group">
-                            <input type="number" name="rbs" class="form-control" id="rbs-input" placeholder="">
+                            <input type="number" step="any" name="rbs" class="form-control" id="rbs-input" placeholder="">
                             <div class="input-group-append">
                                 <select class="form-control" name="rbs_unit" id="rbs-unit">
                                     <option value="mg/dL">mg/dL</option>
@@ -93,7 +93,7 @@
                     <div class="form-group col-md-3">
                         <label class="form-label" for="fbs-number">FBS</label>
                         <div class="input-group">
-                            <input type="number" name="fbs" class="form-control" id="fbs-input" placeholder="">
+                            <input type="number" step="any" name="fbs" class="form-control" id="fbs-input" placeholder="">
                             <div class="input-group-append">
                                 <select class="form-control" name="fbs_unit" id="fbs-unit">
                                     <option value="mg/dL">mg/dL</option>
@@ -106,7 +106,7 @@
                     <div class="form-group col-md-3">
                         <label class="form-label" for="ppbs-number">PPBS</label>
                         <div class="input-group">
-                            <input type="number" name="ppbs" class="form-control" id="ppbs-input" placeholder="">
+                            <input type="number" step="any" name="ppbs" class="form-control" id="ppbs-input" placeholder="">
                             <div class="input-group-append">
                                 <select class="form-control" name="ppbs_unit" id="ppbs-unit">
                                     <option value="mg/dL">mg/dL</option>
@@ -126,12 +126,12 @@
                         <!-- S.Cr -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="scr-number">S.cr</label>
-                            <input type="number" name="scr" class="form-control" id="scr-input" placeholder="">
+                            <input type="number" step="any" name="scr" class="form-control" id="scr-input" placeholder="">
                         </div>
                         <!-- BUN -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="bun-number">BUN</label>
-                            <input type="number" name="bun" class="form-control" id="bun-input" placeholder="">
+                            <input type="number" step="any" name="bun" class="form-control" id="bun-input" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -142,12 +142,12 @@
                         <!-- Na+ -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="sodium-number">Na+</label>
-                            <input type="number" name="sodium" class="form-control" id="sodium-input" placeholder="">
+                            <input type="number" step="any" name="sodium" class="form-control" id="sodium-input" placeholder="">
                         </div>
                         <!-- K+ -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="potassium-number">K+</label>
-                            <input type="number" name="potassium" class="form-control" id="potassium-input" placeholder="">
+                            <input type="number" step="any" name="potassium" class="form-control" id="potassium-input" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -161,12 +161,12 @@
                         <!-- AST -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="ast-number">AST</label>
-                            <input type="number" name="ast" class="form-control" id="ast-input" placeholder="">
+                            <input type="number" step="any" name="ast" class="form-control" id="ast-input" placeholder="">
                         </div>
                         <!-- ALT -->
                         <div class="form-group col-md-6">
                             <label class="form-label" for="alt-number">ALT</label>
-                            <input type="number" name="alt" class="form-control" id="alt-input" placeholder="">
+                            <input type="number" step="any" name="alt" class="form-control" id="alt-input" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                         <div class="form-group col-md-6">
                             <label class="form-label" for="pt-number">PT</label>
                             <div class="input-group">
-                                <input type="number" name="pt" class="form-control" id="pt-input" placeholder="">
+                                <input type="number" step="any" name="pt" class="form-control" id="pt-input" placeholder="">
                                 <div class="input-group-append">
                                     <span class="input-group-text">sec</span>
                                 </div>
@@ -188,7 +188,7 @@
                         <div class="form-group col-md-6">
                             <label class="form-label" for="alt-number">APTT</label>
                             <div class="input-group">
-                                <input type="number" name="aptt" class="form-control" id="aptt-input" placeholder="">
+                                <input type="number" step="any" name="aptt" class="form-control" id="aptt-input" placeholder="">
                                 <div class="input-group-append">
                                     <span class="input-group-text">sec</span>
                                 </div>

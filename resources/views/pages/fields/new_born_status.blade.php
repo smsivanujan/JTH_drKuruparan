@@ -27,7 +27,7 @@
                 <div class="form-group col-md-2">
                     <label class="form-label" for="nbs_birth_weight-number">Weight</label>
                     <div class="input-group">
-                        <input type="number" name="nbs_birth_weight" class="form-control" id="nbs_birth_weight-input" placeholder="">
+                        <input type="number" step="any" name="nbs_birth_weight" class="form-control" id="nbs_birth_weight-input" placeholder="">
                         <div class="input-group-append">
                             <span class="input-group-text">kg</span>
                         </div>

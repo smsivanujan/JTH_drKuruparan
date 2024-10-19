@@ -12,7 +12,7 @@
                         <div class="form-group col-md-6">
                             <label class="form-label" for="vm_systolic-input">Systolic</label>
                             <div class="input-group">
-                                <input type="number" name="vm_systolic" id="vm_systolic-input" class="form-control" placeholder="">
+                                <input type="number" step="any" name="vm_systolic" id="vm_systolic-input" class="form-control" placeholder="">
                                 <div class="input-group-append">
                                     <span class="input-group-text">mmHg</span>
                                 </div>
@@ -22,7 +22,7 @@
                         <div class="form-group col-md-6">
                             <label class="form-label" for="vm_diastolic-input">Diastolic</label>
                             <div class="input-group">
-                                <input type="number" name="vm_diastolic" id="vm_diastolic-input" class="form-control" placeholder="">
+                                <input type="number" step="any" name="vm_diastolic" id="vm_diastolic-input" class="form-control" placeholder="">
                                 <div class="input-group-append">
                                     <span class="input-group-text">mmHg</span>
                                 </div>
@@ -35,7 +35,7 @@
                     <label class="form-label" for="cvs-pressure">CVS</label>
                     <label class="form-label" for="vm_pulse-rate">Pulse Rate</label>
                     <div class="input-group">
-                        <input type="number" name="vm_pulse_rate" id="vm_pulse-rate" class="form-control" placeholder="">
+                        <input type="number" step="any" name="vm_pulse_rate" id="vm_pulse-rate" class="form-control" placeholder="">
                         <div class="input-group-append">
                             <span class="input-group-text">bpm</span>
                         </div>
@@ -46,7 +46,7 @@
                     <label class="form-label" for="basic">Basic</label>
                     <label class="form-label" for="vm_temperature">Temperature</label>
                     <div class="input-group">
-                        <input type="number" name="vm_temperature" class="form-control" placeholder="">
+                        <input type="number" step="any" name="vm_temperature" class="form-control" placeholder="">
                         <div class="input-group-append">
                             <span class="input-group-text">°C</span>
                         </div>

@@ -24,7 +24,7 @@
                     <div class="form-group col-md-6">
                         <label class="form-label" for="obs_systolic-input">Systolic</label>
                         <div class="input-group">
-                            <input type="number" name="obs_systolic" id="obs_systolic-input" class="form-control" placeholder="">
+                            <input type="number" step="any" name="obs_systolic" id="obs_systolic-input" class="form-control" placeholder="">
                             <div class="input-group-append">
                                 <span class="input-group-text">mmHg</span>
                             </div>
@@ -34,7 +34,7 @@
                     <div class="form-group col-md-6">
                         <label class="form-label" for="obs_diastolic-input">Diastolic</label>
                         <div class="input-group">
-                            <input type="number" name="obs_diastolic" id="obs_diastolic-input" class="form-control" placeholder="">
+                            <input type="number" step="any" name="obs_diastolic" id="obs_diastolic-input" class="form-control" placeholder="">
                             <div class="input-group-append">
                                 <span class="input-group-text">mmHg</span>
                             </div>
@@ -106,7 +106,7 @@
                 <div class="form-group col-md-2">
                     <label class="form-label" for="sfh-number">SFH</label>
                     <div class="input-group">
-                        <input type="number" name="sfh" class="form-control" placeholder="">
+                        <input type="number" step="any" name="sfh" class="form-control" placeholder="">
                         <div class="input-group-append">
                             <span class="input-group-text">cm</span>
                         </div>

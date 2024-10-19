@@ -6,22 +6,22 @@
                 <!-- G -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="g-text">G</label>
-                    <input type="number" name="g" class="form-control" placeholder="">
+                    <input type="number" step="any" name="g" class="form-control" placeholder="">
                 </div>
                 <!-- P -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="p-text">P</label>
-                    <input type="number" name="p" class="form-control" placeholder="">
+                    <input type="number" step="any" name="p" class="form-control" placeholder="">
                 </div>
                 <!-- C -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="c-text">C</label>
-                    <input type="number" name="c" class="form-control" placeholder="">
+                    <input type="number" step="any" name="c" class="form-control" placeholder="">
                 </div>
                 <!-- Married Year -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="yrs-married-number">Married Year</label>
-                    <input type="number" name="married_year" class="form-control" placeholder="yyyy" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
+                    <input type="number" step="any" name="married_year" class="form-control" placeholder="yyyy" id="year-input" min="1000" max="9999" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4">
                 </div>
             </div>
             <div class="row">

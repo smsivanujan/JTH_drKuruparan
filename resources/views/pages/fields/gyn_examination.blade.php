@@ -45,7 +45,7 @@
                     <div class="form-group col-md-3">
                         <label class="form-label" for="height">Height</label>
                         <div class="input-group">
-                            <input type="number" name="height" id="height" class="form-control" placeholder="" oninput="calculateBMI()">
+                            <input type="number" step="any" name="height" id="height" class="form-control" placeholder="" oninput="calculateBMI()">
                             <div class="input-group-append">
                                 <span class="input-group-text">cm</span>
                             </div>
@@ -55,7 +55,7 @@
                     <div class="form-group col-md-3">
                         <label class="form-label" for="weight">Weight</label>
                         <div class="input-group">
-                            <input type="number" name="weight" id="weight" class="form-control" placeholder="" oninput="calculateBMI()">
+                            <input type="number" step="any" name="weight" id="weight" class="form-control" placeholder="" oninput="calculateBMI()">
                             <div class="input-group-append">
                                 <span class="input-group-text">kg</span>
                             </div>
@@ -64,13 +64,13 @@
                     <!-- BMI -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="bmi">BMI</label>
-                        <input type="number" name="bmi" id="bmi" class="form-control" step="0.01" placeholder="">
+                        <input type="number" step="any" name="bmi" id="bmi" class="form-control" step="0.01" placeholder="">
                     </div>
                     <!-- Temperature -->
                     <div class="form-group col-md-3">
                         <label class="form-label" for="gyn_temperature">Temperature</label>
                         <div class="input-group">
-                            <input type="number" name="gyn_temperature" class="form-control" placeholder="">
+                            <input type="number" step="any" name="gyn_temperature" class="form-control" placeholder="">
                             <div class="input-group-append">
                                 <span class="input-group-text">°C</span>
                             </div>
@@ -133,7 +133,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="gyn_systolic-input">Systolic</label>
                                 <div class="input-group">
-                                    <input type="number" name="gyn_systolic" id="gyn_systolic-input" class="form-control" placeholder="">
+                                    <input type="number" step="any" name="gyn_systolic" id="gyn_systolic-input" class="form-control" placeholder="">
                                     <div class="input-group-append">
                                         <span class="input-group-text">mmHg</span>
                                     </div>
@@ -143,7 +143,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="gyn_diastolic-input">Diastolic</label>
                                 <div class="input-group">
-                                    <input type="number" name="gyn_diastolic" id="gyn_diastolic-input" class="form-control" placeholder="">
+                                    <input type="number" step="any" name="gyn_diastolic" id="gyn_diastolic-input" class="form-control" placeholder="">
                                     <div class="input-group-append">
                                         <span class="input-group-text">mmHg</span>
                                     </div>
@@ -218,7 +218,7 @@
                             <div class="form-group col-md-3">
                                 <label class="form-label" for="size-number">Size(POA)</label>
                                 <div class="input-group">
-                                    <input type="number" name="size_mass" class="form-control" id="size-number" placeholder="">
+                                    <input type="number" step="any" name="size_mass" class="form-control" id="size-number" placeholder="">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Weeks</span>
                                     </div>
@@ -373,7 +373,7 @@
                                 <div class="form-group col-md-3">
                                     <label class="form-label" for="endometrium">Endometrial (Thickness)</label>
                                     <div class="input-group">
-                                        <input type="number" name="endometrium" id="endometrium" class="form-control" placeholder="">
+                                        <input type="number" step="any" name="endometrium" id="endometrium" class="form-control" placeholder="">
                                         <div class="input-group-append">
                                             <span class="input-group-text">mm</span>
                                         </div>

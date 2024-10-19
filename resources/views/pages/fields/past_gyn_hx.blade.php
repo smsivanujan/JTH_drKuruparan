@@ -8,7 +8,7 @@
                 <div class="form-group col-md-3">
                     <label class="form-label" for="menstrualhx-label">Menstrual HX</label>
                     <label class="form-label" for="menarche_at-number">Menarche at</label>
-                    <input type="number" name="menarche_at" class="form-control" placeholder="">
+                    <input type="number" step="any" step="any" name="menarche_at" class="form-control" placeholder="">
                 </div>
 
                 <!-- Contraception HX -->
