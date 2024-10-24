@@ -10,7 +10,7 @@ class PastGynHX extends Model
     protected $fillable = [
         'age',
         'amount',
-        'duration',
+        'PGHx_duration',
         'status',
         'aub',
         'contraception',

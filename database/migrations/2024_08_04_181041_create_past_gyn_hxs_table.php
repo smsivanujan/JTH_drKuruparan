@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('menarche_at')->nullable();
             $table->string('contraception')->nullable();
             $table->string('amount')->nullable();
-            $table->string('duration')->nullable();
+            $table->string('PGHx_duration')->nullable();
             $table->string('regularity')->nullable();
             $table->string('aub')->nullable();
             $table->string('subfertility')->nullable();

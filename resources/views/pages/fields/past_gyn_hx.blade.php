@@ -51,10 +51,10 @@
                     <label class="form-label" for="amount-text">Amount</label>
                     <input type="text" name="amount" class="form-control" placeholder="">
                 </div>
-                <!-- Duration -->
+                <!-- Duration PGhx -->
                 <div class="form-group col-md-3">
                     <label class="form-label" for="duration-text">Duration</label>
-                    <input type="text" name="duration" class="form-control" placeholder="">
+                    <input type="text" name="PGHx_duration" class="form-control" placeholder="">
                 </div>
                 <!-- Regularity -->
                 <div class="form-group col-md-3">

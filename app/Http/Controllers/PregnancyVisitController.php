@@ -164,8 +164,8 @@ class PregnancyVisitController extends Controller
             return view('pages.visitIndex', compact('pregnancies', 'patients', 'visitData'));
         }
 
-        $patients = DB::table('pregnancies')->get();
-        return view('pages.visitIndex', compact('pregnancies', 'patients'));
+        // $patients = DB::table('pregnancies')->get();
+        // return view('pages.visitIndex', compact('pregnancies', 'patients'));
     }
 
 

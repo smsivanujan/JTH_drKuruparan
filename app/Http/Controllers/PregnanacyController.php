@@ -91,6 +91,7 @@ class PregnanacyController extends Controller
     {
         $PHN = $request->patientID;
 
+        // present_complaints
         $present_complaints = DB::table('present_complaints')
             ->select('*')
             ->join('pregnancies', 'present_complaints.pregnancy_id', '=', 'pregnancies.id')
@@ -100,6 +101,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // current_pregnancy_hxs
         $current_pregnancy_hxs = DB::table('current_pregnancy_hxs')
             ->select('*')
             ->join('pregnancies', 'current_pregnancy_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -109,6 +111,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // past_obs_hxs
         $past_obs_hxs = DB::table('past_obs_hxs')
             ->select('*')
             ->join('pregnancies', 'past_obs_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -118,6 +121,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // past_gyn_hxs
         $past_gyn_hxs = DB::table('past_gyn_hxs')
             ->select('*')
             ->join('pregnancies', 'past_gyn_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -127,6 +131,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // past_med_hxs
         $past_med_hxs = DB::table('past_med_hxs')
             ->select('*')
             ->join('pregnancies', 'past_med_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -136,6 +141,17 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // past_med_hx_drugs
+        $past_med_hx_drugs = DB::table('past_med_hx_drugs')
+            ->select('*')
+            ->join('pregnancies', 'past_med_hx_drugs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // allergic_hxs
         $allergic_hxs = DB::table('allergic_hxs')
             ->select('*')
             ->join('pregnancies', 'allergic_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -145,6 +161,27 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // family_hxs
+        $family_hxs = DB::table('family_hxs')
+            ->select('*')
+            ->join('pregnancies', 'family_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // social_hxs
+        $social_hxs = DB::table('social_hxs')
+            ->select('*')
+            ->join('pregnancies', 'social_hxs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // other_hxs
         $other_hxs = DB::table('other_hxs')
             ->select('*')
             ->join('pregnancies', 'other_hxs.pregnancy_id', '=', 'pregnancies.id')
@@ -154,6 +191,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // gyn_examinations
         $gyn_examinations = DB::table('gyn_examinations')
             ->select('*')
             ->join('pregnancies', 'gyn_examinations.pregnancy_id', '=', 'pregnancies.id')
@@ -163,6 +201,7 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
+        // obs_examinations
         $obs_examinations = DB::table('obs_examinations')
             ->select('*')
             ->join('pregnancies', 'obs_examinations.pregnancy_id', '=', 'pregnancies.id')
@@ -172,14 +211,66 @@ class PregnanacyController extends Controller
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
 
-        $ixs = DB::table('ixs')
+        // investigations
+        $investigations = DB::table('investigations')
             ->select('*')
-            ->join('pregnancies', 'ixs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('pregnancies', 'investigations.pregnancy_id', '=', 'pregnancies.id')
             ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
             ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
             ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
             ->where('jthhims.patientdemographic.patientID', '=', $PHN)
             ->get();
+
+        // managements
+        $managements = DB::table('managements')
+            ->select('*')
+            ->join('pregnancies', 'managements.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // management_drugs
+        $management_drugs = DB::table('management_drugs')
+            ->select('*')
+            ->join('pregnancies', 'management_drugs.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // vital_monitorings
+        $vital_monitorings = DB::table('vital_monitorings')
+            ->select('*')
+            ->join('pregnancies', 'vital_monitorings.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // new_born_statuses
+        $new_born_statuses = DB::table('new_born_statuses')
+            ->select('*')
+            ->join('pregnancies', 'new_born_statuses.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
+        // summeries
+        $summeries = DB::table('summeries')
+            ->select('*')
+            ->join('pregnancies', 'summeries.pregnancy_id', '=', 'pregnancies.id')
+            ->join('jthhims.patientdemographic', 'pregnancies.patient_id', '=', 'jthhims.patientdemographic.patientID')
+            ->join('jthhims.admission', 'jthhims.patientdemographic.patientID', '=', 'jthhims.admission.patientID')
+            ->join('jthhims.department', 'jthhims.admission.departmentCode', '=', 'jthhims.department.departmentCode')
+            ->where('jthhims.patientdemographic.patientID', '=', $PHN)
+            ->get();
+
 
         return response()->json([
             'present_complaints' => $present_complaints,
@@ -187,11 +278,19 @@ class PregnanacyController extends Controller
             'past_obs_hxs' => $past_obs_hxs,
             'past_gyn_hxs' => $past_gyn_hxs,
             'past_med_hxs' => $past_med_hxs,
+            'past_med_hx_drugs' => $past_med_hx_drugs,
             'allergic_hxs' => $allergic_hxs,
+            'family_hxs' => $family_hxs,
+            'social_hxs' => $social_hxs,
             'other_hxs' => $other_hxs,
             'gyn_examinations' => $gyn_examinations,
             'obs_examinations' => $obs_examinations,
-            'ixs' => $ixs
+            'investigations' => $investigations,
+            'managements' => $managements,
+            'management_drugs' => $management_drugs,
+            'vital_monitorings' => $vital_monitorings,
+            'new_born_statuses' => $new_born_statuses,
+            'summeries' => $summeries,
         ]);
     }
 
@@ -237,7 +336,7 @@ class PregnanacyController extends Controller
             $pregnancyExists = DB::table('pregnancies')
                 ->where('patient_id', $patient->patientID)
                 ->exists();
- 
+
             if ($pregnancyExists) {
                 return response()->json(['redirect' => route('pregnanacyVisit.index', ['patientID' => $patient->patientID])]);
             } else {
@@ -348,7 +447,7 @@ class PregnanacyController extends Controller
                 'menarche_at' => $request->input('menarche_at'),
                 'contraception' => implode(', ', $request->input('contraception', [])),
                 'amount' => $request->input('amount'),
-                'duration' => $request->input('duration'),
+                'PGHx_duration' => $request->input('PGHx_duration'),
                 'regularity' => $request->input('rdio-primary1'),
                 'aub' => $request->input('rdio-primary2'),
                 'subfertility' => $request->input('rdio-primary3'),
